@@ -13,6 +13,10 @@
     --bg: #f7f9fb;
     --card: #ffffff;
     --border: #e2e8ee;
+    --sidebar-bg: #15233a;
+    --sidebar-ink: #e8edf2;
+    --sidebar-muted: #9fb0c0;
+    --sidebar-active: #1f6fb8;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -29,41 +33,62 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Sinhala", "Noto Sans Tamil", sans-serif;
     line-height: 1.65;
   }
+
+  /* ---------- layout shell ---------- */
+  .shell { display: flex; min-height: 100vh; }
+  .menu-toggle {
+    display: none; position: fixed; top: 10px; left: 10px; z-index: 40;
+    background: var(--sidebar-bg); color: #fff; border: none; border-radius: 10px;
+    font-size: 1.3rem; padding: 8px 14px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  .sidebar-overlay { display: none; }
+
+  .sidebar {
+    width: 290px; flex-shrink: 0; background: var(--sidebar-bg); color: var(--sidebar-ink);
+    position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 22px 16px 30px;
+  }
+  .side-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 2px; }
+  .side-sub { font-size: .78rem; color: var(--sidebar-muted); margin-bottom: 18px; }
+
+  .side-group { margin-bottom: 18px; }
+  .side-group-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; color: var(--sidebar-muted); margin-bottom: 8px; font-weight: 700; }
+  .side-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .side-btn {
+    font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; border: 1.5px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.06); color: var(--sidebar-ink); padding: 6px 12px; border-radius: 999px;
+  }
+  .side-btn.active { background: var(--sidebar-active); border-color: var(--sidebar-active); }
+
+  nav.side-nav { display: flex; flex-direction: column; gap: 3px; }
+  nav.side-nav a.nav-link {
+    text-decoration: none; color: var(--sidebar-ink); padding: 9px 12px; border-radius: 10px; font-size: .95rem;
+    line-height: 1.3; cursor: pointer;
+  }
+  nav.side-nav a.nav-link .nl-si, nav.side-nav a.nav-link .nl-ta { display: block; font-size: .78rem; color: var(--sidebar-muted); font-weight: 500; }
+  nav.side-nav a.nav-link .nl-en { font-weight: 700; }
+  nav.side-nav a.nav-link:hover { background: rgba(255,255,255,.08); }
+  nav.side-nav a.nav-link.active { background: var(--sidebar-active); }
+  nav.side-nav a.nav-link.active .nl-si, nav.side-nav a.nav-link.active .nl-ta { color: #dceaf8; }
+
+  main.content { flex: 1; min-width: 0; }
+  main.content > .view { display: none; max-width: 900px; margin: 0 auto; padding: 34px 26px 80px; }
+  main.content > .view.active { display: block; }
+
   header.hero {
     background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: #fff; padding: 48px 16px 40px; text-align: center;
+    color: #fff; padding: 36px 26px 32px; text-align: center; border-radius: 18px; margin-bottom: 24px;
   }
-  header.hero h1 { margin: 0 0 8px; font-size: 2.3rem; }
-  header.hero .si { font-size: 1.7rem; margin: 4px 0; }
-  header.hero .ta { font-size: 1.5rem; margin: 4px 0; opacity: .95; }
-  header.hero .sub { margin-top: 16px; font-size: 1.1rem; opacity: .92; }
-  header.hero .edition { margin-top: 12px; font-size: 1rem; opacity: .85; letter-spacing: .03em; text-transform: uppercase; }
+  header.hero h1 { margin: 0 0 8px; font-size: 2rem; }
+  header.hero .si { font-size: 1.5rem; margin: 4px 0; }
+  header.hero .ta { font-size: 1.3rem; margin: 4px 0; opacity: .95; }
+  header.hero .sub { margin-top: 14px; font-size: 1.05rem; opacity: .92; }
+  header.hero .edition { margin-top: 10px; font-size: .95rem; opacity: .85; letter-spacing: .03em; text-transform: uppercase; }
 
-  .lang-bar {
-    position: sticky; top: 0; z-index: 20; background: var(--card); border-bottom: 1px solid var(--border);
-    display: flex; gap: 8px; justify-content: center; padding: 10px 12px; flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
-  }
-  .lang-bar button {
-    font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer; border: 2px solid var(--accent);
-    background: transparent; color: var(--accent-dark); padding: 8px 18px; border-radius: 999px;
-  }
-  .lang-bar button.active { background: var(--accent); color: #fff; }
+  h2.view-title { font-size: 1.6rem; margin: 0 0 6px; }
+  h2.view-title .vt-si, h2.view-title .vt-ta { display: block; font-size: 1.15rem; font-weight: 700; color: var(--accent-dark); margin: 2px 0; }
+  h2.view-title .vt-en { display: block; }
+  .view-title-wrap { border-bottom: 3px solid var(--border); padding-bottom: 14px; margin-bottom: 22px; }
 
-  nav.toc {
-    max-width: 920px; margin: 20px auto 0; background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,.08);
-  }
-  nav.toc a.toc-link {
-    text-decoration: none; color: var(--accent-dark); background: color-mix(in srgb, var(--accent) 10%, transparent);
-    padding: 10px 18px; border-radius: 999px; font-size: 1.02rem; font-weight: 700;
-  }
-  main { max-width: 920px; margin: 0 auto; padding: 28px 16px 70px; }
-  section.frontmatter, section.chapter, section.samples { margin-bottom: 40px; }
-  section.frontmatter h2, section.chapter h2, section.samples h2 {
-    font-size: 1.7rem; border-bottom: 3px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;
-  }
   .fm-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
   }
@@ -76,9 +101,11 @@
     background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 18px; overflow: hidden;
   }
   .blk-head {
-    padding: 16px 20px; font-weight: 700; font-size: 1.18rem; display: flex; gap: 12px; align-items: baseline;
+    padding: 16px 20px; font-weight: 700; font-size: 1.18rem;
     background: color-mix(in srgb, var(--accent) 7%, transparent);
   }
+  .blk-head .bh-en { display: flex; gap: 12px; align-items: baseline; }
+  .blk-head .bh-si, .blk-head .bh-ta { font-size: .92rem; font-weight: 600; color: var(--muted); margin-top: 2px; }
   .blk-id { font-size: .8rem; color: #fff; background: var(--accent); padding: 3px 10px; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
   .blk-body { padding: 18px 20px 20px; }
   .blk-images { display: flex; flex-wrap: wrap; gap: 14px; padding: 4px 0 18px; justify-content: center; }
@@ -103,79 +130,159 @@
   body[data-lang="en"] .lang-en h4 { display: none; }
 
   footer {
-    text-align: center; padding: 34px 16px 56px; color: var(--muted); font-size: 1rem;
+    text-align: center; padding: 28px 16px 50px; color: var(--muted); font-size: .92rem;
   }
-  .qr-note { margin-top: 10px; font-size: .95rem; }
+  .qr-note { margin-top: 10px; font-size: .88rem; }
+
+  @media (max-width: 860px) {
+    .menu-toggle { display: block; }
+    .sidebar {
+      position: fixed; z-index: 35; left: 0; top: 0; height: 100%; width: 270px;
+      transform: translateX(-104%); transition: transform .22s ease; box-shadow: 0 0 30px rgba(0,0,0,.35);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 30; }
+    main.content > .view { padding: 70px 16px 60px; }
+  }
 </style>
 <script>
   function setLang(lang) {
     document.body.setAttribute('data-lang', lang);
-    document.querySelectorAll('.lang-bar button').forEach(function(b) {
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
       b.classList.toggle('active', b.getAttribute('data-set') === lang);
     });
     try { localStorage.setItem('wh-lang', lang); } catch (e) {}
   }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-theme-set') === theme);
+    });
+    try { localStorage.setItem('wh-theme', theme); } catch (e) {}
+  }
+  function showView(id, skipSave) {
+    document.querySelectorAll('main.content > .view').forEach(function(v) {
+      v.classList.toggle('active', v.id === id);
+    });
+    document.querySelectorAll('.nav-link').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-target') === id);
+    });
+    var main = document.querySelector('main.content');
+    if (main) main.scrollTop = 0;
+    window.scrollTo(0, 0);
+    closeSidebar();
+    if (!skipSave) { try { localStorage.setItem('wh-view', id); } catch (e) {} }
+  }
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('sidebarOverlay').classList.add('open');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  }
   document.addEventListener('DOMContentLoaded', function() {
-    var saved = 'all';
-    try { saved = localStorage.getItem('wh-lang') || 'all'; } catch (e) {}
-    setLang(saved);
+    var savedLang = 'all';
+    try { savedLang = localStorage.getItem('wh-lang') || 'all'; } catch (e) {}
+    setLang(savedLang);
+
+    var savedTheme = null;
+    try { savedTheme = localStorage.getItem('wh-theme'); } catch (e) {}
+    if (savedTheme) setTheme(savedTheme);
+
+    var savedView = 'view-about';
+    try { savedView = localStorage.getItem('wh-view') || 'view-about'; } catch (e) {}
+    if (!document.getElementById(savedView)) savedView = 'view-about';
+    showView(savedView, true);
+
+    document.querySelectorAll('.nav-link').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        showView(a.getAttribute('data-target'));
+      });
+    });
   });
 </script>
 </head>
 <body data-lang="all">
 
-<header class="hero">
-  <h1>Women's Health</h1>
-  <div class="si">කාන්තාවන්ගේ සෞඛ්‍ය තත්ත්ව පිළිබඳ අත්පොත</div>
-  <div class="ta">பெண்கள் நலம் – நோயாளர் கல்விப் புத்தகம்</div>
-  <div class="sub">A Patient Education Handbook</div>
-  <div class="sub">ප්‍රසව, පසු ප්‍රසව සහ නාරිවේද සායන වලට පැමිණෙන කාන්තාවන්ගේ සෞඛ්‍ය ගැටළු සඳහා අධ්‍යාපනික අත්පොත</div>
-  <div class="sub">கர்ப்பிணிகள், பிரசவத்திற்குப் பின் மற்றும் மகப்பேறு அல்லாத மகளிர் நோய் கிளினிக் பெண்களுக்கான கற்பித்தல் புத்தகம்</div>
-  <div class="edition">First Edition, 2026</div>
-</header>
+<button class="menu-toggle" onclick="openSidebar()">&#9776; Menu</button>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
-<div class="lang-bar">
-  <button data-set="si" onclick="setLang('si')">සිංහල</button>
-  <button data-set="ta" onclick="setLang('ta')">தமிழ்</button>
-  <button data-set="en" onclick="setLang('en')">English</button>
-  <button data-set="all" onclick="setLang('all')">සිං + த + Eng</button>
-</div>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="side-title">Women's Health</div>
+    <div class="side-sub">First Edition, 2026</div>
 
-<nav class="toc">
-<a href="#chap-D" class="toc-link">Chapter 1: Diabetes</a>
-<a href="#chap-H" class="toc-link">Chapter 2: High Blood Pressure</a>
-<a href="#chap-T" class="toc-link">Chapter 3: Thyroid Disease</a>
-<a href="#chap-A" class="toc-link">Chapter 4: Asthma</a>
-<a href="#chap-O" class="toc-link">Chapter 5: Obesity and Healthy Weight</a>
-<a href="#frontmatter" class="toc-link">About this book</a>
-<a href="#samples" class="toc-link">Sample pages</a>
-</nav>
+    <div class="side-group">
+      <div class="side-group-label">Language</div>
+      <div class="side-row">
+        <button class="side-btn lang-btn" data-set="si" onclick="setLang('si')">&#3523;&#3538;&#3524;&#3524;&#3517;</button>
+        <button class="side-btn lang-btn" data-set="ta" onclick="setLang('ta')">&#2980;&#2990;&#3007;&#2996;&#3021;</button>
+        <button class="side-btn lang-btn" data-set="en" onclick="setLang('en')">English</button>
+        <button class="side-btn lang-btn" data-set="all" onclick="setLang('all')">All</button>
+      </div>
+    </div>
 
-<main>
+    <div class="side-group">
+      <div class="side-group-label">Appearance</div>
+      <div class="side-row">
+        <button class="side-btn theme-btn" data-theme-set="light" onclick="setTheme('light')">&#9728; Light</button>
+        <button class="side-btn theme-btn" data-theme-set="dark" onclick="setTheme('dark')">&#9790; Dark</button>
+      </div>
+    </div>
 
-<section class="frontmatter" id="frontmatter">
-  <h2>About this book</h2>
-  <div class="fm-card">
-    <h3>Prepared by</h3>
-    <ul><li>Dr. Archuthan Nithiyananthan (RHO)</li></ul>
-    <h3>Translated and Proofread by</h3>
-    <ul><li>Dr. Yasodara Amarasinghe (RHO)</li><li>Dr. Achintha Welivita (RHO)</li><li>Dr. Kasunika Ruwandi Perera (RHO)</li><li>Dr. Thalpe Guruge Madara Malsirini (RHO)</li></ul>
-  </div>
-  <div class="fm-card">
-    <h3>Dedication</h3>
-    <p class="dedication">To all the women who have stepped into our lives — and in doing so, healed us and blessed us in return.</p>
-  </div>
-  <div class="fm-card">
-    <h3>Acknowledgements</h3>
-    <p>We extend our heartfelt gratitude to our Consultant Physician, Dr. Shamitha Dassanayaka, whose guidance and support made this project possible.</p>
-    <p>We also thank our clinical team for their steadfast encouragement:</p>
-    <ul><li>Dr. Kumudu Kulasekara</li><li>Dr. Jeewashini Rathnayake</li><li>Dr. Jeganthy Eapan</li><li>Dr. Azrah Najimudeen</li><li>Mrs. P. K. K. Manike</li><li>Mrs. N. S. M. P. M. Nanayakkara</li><li>Mrs. Manike</li><li>Ms. Sandamali</li><li>Ms. Lakshika</li></ul>
-  </div>
-  <div class="fm-card">
-    <h3>How this book is used</h3>
-    
+    <div class="side-group">
+      <div class="side-group-label">Contents</div>
+      <nav class="side-nav">
+<a href="#" class="nav-link" data-target="view-about"><span class="nl-en">About this book</span></a>
+<a href="#" class="nav-link" data-target="chap-D"><span class="nl-en">Chapter 1: Diabetes</span><span class="nl-si">දියවැඩියාව (සීනි රෝගය)</span><span class="nl-ta">நீரிழிவு (சர்க்கரை நோய்)</span></a>
+<a href="#" class="nav-link" data-target="chap-H"><span class="nl-en">Chapter 2: High Blood Pressure</span><span class="nl-si">අධි රුධිර පීඩනය (ප්‍රෙෂර්)</span><span class="nl-ta">உயர் இரத்த அழுத்தம் (பிரஷர்)</span></a>
+<a href="#" class="nav-link" data-target="chap-T"><span class="nl-en">Chapter 3: Thyroid Disease</span><span class="nl-si">තයිරොයිඩ් ග්‍රන්ථිය පිළිබඳ රෝග</span><span class="nl-ta">தைராய்டு நோய்கள்</span></a>
+<a href="#" class="nav-link" data-target="chap-A"><span class="nl-en">Chapter 4: Asthma</span><span class="nl-si">ඇදුම</span><span class="nl-ta">ஆஸ்துமா</span></a>
+<a href="#" class="nav-link" data-target="chap-O"><span class="nl-en">Chapter 5: Obesity and Healthy Weight</span><span class="nl-si">ස්ථුලතාවය සහ නිසි බර</span><span class="nl-ta">உடல் பருமனும் ஆரோக்கிய எடையும்</span></a>
+<a href="#" class="nav-link" data-target="view-samples"><span class="nl-en">Sample diary pages</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section class="view" id="view-about">
+      <header class="hero">
+        <h1>Women's Health</h1>
+        <div class="si">කාන්තාවන්ගේ සෞඛ්‍ය තත්ත්ව පිළිබඳ අත්පොත</div>
+        <div class="ta">பெண்கள் நலம் – நோயாளர் கல்விப் புத்தகம்</div>
+        <div class="sub">A Patient Education Handbook</div>
+        <div class="sub">ප්‍රසව, පසු ප්‍රසව සහ නාරිවේද සායන වලට පැමිණෙන කාන්තාවන්ගේ සෞඛ්‍ය ගැටළු සඳහා අධ්‍යාපනික අත්පොත</div>
+        <div class="sub">கர்ப்பிணிகள், பிரசவத்திற்குப் பின் மற்றும் மகப்பேறு அல்லாத மகளிர் நோய் கிளினிக் பெண்களுக்கான கற்பித்தல் புத்தகம்</div>
+        <div class="edition">First Edition, 2026</div>
+      </header>
+      <div class="fm-card">
+        <h3>Prepared by</h3>
+        <ul><li>Dr. Archuthan Nithiyananthan (RHO)</li></ul>
+        <h3>Translated and Proofread by</h3>
+        <ul><li>Dr. Yasodara Amarasinghe (RHO)</li><li>Dr. Achintha Welivita (RHO)</li><li>Dr. Kasunika Ruwandi Perera (RHO)</li><li>Dr. Thalpe Guruge Madara Malsirini (RHO)</li></ul>
+      </div>
+      <div class="fm-card">
+        <h3>Dedication</h3>
+        <p class="dedication">To all the women who have stepped into our lives — and in doing so, healed us and blessed us in return.</p>
+      </div>
+      <div class="fm-card">
+        <h3>Acknowledgements</h3>
+        <p>We extend our heartfelt gratitude to our Consultant Physician, Dr. Shamitha Dassanayaka, whose guidance and support made this project possible.</p>
+        <p>We also thank our clinical team for their steadfast encouragement:</p>
+        <ul><li>Dr. Kumudu Kulasekara</li><li>Dr. Jeewashini Rathnayake</li><li>Dr. Jeganthy Eapan</li><li>Dr. Azrah Najimudeen</li><li>Mrs. P. K. K. Manike</li><li>Mrs. N. S. M. P. M. Nanayakkara</li><li>Mrs. Manike</li><li>Ms. Sandamali</li><li>Ms. Lakshika</li></ul>
+      </div>
+      <div class="fm-card">
+        <h3>How this book is used</h3>
+        
 <div class="blk" id="blk-F-01">
-  <div class="blk-head"><span class="blk-id">F-01</span> How to use this book</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">F-01</span> How to use this book</div>
+    <div class="bh-si">ඉගැන්වීම සඳහා මෙම පොත භාවිතා කරන ආකාරය (හෙදිය සඳහා)</div>
+    <div class="bh-ta">இப்புத்தகத்தைப் பயன்படுத்தும் முறை (செவிலியருக்கு)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/F-01.jpg" alt="How to use this book" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඉගැන්වීම සඳහා මෙම පොත භාවිතා කරන ආකාරය (හෙදිය සඳහා)</h4><ul><li>මෙහි එක් එක් පරිච්ඡේදය රෝගියා සමඟ <strong>සාකච්ඡා කරන්න.</strong> එවිටම <strong>පින්තූර පෙන්වා දෙන්න.</strong></li><li><strong>ප්‍රායෝගික ක්‍රියාකාරකම්</strong> ඇතුළත් කොටස් ඔබ මුලින් <strong>නිරූපණය කර පෙන්වා දී</strong> රෝගියාට එය <strong>අනුකරණය කරන්න සලස්වන්න</strong> (සීනි පරීක්ෂාව, ඉන්හේලරය භාවිතය, ඉන්සියුලින් එන්නත් කිරීම).</li><li>පොතේ පසුපස ඇති <strong>නිදර්ශන පිටු</strong> පෙන්වන්න. ඇයට ඒවා <strong>තමන්ගේම සායන පොතට</strong> පිටපත් කරගන්න සලස්වන්න.</li><li>සෑම සායන වාරයකටම තම <strong>සායන පොත සහ භාවිතා කරන බෙහෙත්</strong> ගෙන එන ලෙස පවසන්න.</li></ul></div>
@@ -185,7 +292,11 @@
 </div>
 
 <div class="blk" id="blk-F-02">
-  <div class="blk-head"><span class="blk-id">F-02</span> Come to hospital NOW</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">F-02</span> Come to hospital NOW</div>
+    <div class="bh-si">ඕනෑම කාන්තාවක් වහාම රෝහලට පැමිණිය යුතු අවස්ථා</div>
+    <div class="bh-ta">உடனடியாக மருத்துவமனைக்கு வாருங்கள் (எல்லாப் பெண்களும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/F-02.png" alt="Come to hospital NOW" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඕනෑම කාන්තාවක් වහාම රෝහලට පැමිණිය යුතු අවස්ථා</h4><ul><li><strong>අධික රුධිර වහනය</strong> (පැයක් ඇතුළත පෑඩ් එකක් පෙඟී යන තරම්), ගර්භනී කාලයේ ඕනෑම රුධිර වහනයක්.</li><li><strong>යෝනියෙන් එකවර වතුර වැනි දියරයක් පිටවීම</strong> (Water bag එක කැඩීයාම), <strong>දරුවාගේ චලන අඩුවීම.</strong></li><li><strong>වලිප්පුව</strong> හෝ සිහිසුන් වීම.</li><li><strong>දරුණු හිසේ කැක්කුම,</strong> ඇස් ඉදිරිපිට <strong>චායාවන්/එලි වැනි යමක් පෙනීම</strong> හෝ <strong>බොඳවී පෙනීම.</strong></li><li><strong>දරුණු උදරයේ වේදනාව.</strong></li><li><strong>හුස්ම ගැනීමේ අපහසුතාවය,</strong> තොල් හෝ නියපොතු <strong>නිල් පැහැ වීම.</strong></li><li><strong>අධික උණ,</strong> යෝනි මාර්ගයෙන් <strong>දුගඳක් සහිත ස්‍රාවයක් පිටවීම.</strong></li><li><strong>ශල්‍යකර්මයකින් පසු:</strong> තුවාලය විවෘත වීම හෝ <strong>සැරව ගලා යාම,</strong> උණ, <strong>අධික කකුලේ වේදනාව හෝ ඉදිමීම,</strong> ක්ෂණික හුස්ම සිරවීම.</li></ul></div>
@@ -193,20 +304,33 @@
     <div class="lang lang-en"><h4>Come to hospital NOW</h4><ul><li><strong>Heavy bleeding</strong> (soaking a pad in an hour), or any bleeding in pregnancy.</li><li><strong>Water breaking</strong>, or the <strong>baby moving much less</strong>.</li><li><strong>Fit</strong> (seizure), or fainting.</li><li><strong>Severe headache</strong>, <strong>flashing lights</strong> or <strong>blurred vision</strong>.</li><li><strong>Severe belly pain.</strong></li><li><strong>Difficulty breathing</strong>, or blue lips.</li><li><strong>High fever</strong>, or <strong>foul-smelling discharge</strong>.</li><li><strong>After an operation:</strong> wound opening or <strong>leaking pus</strong>, fever, <strong>calf pain or swelling</strong>, sudden breathlessness.</li></ul></div>
   </div>
 </div>
-  </div>
-  <div class="fm-card">
-    <p>Copyright © 2026 Dr. Archuthan Nithiyananthan. All rights reserved.</p>
-    <p style="font-size:.82rem;color:var(--muted)">No part of this publication may be reproduced, stored, or transmitted in any form without the prior written permission of the author, except for brief quotations in reviews or educational handouts.</p>
-    <p style="font-weight:600">For patient and community health use.</p>
-  </div>
-</section>
+      </div>
+      <div class="fm-card">
+        <p>Copyright © 2026 Medical Clinic Patient Education Project. All rights reserved.</p>
+        <p style="font-size:.82rem;color:var(--muted)">No part of this publication may be reproduced, stored, or transmitted in any form without prior written permission, except for brief quotations in reviews or educational handouts.</p>
+        <p style="font-weight:600">For patient and community health use.</p>
+      </div>
+      <footer>
+        <div>Copyright © 2026 Medical Clinic Patient Education Project. All rights reserved.</div>
+      </footer>
+    </section>
 
 
-<section id="chap-D" class="chapter">
-  <h2>Chapter 1: Diabetes</h2>
-  
+    <section class="view" id="chap-D">
+      <div class="view-title-wrap">
+        <h2 class="view-title">
+          <span class="vt-si">දියවැඩියාව (සීනි රෝගය)</span>
+          <span class="vt-ta">நீரிழிவு (சர்க்கரை நோய்)</span>
+          <span class="vt-en">Chapter 1: Diabetes</span>
+        </h2>
+      </div>
+      
 <div class="blk" id="blk-D-01">
-  <div class="blk-head"><span class="blk-id">D-01</span> What is diabetes?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-01</span> What is diabetes?</div>
+    <div class="bh-si">දියවැඩියාව යනු කුමක්ද?</div>
+    <div class="bh-ta">நீரிழிவு என்றால் என்ன?</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-01.png" alt="What is diabetes?" loading="lazy"></div>
     <div class="lang lang-si"><h4>දියවැඩියාව යනු කුමක්ද?</h4><ul><li>ශරීරයේ ශක්තිය සඳහා රුධිරයේ ඇති සීනි ශරීර සෛල තුළට යැවීමට <strong>ඉන්සියුලින්</strong> උපකාරී වේ.</li><li>දියවැඩියාවේදී ශරීරයේ <strong>ඉන්සියුලින් හෝමෝනය ප්‍රමාණවත් නොවේ, නැතහොත් නිසි ලෙස ක්‍රියා නොකරයි.</strong> එමනිසා රුධිරයේ සීනි ඉහළ මට්ටමක පවතී.</li><li><strong>ගර්භනී කාන්තාවන්ගේ:</strong></li><li><strong>ගර්භණීභාවයට පෙර සිට ඇති දියවැඩියාව</strong> (Type 1 and Type 2).</li><li><strong>ගර්භනී සමයේ දියවැඩියාව (GDM)</strong> - <strong>ගර්භණීභාවයේදී ආරම්භ වී</strong> සාමාන්‍යයෙන් ප්‍රසූතියෙන් පසු සුව වේ.</li><li><strong>ගර්භනී නොවන කාන්තාවන්ගේදී:</strong> බොහෝවිට <strong>Type 2 දියවැඩියාව.</strong></li><li>දකුණු ආසියාතික කාන්තාවන් අතර දියවැඩියාව සුලභ බැවින්, ශ්‍රී ලංකාවේ සියලුම ගර්භනී කාන්තාවන් දියවැඩියාවට පරීක්ෂා කරනු ලැබේ.</li></ul></div>
@@ -216,7 +340,11 @@
 </div>
 
 <div class="blk" id="blk-D-02">
-  <div class="blk-head"><span class="blk-id">D-02</span> Why keep sugar under control?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-02</span> Why keep sugar under control?</div>
+    <div class="bh-si">රුධිරයේ සීනි පාලනය කළ යුත්තේ ඇයි?</div>
+    <div class="bh-ta">சர்க்கரையை ஏன் கட்டுப்படுத்த வேண்டும்?</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-02.jpg" alt="Why keep sugar under control?" loading="lazy"></div>
     <div class="lang lang-si"><h4>රුධිරයේ සීනි පාලනය කළ යුත්තේ ඇයි?</h4><table class="blk-table">
@@ -241,7 +369,11 @@
 </div>
 
 <div class="blk" id="blk-D-03">
-  <div class="blk-head"><span class="blk-id">D-03</span> Your sugar targets</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-03</span> Your sugar targets</div>
+    <div class="bh-si">ඔබේ සීනි අගයන්ගේ ඉලක්ක</div>
+    <div class="bh-ta">உங்கள் சர்க்கரை இலக்குகள்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-03.png" alt="Your sugar targets" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ සීනි අගයන්ගේ ඉලක්ක</h4><table class="blk-table">
@@ -269,7 +401,11 @@
 </div>
 
 <div class="blk" id="blk-D-04">
-  <div class="blk-head"><span class="blk-id">D-04</span> Testing your sugar at home</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-04</span> Testing your sugar at home</div>
+    <div class="bh-si">නිවසේදී සීනි පරීක්ෂා කිරීම</div>
+    <div class="bh-ta">வீட்டில் சர்க்கரை பரிசோதனை</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-04a.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04b.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04c.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04d.png" alt="Testing your sugar at home" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිවසේදී සීනි පරීක්ෂා කිරීම</h4><ol><li>සබන් සහ උණු වතුරෙන් <strong>අත් සෝදා</strong> හොඳින් වියළන්න.</li><li>මීටරයට <strong>අලුත් ස්ට්‍රිප් එකක්</strong> දමන්න.</li><li><strong>අලුත් ලැන්සෙට් එකකින්</strong> ඇඟිල්ලේ <strong>එක පැත්තකට</strong> අනින්න. සෑම වතාවකම වෙනත් ඇඟිල්ලක් භාවිතා කරන්න.</li><li><strong>ලේ බිංදුව</strong> ස්ට්‍රිප් එකට ස්පර්ශ කරන්න.</li><li>ප්‍රතිඵලය සහ වේලාව <strong>ලියා තබන්න.</strong></li><li>ලැන්සෙට් එක <strong>තියුණු දේ දමන බෝතලයට</strong> දමන්න.</li></ol>
@@ -282,7 +418,11 @@
 </div>
 
 <div class="blk" id="blk-D-05">
-  <div class="blk-head"><span class="blk-id">D-05</span> Eating well with diabetes</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-05</span> Eating well with diabetes</div>
+    <div class="bh-si">දියවැඩියාව සමඟ නිවැරදි ආහාර රටාව</div>
+    <div class="bh-ta">நீரிழிவுடன் ஆரோக்கியமான உணவு</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-05.png" alt="Eating well with diabetes" loading="lazy"></div>
     <div class="lang lang-si"><h4>දියවැඩියාව සමඟ නිවැරදි ආහාර රටාව</h4><ul><li><strong>පිඟානෙන් භාගයක්: එළවළු සහ කොළ වර්ග</strong> (මැල්ලුම්, බෝංචි, වම්බටු, <strong>බණ්ඩක්කා, ගෝවා, පතෝල (දඬු ලබු)</strong>).</li><li><strong>හතරෙන් එකක්: රතු හෝ පාබොයිල් බත් (වඩාත් සුදුසුයි) හෝ වෙනත් සම්පූර්ණ ධාන්‍ය වර්ග. ඉඳි ආප්ප, ආප්ප, පිට්ටු, නූඩ්ල්ස් සහ පාන්: ස්වල්ප වශයෙන් පමණි.</strong> <strong>කෝප්පයකින් මැනගන්න.</strong></li><li><strong>හතරෙන් එකක්: ප්‍රෝටීන්</strong> (මාළු, බිත්තර, <strong>හම් නැති කුකුළු මස්</strong>, පරිප්පු, කඩල, මුං ඇට).</li><li><strong>තෙල් හෝ පොල් ස්වල්පයක්.</strong> දිනකට <strong>වතුර වීදුරු 6-8 ක් (මිලි ලීටර් 200 වීදුරු).</strong></li><li><strong>ආහාර වේල් 3ක් සහ අමතර වේල් 2ක්, සෑම දිනකම එකම වේලාවලට ගන්න.</strong> <strong>ආහාර වේල් මඟ නොහරින්න.</strong> බඩගින්නේ නොසිටින්න.</li><li><strong>කිරි: දිනකට අඩු මේද හෝ මේද රහිත කිරි වීදුරු 1-2 ක්.</strong></li><li><strong>ගර්භනී:</strong> රාත්‍රී ආහාරයත් උදේ ආහාරයත් අතර <strong>පැය 10-12</strong> ට වැඩි නොවිය යුතුය.</li></ul></div>
@@ -292,7 +432,11 @@
 </div>
 
 <div class="blk" id="blk-D-06">
-  <div class="blk-head"><span class="blk-id">D-06</span> Choose and limit</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-06</span> Choose and limit</div>
+    <div class="bh-si">තෝරාගත යුතු සහ සීමා කළ යුතු ආහාර</div>
+    <div class="bh-ta">தேர்ந்தெடுக்க வேண்டியவை, குறைக்க வேண்டியவை</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-06.jpg" alt="Choose and limit" loading="lazy"></div>
     <div class="lang lang-si"><h4>තෝරාගත යුතු සහ සීමා කළ යුතු ආහාර</h4><table class="blk-table">
@@ -329,7 +473,11 @@
 </div>
 
 <div class="blk" id="blk-D-07">
-  <div class="blk-head"><span class="blk-id">D-07</span> Be active</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-07</span> Be active</div>
+    <div class="bh-si">ක්‍රියාශීලීව සිටින්න</div>
+    <div class="bh-ta">சுறுசுறுப்பாக இருங்கள்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-07.jpg" alt="Be active" loading="lazy"></div>
     <div class="lang lang-si"><h4>ක්‍රියාශීලීව සිටින්න</h4><ul><li><strong>සෑම ආහාර වේලකින් පසුවම මිනිත්තු 10 ක් ඇවිදින්න,</strong> හෝ දිනකට <strong>මිනිත්තු 30 ක් ඇවිදින්න.</strong></li><li><strong>ගර්භනී කාලයේදී,</strong> රුධිර වහනය, කරකැවිල්ල, පපුවේ වේදනාව, ගැබ් හැකිලීම හෝ දරුවාගේ චලනය අඩුවීම තිබේ නම් <strong>ව්‍යායාම නවතා වහාම</strong> ඔබේ වෛද්‍යවරයාට දන්වන්න.</li><li><strong>ඉන්සියුලින් ගන්නේ නම්,</strong> හිස් බඩින් ව්‍යායාම නොකරන්න.</li></ul></div>
@@ -339,7 +487,11 @@
 </div>
 
 <div class="blk" id="blk-D-08">
-  <div class="blk-head"><span class="blk-id">D-08</span> Medicines for diabetes</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-08</span> Medicines for diabetes</div>
+    <div class="bh-si">දියවැඩියා සඳහා බෙහෙත්</div>
+    <div class="bh-ta">நீரிழிவுக்கான மருந்துகள்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-08.png" alt="Medicines for diabetes" loading="lazy"></div>
     <div class="lang lang-si"><h4>දියවැඩියා සඳහා බෙහෙත්</h4><ul><li><strong>ගර්භනී නොවන:</strong> ටැබ්ලට් (උදා: <strong>මෙට්ෆෝමින්</strong>) සහ සමහර විට ඉන්සියුලින්, උපදෙස් ලද පරිදි ආහාර සමඟ ගන්න. <strong>ඔබට කැමති පරිදි නවත්වන්නට හෝ වෙනස් කරන්නට එපා.</strong></li><li><strong>ගර්භනී:</strong> බොහෝ කාන්තාවන් <strong>ආහාර පාලනයෙන්, අවශ්‍ය නම් ඉන්සියුලින්වලින්</strong> පාලනය වේ. සමහරුන් මෙට්ෆෝමින් ගනී.</li><li><strong>ඉන්සියුලින් දරුවාට ආරක්ෂිතයි.</strong> එයට <strong>ඇබ්බැහි වීමක් නොවේ.</strong></li><li><strong>සමහර දියවැඩියා ටැබ්ලට් ගර්භණීභාවයේදී ආරක්ෂිත නොවේ</strong> (උදා: ග්ලයික්ලසයිඩ්). <strong>ගැබ් ගැනීමට සැලසුම් කරන්නේ නම්</strong> ඔබේ වෛද්‍යවරයාට මේ බව කියන්න.</li><li><strong>ශල්‍යකර්මයකට පෙර,</strong> ඔබට දියවැඩියාව ඇති බව, ඔබව ශල්‍යකර්මයට පෙර පරීක්ෂා කරන සියලු වෛද්‍යවරුන්ට කියන්න. <strong>ඔබේ සටහන් පොත ගෙන එන්න.</strong></li></ul></div>
@@ -349,7 +501,11 @@
 </div>
 
 <div class="blk" id="blk-D-09">
-  <div class="blk-head"><span class="blk-id">D-09</span> The two insulins used here</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-09</span> The two insulins used here</div>
+    <div class="bh-si">භාවිතා කරන ඉන්සියුලින් වර්ග දෙක (ඉන්සියුලින් භාවිතා කරන්නන් සඳහා)</div>
+    <div class="bh-ta">பயன்படுத்தும் இரண்டு இன்சுலின் வகைகள் (இன்சுலின் எடுப்பவர்களுக்கு)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-09a.png" alt="The two insulins used here" loading="lazy"><img src="images/D-09b.png" alt="The two insulins used here" loading="lazy"></div>
     <div class="lang lang-si"><h4>භාවිතා කරන ඉන්සියුලින් වර්ග දෙක (ඉන්සියුලින් භාවිතා කරන්නන් සඳහා)</h4><table class="blk-table">
@@ -380,7 +536,11 @@
 </div>
 
 <div class="blk" id="blk-D-10">
-  <div class="blk-head"><span class="blk-id">D-10</span> Food first. Then insulin.</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-10</span> Food first. Then insulin.</div>
+    <div class="bh-si">මුලින් ආහාර ඉන්පසු ඉන්සියුලින්. (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</div>
+    <div class="bh-ta">முதலில் உணவு. பிறகு இன்சுலின். (இன்சுலின் எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-10.png" alt="Food first. Then insulin." loading="lazy"></div>
     <div class="lang lang-si"><h4>මුලින් ආහාර ඉන්පසු ඉන්සියුලින්. (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><ul><li><strong>දිය වන ඉන්සියුලින් මිනිත්තු 30 කින් පමණ ක්‍රියා කරයි.</strong> ආහාර ප්‍රමාද වුවහොත් <strong>සීනි ඉතා පහළ යයි.</strong></li><li><strong>1.</strong> ආහාරය <strong>පිසගෙන පිළියෙල කරන්න.</strong> <strong>2.</strong> <strong>ඉන්පසු එන්නත ගන්න.</strong> <strong>3.</strong> <strong>මිනිත්තු 30 ක් ඇතුළත ආහාර ගන්න.</strong></li><li><strong>ආහාර ගත නොහැකි නම්, දිය වන ඉන්සියුලින් නොගන්න.</strong> ඔබේ වෛද්‍යවරයාගෙන් අසන්න.</li></ul></div>
@@ -390,7 +550,11 @@
 </div>
 
 <div class="blk" id="blk-D-11">
-  <div class="blk-head"><span class="blk-id">D-11</span> Drawing up insulin from a vial</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-11</span> Drawing up insulin from a vial</div>
+    <div class="bh-si">වයල් එකකින් ඉන්සියුලින් ඇදීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</div>
+    <div class="bh-ta">குப்பியிலிருந்து இன்சுலின் எடுத்தல் (இன்சுலின் எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-11a.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11b.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11c.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11d.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11e.png" alt="Drawing up insulin from a vial" loading="lazy"></div>
     <div class="lang lang-si"><h4>වයල් එකකින් ඉන්සියුලින් ඇදීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><p>අපගේ වයල් <strong>මිලිලීටරයකට ඒකක 100</strong> කි. අපගේ සිරින්ජ <strong>ඒකක 0-100 ලකුණු කර ඇත.</strong> <strong>ඔබේ වෛද්‍යවරයා පැවසූ අංකය දක්වා ඇදගන්න.</strong></p>
@@ -403,7 +567,11 @@
 </div>
 
 <div class="blk" id="blk-D-12">
-  <div class="blk-head"><span class="blk-id">D-12</span> Mixing clear and cloudy in one syringe</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-12</span> Mixing clear and cloudy in one syringe</div>
+    <div class="bh-si">පැහැදිලි සහ බොඳ ඉන්සියුලින් එකම සිරින්ජයේ මිශ්‍ර කිරීම (හෙදිය විසින් උගන්වා ඇත්නම් පමණි)</div>
+    <div class="bh-ta">தெளிவான, கலங்கலான இன்சுலினை ஒரே சிரிஞ்சில் கலத்தல் (செவிலியர் கற்றுக்கொடுத்திருந்தால் மட்டும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-12.png" alt="Mixing clear and cloudy in one syringe" loading="lazy"></div>
     <div class="lang lang-si"><h4>පැහැදිලි සහ බොඳ ඉන්සියුලින් එකම සිරින්ජයේ මිශ්‍ර කිරීම (හෙදිය විසින් උගන්වා ඇත්නම් පමණි)</h4><p><strong>මතක තබාගන්න: පැහැදිලි ඉන්සියුලින් එක බොඳ එකට පෙර.</strong></p>
@@ -419,7 +587,11 @@
 </div>
 
 <div class="blk" id="blk-D-13">
-  <div class="blk-head"><span class="blk-id">D-13</span> Giving the injection</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-13</span> Giving the injection</div>
+    <div class="bh-si">එන්නත ලබා ගැනීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</div>
+    <div class="bh-ta">ஊசி போடுதல் (இன்சுலின் எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-13a.jpg" alt="Giving the injection" loading="lazy"><img src="images/D-13b.jpg" alt="Giving the injection" loading="lazy"><img src="images/D-13c.png" alt="Giving the injection" loading="lazy"></div>
     <div class="lang lang-si"><h4>එන්නත ලබා ගැනීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><ol><li><strong>පිරිසිදු, වියළි ස්ථානයක්</strong> තෝරන්න (D-14).</li><li><strong>ඉඳිකටුව කෙළින්ම</strong> ඇතුළු කරන්න. ඔබ කෙට්ටු කෙනෙක් නම් සම ඇඹරගන්න.</li><li><strong>පිස්ටනය සෙමින් සම්පූර්ණයෙන් තල්ලු කරන්න.</strong></li><li>ඉවතට ගැනීමට පෙර <strong>10 දක්වා ගණන් කරන්න.</strong></li><li><strong>අතුල්ලන්න එපා.</strong></li><li><strong>පියන නැවත දමන්න එපා.</strong> සිරින්ජය <strong>තියුණු දේ දමන බෝතලයට</strong> (පියනක් සහිත ශක්තිමත් ප්ලාස්ටික් බෝතලයක්) දමන්න.</li><li><strong>සෑම වතාවකම අලුත් සිරින්ජයක් භාවිතා කරන්න.</strong></li></ol></div>
@@ -429,7 +601,11 @@
 </div>
 
 <div class="blk" id="blk-D-14">
-  <div class="blk-head"><span class="blk-id">D-14</span> Where to inject</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-14</span> Where to inject</div>
+    <div class="bh-si">එන්නත ලබා ගත යුතු ස්ථාන (ඉන්සියුලින් ලබාගන්නන් සඳහා )</div>
+    <div class="bh-ta">ஊசி போடும் இடங்கள் (இன்சுலின் எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-14a.png" alt="Where to inject" loading="lazy"><img src="images/D-14b.png" alt="Where to inject" loading="lazy"></div>
     <div class="lang lang-si"><h4>එන්නත ලබා ගත යුතු ස්ථාන (ඉන්සියුලින් ලබාගන්නන් සඳහා )</h4><table class="blk-table">
@@ -457,7 +633,11 @@
 </div>
 
 <div class="blk" id="blk-D-15">
-  <div class="blk-head"><span class="blk-id">D-15</span> Storing insulin</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-15</span> Storing insulin</div>
+    <div class="bh-si">ඉන්සියුලින් ගබඩා කිරීම (ඉන්සියුලින් ලබාගන්නන් සඳහා)</div>
+    <div class="bh-ta">இன்சுலினைச் சேமித்தல் (இன்சுலின் எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-15a.png" alt="Storing insulin" loading="lazy"><img src="images/D-15b.png" alt="Storing insulin" loading="lazy"><img src="images/D-15c.png" alt="Storing insulin" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඉන්සියුලින් ගබඩා කිරීම (ඉන්සියුලින් ලබාගන්නන් සඳහා)</h4><ul><li><strong>විවෘත නොකළ වයල්:</strong> <strong>ශීතකරණයේ</strong> (කිසිවිටෙක ෆ්‍රීසරයේ නොවේ).</li><li><strong>භාවිතා කරන වයල්:</strong> හැකි නම් <strong>ශීතකරණයේ</strong>, නැතහොත් <strong>සෙවණ සහිත සිසිල් තැනක.</strong> <strong>විවෘත කළ දිනය ලියන්න.</strong> <strong>සති 4 ක් ඇතුළත භාවිතා කර</strong> <strong>[CHECK]</strong> ඉන්පසු ඉවත දමන්න.</li><li><strong>කිසිවිටෙක</strong> ඉන්සියුලින් හිරු එළියේ, රත් වූ වාහනයක, හෝ ලිපක් අසල නොතබන්න.</li><li><strong>භාවිතා නොකරන්න:</strong> ශීත කළ ඉන්සියුලින්, <strong>බොඳ පැහැති පැහැදිලි ඉන්සියුලින්</strong>, <strong>ගැටිති සහිත බොඳ ඉන්සියුලින්</strong>, හෝ කල් ඉකුත් වූ ඉන්සියුලින්.</li><li><strong>Regifoam පෙට්ටියෙන් ගෙදර ගෙන යාම:</strong> <strong>අයිස් පැකට් රෙදි කඩකින් ඔතන්න,</strong> <strong>වයල් අයිස් හා ස්පර්ශ නොවිය යුතුයි.</strong> කෙළින්ම ගෙදර යන්න. <strong>පැමිණි විගස ශීතකරණයේ තබන්න.</strong></li></ul></div>
@@ -467,7 +647,11 @@
 </div>
 
 <div class="blk" id="blk-D-16">
-  <div class="blk-head"><span class="blk-id">D-16</span> Low sugar: under 70</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-16</span> Low sugar: under 70</div>
+    <div class="bh-si">සීනි අඩු වීම: 70 ට අඩු (ඉන්සියුලින් සහ ටැබ්ලට් ගන්නන්)</div>
+    <div class="bh-ta">சர்க்கரை குறைதல்: 70 க்குக் கீழ் (இன்சுலின், மாத்திரை எடுப்பவர்கள்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-16a.png" alt="Low sugar: under 70" loading="lazy"><img src="images/D-16b.png" alt="Low sugar: under 70" loading="lazy"><img src="images/D-16c.png" alt="Low sugar: under 70" loading="lazy"></div>
     <div class="lang lang-si"><h4>සීනි අඩු වීම: 70 ට අඩු (ඉන්සියුලින් සහ ටැබ්ලට් ගන්නන්)</h4><ul><li><strong>රෝග ලක්ෂණ:</strong> වෙව්ලීම, දහඩිය දැමීම, හදවත වේගයෙන් ගැහීම, බඩගින්න, කරකැවිල්ල, හිසේ කැක්කුම, <strong>ව්‍යාකුල සහගත බව (confused).</strong></li><li><strong>හේතු:</strong> ප්‍රමාද වූ හෝ මඟ හැරුණු ආහාර වේල, ඉන්සියුලින් වැඩිවීම, ව්‍යායාම, වමනය.</li><li><strong>කළ යුත්තේ:</strong></li></ul>
@@ -483,7 +667,11 @@
 </div>
 
 <div class="blk" id="blk-D-17">
-  <div class="blk-head"><span class="blk-id">D-17</span> When you are unwell</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-17</span> When you are unwell</div>
+    <div class="bh-si">ඔබට අසනීප වූ විට (සියලුදෙනා)</div>
+    <div class="bh-ta">உடல்நலமில்லாதபோது (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-17.png" alt="When you are unwell" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබට අසනීප වූ විට (සියලුදෙනා)</h4><ul><li><strong>අසනීප නිසා කිසිවිටෙක ඉන්සියුලින් නොනවත්වන්න.</strong></li><li><strong>වඩාත් නිතර පරීක්ෂා කරන්න.</strong> <strong>දියර වැඩිපුර පානය කරන්න.</strong></li><li><strong>පහත සඳහන් ලකුණු ඇතනම් රෝහලට එන්න:</strong> වමනය කර දියර රඳවා ගත නොහැකි නම්, <strong>දැඩි පිපාසය සහ නිදිමත</strong>, <strong>වේගවත් හුස්ම ගැනීම</strong> හෝ <strong>බඩේ වේදනාව.</strong></li><li><strong>සීනි ඉලක්කයට වඩා දෙවරක් ඉහළ නම්: එදිනම සායනයට දන්වන්න.</strong></li></ul></div>
@@ -493,7 +681,11 @@
 </div>
 
 <div class="blk" id="blk-D-18">
-  <div class="blk-head"><span class="blk-id">D-18</span> Diabetes in pregnancy: baby and delivery</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-18</span> Diabetes in pregnancy: baby and delivery</div>
+    <div class="bh-si">ගර්භනී කාලයේ දියවැඩියාව: දරුවා සහ ප්‍රසූතිය (ගර්භනී)</div>
+    <div class="bh-ta">கர்ப்பகால நீரிழிவு: குழந்தையும் பிரசவமும் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-18.jpg" alt="Diabetes in pregnancy: baby and delivery" loading="lazy"></div>
     <div class="lang lang-si"><h4>ගර්භනී කාලයේ දියවැඩියාව: දරුවා සහ ප්‍රසූතිය (ගර්භනී)</h4><ul><li><strong>දරුවාගේ චලනය:</strong> සති <strong>28</strong> පමණ සිට දරුවාගේ සාමාන්‍ය චලන රටාව හඳුනාගන්න. <strong>චලනය අඩු වුවහොත් එවෙලෙහිම පැමිණෙන්න.</strong></li><li><strong>ප්‍රසූතිය</strong> ඔබේ වෛද්‍යවරයා සමඟ සැලසුම් කෙරේ. <strong>ඔබේ සටහන් පොත, බෙහෙත් සහ සායන පොත ගෙන එන්න.</strong></li><li><strong>ප්‍රසූතියෙන් පසු:</strong> <strong>GDM ටැබ්ලට් හෝ ඉන්සියුලින් නවතී.</strong> <strong>කලින් සිට ඇති දියවැඩියාව:</strong> ඉන්සියුලින් අවශ්‍යතාව අඩු වේ. <strong>ඔබේ වෛද්‍යවරයා නව මාත්‍රාවක් ලබා දෙනු ඇත.</strong></li><li><strong>මුල් කාලයේම කිරි දෙන්න.</strong> කිරි දීමේදී <strong>ඉන්සියුලින් සහ මෙට්ෆෝමින් ආරක්ෂිතයි.</strong></li></ul></div>
@@ -503,7 +695,11 @@
 </div>
 
 <div class="blk" id="blk-D-19">
-  <div class="blk-head"><span class="blk-id">D-19</span> After delivery: the sugar test</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-19</span> After delivery: the sugar test</div>
+    <div class="bh-si">ප්‍රසූතියෙන් පසු: සීනි පරීක්ෂාව (ගර්භනී)</div>
+    <div class="bh-ta">பிரசவத்திற்குப் பின்: சர்க்கரைப் பரிசோதனை (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-19.png" alt="After delivery: the sugar test" loading="lazy"></div>
     <div class="lang lang-si"><h4>ප්‍රසූතියෙන් පසු: සීනි පරීක්ෂාව (ගර්භනී)</h4><ul><li><strong>ප්‍රසූතියෙන් සති 6-12 කට පසු සීනි පරීක්ෂාවක් (OGTT) සඳහා පැමිණෙන්න.</strong> <strong>දරුවාගේ එන්නත් පැමිණීම සමඟ වෙන් කරගන්න.</strong></li><li><strong>සාමාන්‍ය නම්: සෑම වසරකම පරීක්ෂා කරන්න.</strong></li><li><strong>GDM තිබූ කාන්තාවන්ට වර්ග 2 දියවැඩියාව වැළඳීමේ අවදානම වැඩිය.</strong> <strong>නිරෝගී ආහාර, ව්‍යායාම සහ නිසි බර මගින් එම අවදානම අඩු කළ හැක.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය: ඔබේ වෛද්‍යවරයාට කලින්ම දන්වා සැලසුම් කරන්න.</strong></li></ul></div>
@@ -513,7 +709,11 @@
 </div>
 
 <div class="blk" id="blk-D-20">
-  <div class="blk-head"><span class="blk-id">D-20</span> Diabetes in gynae women</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-20</span> Diabetes in gynae women</div>
+    <div class="bh-si">නාරිවේද කාන්තාවන්ගේ දියවැඩියාව (ගර්භනී නොවන)</div>
+    <div class="bh-ta">மகளிர் நோய் கிளினிக் பெண்களில் நீரிழிவு (கர்ப்பமில்லாதவர்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-20.jpg" alt="Diabetes in gynae women" loading="lazy"></div>
     <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ දියවැඩියාව (ගර්භනී නොවන)</h4><ul><li><strong>ශල්‍යකර්මයට පෙර:</strong> ඔබේ සටහන් පොත ගෙන එන්න. එදින <strong>ඔබ රැකබලා ගන්නා කණ්ඩායම ඔබේ බෙහෙත් වෙනස් කරනු ලැබිය හැක.</strong> <strong>උපදෙස් නොලැබුණහොත් ඉන්සියුලින් නොනවත්වන්න.</strong></li><li><strong>නිරාහාරව සිටීම:</strong> ආහාර හා පාන වර්ග නවත්වන විට කණ්ඩායම ඔබට කියනු ඇත. සාමාන්‍ය රීතිය නම් ශල්‍යකර්මයට පැය 2 කට පෙර දක්වා පැහැදිලි දියර සහ පැය 6 කට පෙර දක්වා සැහැල්ලු ආහාරයකි.</li><li><strong>ශල්‍යකර්මයෙන් පසු:</strong> <strong>හොඳ සීනි පාලනය යනු වේගවත් සුවය සහ අඩු ආසාදනයි.</strong> නැවත කවදා කෑමට හැකිද යන්න ඔබේ කණ්ඩායමෙන් අසන්න: (පැය 24 ඇතුළත) කලින් පරිදි ආහාර ගැනීම සුවය වේගවත් කරයි.</li><li><strong>යීස්ට් ආසාදනය (කැසීම, සුදු ස්‍රාවය)</strong> සහ <strong>මුත්‍රා ආසාදන</strong> සීනි ඉහළ විට වැඩියෙන් වේ. <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li><li><strong>PMOS සහ අක්‍රමවත් ඔසප්</strong> දියවැඩියාව වැළඳීමේ අවදානම වැඩි කරයි. <strong>වසරකට වරක් සීනි පරීක්ෂා කරන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>කලින් පැමිණෙන්න,</strong> බෙහෙත් සහ සීනි ආරක්ෂිත මට්ටමකට ගෙන ඒමට.</li></ul></div>
@@ -523,7 +723,11 @@
 </div>
 
 <div class="blk" id="blk-D-21">
-  <div class="blk-head"><span class="blk-id">D-21</span> Myths and facts</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">D-21</span> Myths and facts</div>
+    <div class="bh-si">මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</div>
+    <div class="bh-ta">கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/D-21.png" alt="Myths and facts" loading="lazy"></div>
     <div class="lang lang-si"><h4>මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
@@ -552,13 +756,23 @@
 </table></div>
   </div>
 </div>
-</section>
+    </section>
 
-<section id="chap-H" class="chapter">
-  <h2>Chapter 2: High Blood Pressure</h2>
-  
+    <section class="view" id="chap-H">
+      <div class="view-title-wrap">
+        <h2 class="view-title">
+          <span class="vt-si">අධි රුධිර පීඩනය (ප්‍රෙෂර්)</span>
+          <span class="vt-ta">உயர் இரத்த அழுத்தம் (பிரஷர்)</span>
+          <span class="vt-en">Chapter 2: High Blood Pressure</span>
+        </h2>
+      </div>
+      
 <div class="blk" id="blk-H-01">
-  <div class="blk-head"><span class="blk-id">H-01</span> What is blood pressure?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-01</span> What is blood pressure?</div>
+    <div class="bh-si">රුධිර පීඩනය යනු කුමක්ද?</div>
+    <div class="bh-ta">இரத்த அழுத்தம் என்றால் என்ன?</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-01.png" alt="What is blood pressure?" loading="lazy"></div>
     <div class="lang lang-si"><h4>රුධිර පීඩනය යනු කුමක්ද?</h4><ul><li>රුධිර පීඩනය (BP) යනු <strong>ඔබේ රුධිර නාළවලට රුධිරය යොදන බලයයි.</strong></li><li>එය <strong>සංඛ්‍යා දෙකකින්</strong> ලියයි, උදා: <strong>120/80</strong>.</li><li><strong>140/90 හෝ ඊට වැඩි නම් අධිකයි.</strong></li><li><strong>අධි රුධිර පීඩනය බොහෝවිට කිසිදු රෝග ලක්ෂණයක් නොපෙන්වයි.</strong> එබැවින් අපි එය පරීක්ෂා කරමු.</li></ul></div>
@@ -568,7 +782,11 @@
 </div>
 
 <div class="blk" id="blk-H-02">
-  <div class="blk-head"><span class="blk-id">H-02</span> Kinds of high BP</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-02</span> Kinds of high BP</div>
+    <div class="bh-si">අධි රුධිර පීඩන වර්ග (සියලුදෙනා)</div>
+    <div class="bh-ta">உயர் இரத்த அழுத்த வகைகள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-02.png" alt="Kinds of high BP" loading="lazy"></div>
     <div class="lang lang-si"><h4>අධි රුධිර පීඩන වර්ග (සියලුදෙනා)</h4><table class="blk-table">
@@ -596,7 +814,11 @@
 </div>
 
 <div class="blk" id="blk-H-03">
-  <div class="blk-head"><span class="blk-id">H-03</span> Your BP numbers</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-03</span> Your BP numbers</div>
+    <div class="bh-si">ඔබේ රුධිර පීඩන අගයන් (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் இரத்த அழுத்த அளவுகள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-03.png" alt="Your BP numbers" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ රුධිර පීඩන අගයන් (සියලුදෙනා)</h4><table class="blk-table">
@@ -624,7 +846,11 @@
 </div>
 
 <div class="blk" id="blk-H-04">
-  <div class="blk-head"><span class="blk-id">H-04</span> Checking BP</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-04</span> Checking BP</div>
+    <div class="bh-si">රුධිර පීඩනය පරීක්ෂා කිරීම (සියලුදෙනා)</div>
+    <div class="bh-ta">இரத்த அழுத்தத்தைப் பரிசோதித்தல் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-04a.jpg" alt="Checking BP" loading="lazy"><img src="images/H-04b.png" alt="Checking BP" loading="lazy"></div>
     <div class="lang lang-si"><h4>රුධිර පීඩනය පරීක්ෂා කිරීම (සියලුදෙනා)</h4><ol><li><strong>හිඳගෙන මිනිත්තු 5 ක් විවේක ගන්න.</strong></li><li>පරීක්ෂාවට <strong>මිනිත්තු 30 කට පෙර තේ, කෝපි, දුම්පානය හෝ ව්‍යායාම නොකරන්න.</strong> <strong>මුත්‍රාශය හිස් කරන්න.</strong></li><li><strong>පිටට ආධාරයක්, පාද බිම තබා, අත හදවත මට්ටමට තබා ගන්න.</strong></li><li><strong>ඉහළ අතට</strong> <strong>නිවැරදි ප්‍රමාණයේ කෆ් එකක්</strong> පළඳින්න. ලොකු අත් සඳහා <strong>විශාල කෆ් එකක්</strong> අවශ්‍යයි.</li><li><strong>කතා නොකරන්න.</strong></li><li><strong>විනාඩියක ඉඩක් තබා කියවීම් දෙකක් ලබා ගන්න.</strong> <strong>දෙකම ලියන්න.</strong></li><li><strong>සෑම දිනකම එකම වේලාවලට</strong> (උදේ සහ සවස), හෝ උපදෙස් ලද පරිදි.</li></ol></div>
@@ -634,7 +860,11 @@
 </div>
 
 <div class="blk" id="blk-H-05">
-  <div class="blk-head"><span class="blk-id">H-05</span> Your medicines</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-05</span> Your medicines</div>
+    <div class="bh-si">ඔබේ බෙහෙත් (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் மருந்துகள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-05.png" alt="Your medicines" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ බෙහෙත් (සියලුදෙනා)</h4><ul><li><strong>සෑම දිනකම ගන්න. සනීපෙන් සිටියත්, නවත්වන්නවත් මඟ හරින්නවත් එපා.</strong></li><li><strong>ගර්භනී:</strong> සාමාන්‍යයෙන් <strong>ලැබටලෝල්, නිෆෙඩිපින් සහ මෙතිල්ඩෝපා</strong> භාවිතා කරයි. <strong>මෙතිල්ඩෝපා නිසා නිදිමත ඇති විය හැක.</strong></li><li><strong>ගර්භණීභාවයේදී ආරක්ෂිත නොවන බෙහෙත්: එනලාප්‍රිල්, ලොසාටන්, ඇම්ලොඩිපින්.</strong> <strong>ඒවා ගන්නා අතරේ ගැබ් ගත්තොත්, හෝ ගැබ් ගැනීමට සැලසුම් කරන්නේ නම්, වහාම ඔබේ වෛද්‍යවරයා වෙත යන්න.</strong></li><li><strong>ප්‍රසූතියෙන් පසු</strong> ඔබේ වෛද්‍යවරයා ටැබ්ලට් වෙනස් කළ හැක. <strong>කිරි දීමේදී ආරක්ෂිත ඒවා මොනවාදැයි අසන්න.</strong></li><li><strong>ඔබට ඇදුම තිබේ නම්, ඔබට ප්‍රතිකාර කරන සෑම වෛද්‍යවරයෙකුටම කියන්න.</strong> <strong>ඇදුම ඇති අය සඳහා ලැබටලෝල් වැළැක්විය යුතුයි.</strong></li><li><strong>වේදනා නාශක:</strong> <strong>පැරසිටමෝල්</strong> භාවිතා කරන්න. <strong>ඩයික්ලොෆෙනැක් වැනි ඒවා</strong> ඔබේ වෛද්‍යවරයා කියන්නේ නම් මිස <strong>වළක්වන්න.</strong></li><li><strong>උපත් පාලන පෙති සහ හෝමෝන ප්‍රතිකාර රුධිර පීඩනය ඉහළ දැමිය හැක.</strong> <strong>පටන් ගැනීමට පෙර ඔබට අධි රුධිර පීඩනය ඇති බව ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
@@ -644,7 +874,11 @@
 </div>
 
 <div class="blk" id="blk-H-06">
-  <div class="blk-head"><span class="blk-id">H-06</span> Food and lifestyle</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-06</span> Food and lifestyle</div>
+    <div class="bh-si">ආහාර සහ ජීවන රටාව (සියලුදෙනා)</div>
+    <div class="bh-ta">உணவும் வாழ்க்கை முறையும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-06.jpg" alt="Food and lifestyle" loading="lazy"></div>
     <div class="lang lang-si"><h4>ආහාර සහ ජීවන රටාව (සියලුදෙනා)</h4><ul><li><strong>ලුණු අඩුවෙන් ගන්න.</strong> <strong>වියළි මාළු, ලුණු මාළු, අච්චාරු, පපඩම්, චිප්ස්, ඉන්ස්ටන්ට් නූඩ්ල්ස්, ස්ටොක් කියුබ්, සෝයා සෝස්, සෝස්, MSG, ටින් මාළු, සොසේජස්, ලුණු දැමූ කෑම</strong> සීමා කරන්න.</li><li><strong>මේසයේදී ලුණු එකතු නොකරන්න.</strong></li><li><strong>වැඩිපුර ලුණු වෙනුවට රස සඳහා කරපිංචා, කුරුඳු, ඉඟුරු, ගම්මිරිස්, මිරිස් හෝ කරි කුඩු භාවිතා කරන්න.</strong></li><li><strong>පලතුරු සහ එළවළු වැඩියෙන්: දිනකට වේල් 4-5 (ග්‍රෑම් 400 ක් පමණ).</strong></li><li><strong>නිසි බර</strong> (පරිච්ඡේදය 5). <strong>අවම වශයෙන් මිනිත්තු 30 ක් දිනපතා ඇවිදින්න.</strong></li><li><strong>කන්න: මාළු සහ රනිල කුලයට අයත් ඒවා (පරිප්පු, කඩල, සෝයා) වැඩියෙන්, හම් නැති කුකුළු මස්, අඩු මේද කිරි වීදුරු 1-2 ක්; රතු මස් සහ මේදය අඩුවෙන්.</strong></li><li><strong>දුම්පානය, මත්පැන්, දුම්කොළ සහිත බුලත් එපා.</strong></li><li><strong>ගර්භනී:</strong> <strong>වම් පැත්තට හැරී විවේක ගන්න.</strong></li></ul></div>
@@ -654,7 +888,11 @@
 </div>
 
 <div class="blk" id="blk-H-07">
-  <div class="blk-head"><span class="blk-id">H-07</span> Pre-eclampsia danger signs: come to hospital NOW</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-07</span> Pre-eclampsia danger signs: come to hospital NOW</div>
+    <div class="bh-si">ප්‍රී-එක්ලැම්ප්සියා අනතුරු ඇඟවීම්: දැන්ම රෝහලට එන්න (ගර්භනී)</div>
+    <div class="bh-ta">ப்ரீ-எக்லாம்ப்சியா ஆபத்து அறிகுறிகள்: உடனே மருத்துவமனைக்கு வாருங்கள் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-07.png" alt="Pre-eclampsia danger signs: come to hospital NOW" loading="lazy"></div>
     <div class="lang lang-si"><h4>ප්‍රී-එක්ලැම්ප්සියා අනතුරු ඇඟවීම්: දැන්ම රෝහලට එන්න (ගර්භනී)</h4><ul><li><strong>පහව නොයන දරුණු ඔළු කැක්කුම.</strong></li><li><strong>බොඳ පෙනීම හෝ ආලෝක ගැටිති.</strong></li><li><strong>උදරයේ ඉහළ දකුණු පැත්තේ වේදනාව</strong> හෝ ගර්භණීභාවයේ අග කාලයේ <strong>වමනය.</strong></li><li><strong>මුහුණ සහ අත් හදිසියේ ඉදිමීම.</strong></li><li><strong>දරුවාගේ චලනය අඩුවීම.</strong></li><li><strong>වලිප්පු හෝ සිතේ පටලැවිලි සහිත ස්වභාවය.</strong></li><li><strong>මේවා ප්‍රසූතියෙන් පසුවද ආරම්භ විය හැක.</strong> <strong>සති 6 ඇතුළත මේවා තිබේ නම් පැමිණෙන්න.</strong></li><li><strong>ප්‍රී-එක්ලැම්ප්සියා රෝහලේදී ප්‍රතිකාර කෙරේ.</strong> <strong>ප්‍රසූතිය තමයි සුවය.</strong></li></ul></div>
@@ -664,7 +902,11 @@
 </div>
 
 <div class="blk" id="blk-H-08">
-  <div class="blk-head"><span class="blk-id">H-08</span> Aspirin</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-08</span> Aspirin</div>
+    <div class="bh-si">ඇස්ප්‍රීන් (ගර්භනී, නියම කළ විට)</div>
+    <div class="bh-ta">ஆஸ்பிரின் (கர்ப்பிணி, பரிந்துரைத்தால்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-08.png" alt="Aspirin" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඇස්ප්‍රීන් (ගර්භනී, නියම කළ විට)</h4><ul><li>සමහර කාන්තාවන්ට <strong>ප්‍රී-එක්ලැම්ප්සියා වීමේ අවදානම අඩු කිරීමට</strong> ගර්භණීභාවයේ මුල සිට <strong>රාත්‍රියට අඩු මාත්‍රාවේ ඇස්ප්‍රීන්</strong> ලබා දේ.</li><li><strong>ඔබට ලියා දී ඇති මාත්‍රාව ගන්න.</strong></li><li><strong>ඔබට ඇදුම, ගැස්ට්‍රයිටිස් හෝ ආමාශයේ තුවාල තිබේ නම්,</strong> හෝ වේදනා නාශකයකින් ප්‍රතික්‍රියාවක් වී ඇත්නම් <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
@@ -674,7 +916,11 @@
 </div>
 
 <div class="blk" id="blk-H-09">
-  <div class="blk-head"><span class="blk-id">H-09</span> After delivery</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-09</span> After delivery</div>
+    <div class="bh-si">ප්‍රසූතියෙන් පසු (ගර්භනී)</div>
+    <div class="bh-ta">பிரசவத்திற்குப் பின் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-09.png" alt="After delivery" loading="lazy"></div>
     <div class="lang lang-si"><h4>ප්‍රසූතියෙන් පසු (ගර්භනී)</h4><ul><li><strong>පළමු සතියේදී රුධිර පීඩනය ඉහළ යා හැක.</strong></li><li><strong>ටැබ්ලට් ගන්නේ නම් සති 1-2 කදී නැවත පරීක්ෂා කරන්න.</strong> <strong>සෑම කෙනෙකුටම සති 6 කදී නැවත පරීක්ෂා කිරීම අවශ්‍ය වේ.</strong> <strong>මඟ නොහරින්න.</strong></li><li><strong>ජීවිතාන්තය දක්වා වාර්ෂික රුධිර පීඩන පරීක්ෂාව.</strong> <strong>ගර්භණීභාවයේදී අධි රුධිර පීඩනය තිබූ කාන්තාවන්ට පසුව අධි රුධිර පීඩනය වැළඳීමේ අවදානම වැඩිය.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය: කලින්ම ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
@@ -684,7 +930,11 @@
 </div>
 
 <div class="blk" id="blk-H-10">
-  <div class="blk-head"><span class="blk-id">H-10</span> High BP in gynae women</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-10</span> High BP in gynae women</div>
+    <div class="bh-si">නාරිවේද කාන්තාවන්ගේ අධි රුධිර පීඩනය (ගර්භනී නොවන)</div>
+    <div class="bh-ta">மகளிர் நோய் கிளினிக் பெண்களில் உயர் இரத்த அழுத்தம் (கர்ப்பமில்லாதவர்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-10.jpg" alt="High BP in gynae women" loading="lazy"></div>
     <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ අධි රුධිර පීඩනය (ගර්භනී නොවන)</h4><ul><li><strong>බෙහෙත් සෑම දිනකම ගන්න. ඔබේ රුධිර පීඩන සටහන් පොත හෝ සායන පොත ගෙන එන්න.</strong></li><li><strong>ශල්‍යකර්මයට පෙර: කණ්ඩායමට කියන්න.</strong> <strong>රුධිර පීඩන ටැබ්ලට් උපදෙස් දුන් පරිදි ගන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>පළමුව ඔබේ වෛද්‍යවරයා බලන්න.</strong> <strong>ලොසාටන්, එනලාප්‍රිල් සහ ඇම්ලොඩිපින් ගැබ් ගැනීමට පෙර වෙනස් කළ යුතුයි.</strong></li><li><strong>ඔසප් නැවතීම</strong> රුධිර පීඩනය ඉහළ දැමිය හැක. <strong>සෑම වසරකම පරීක්ෂා කරන්න.</strong></li><li><strong>ආඝාත ලක්ෂණ:</strong> මුහුණ ඇදවීම, අත දුර්වල වීම, කතාව අපැහැදිලි වීම. <strong>වහාම රෝහලට එන්න.</strong></li></ul></div>
@@ -694,7 +944,11 @@
 </div>
 
 <div class="blk" id="blk-H-11">
-  <div class="blk-head"><span class="blk-id">H-11</span> Myths and facts</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">H-11</span> Myths and facts</div>
+    <div class="bh-si">මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</div>
+    <div class="bh-ta">கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/H-11.png" alt="Myths and facts" loading="lazy"></div>
     <div class="lang lang-si"><h4>මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
@@ -720,13 +974,23 @@
 </table></div>
   </div>
 </div>
-</section>
+    </section>
 
-<section id="chap-T" class="chapter">
-  <h2>Chapter 3: Thyroid Disease</h2>
-  
+    <section class="view" id="chap-T">
+      <div class="view-title-wrap">
+        <h2 class="view-title">
+          <span class="vt-si">තයිරොයිඩ් ග්‍රන්ථිය පිළිබඳ රෝග</span>
+          <span class="vt-ta">தைராய்டு நோய்கள்</span>
+          <span class="vt-en">Chapter 3: Thyroid Disease</span>
+        </h2>
+      </div>
+      
 <div class="blk" id="blk-T-01">
-  <div class="blk-head"><span class="blk-id">T-01</span> What is the thyroid?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-01</span> What is the thyroid?</div>
+    <div class="bh-si">තයිරොයිඩ් ග්‍රන්ථිය යනු කුමක්ද?</div>
+    <div class="bh-ta">தைராய்டு என்றால் என்ன? (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-01.png" alt="What is the thyroid?" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්ථිය යනු කුමක්ද?</h4><ul><li><strong>තයිරොයිඩ් ග්‍රන්ථිය</strong> බෙල්ලේ ඉදිරිපස ඇති <strong>කුඩා ග්‍රන්ථියකි.</strong></li><li>එය <strong>ශරීර ශක්තිය, හදවත ගැහෙන වේගය, ශරීරයේ බර, ඔසප් චක්‍රය සහ හැඟීම් පාලනය</strong> සඳහා බලපාන <strong>තයිරොයිඩ් හෝමෝනය</strong> නිපදවයි.</li><li>ගර්භණීභාවයේදී එය ඔබේ දරුවාගේ <strong>මොළයේ වර්ධනයටද තයිරොයිඩ් හෝමෝනය අත්‍යවශ්‍යයි.</strong></li><li><strong>තයිරොයිඩ් ග්‍රන්ථිය ආශ්‍රිත ප්‍රධාන රෝගී තත්ව දෙකකි:</strong> <strong>ග්‍රන්ථියේ අඩු ක්‍රියාකාරිත්වය</strong> සහ <strong>අධි ක්‍රියාකාරිත්වය.</strong></li></ul></div>
@@ -736,7 +1000,11 @@
 </div>
 
 <div class="blk" id="blk-T-02">
-  <div class="blk-head"><span class="blk-id">T-02</span> Under-active thyroid</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-02</span> Under-active thyroid</div>
+    <div class="bh-si">තයිරොයිඩ් ග්‍රන්ථියේ අඩු ක්‍රියාකාරිත්වය (ගැබිණි සහ ගැබිණි නොවන)</div>
+    <div class="bh-ta">குறைவாகச் சுரக்கும் தைராய்டு (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-02.png" alt="Under-active thyroid" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්ථියේ අඩු ක්‍රියාකාරිත්වය (ගැබිණි සහ ගැබිණි නොවන)</h4><ul><li><strong>ලක්ෂණ:</strong> තෙහෙට්ටුව, අසාමාන්‍ය සීතලක් දැනීම, ශරීරයේ බර වැඩිවීම, මලබද්ධය, සම වියළීම, හිසකෙස් ගැලවීම, මානසික අවපීඩනය, <strong>ඔසප් චක්‍රය අක්‍රමවත් වීම සහ ඔසප් වීමේදී අධික රුධිර වහනය.</strong></li><li><strong>ගර්භණීභාවයේදී, ප්‍රතිකාර නොකළහොත් සිදුවන දේ:</strong> හදිසි ගබ්සා වීම්, නියමිත කාලයට පෙර නොමේරු කළල බිහිවීම සහ <strong>දරුවාගේ මොළයේ වර්ධනය දුර්වල වීම.</strong></li><li><strong>ගර්භනී නොවන කාන්තාවන්ගේ:</strong> <strong>ඔසප් චක්‍රයේ සහ ගැබ් ගැනීමේ ගැටලු.</strong></li><li><strong>ප්‍රතිකාර කිරීම පහසුයි.</strong></li></ul></div>
@@ -746,7 +1014,11 @@
 </div>
 
 <div class="blk" id="blk-T-03">
-  <div class="blk-head"><span class="blk-id">T-03</span> Thyroxine (levothyroxine) tablets</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-03</span> Thyroxine (levothyroxine) tablets</div>
+    <div class="bh-si">තයිරොක්සින් (ලෙවොතයිරොක්සින්) ටැබ්ලට්</div>
+    <div class="bh-ta">தைராக்சின் (லெவோதைராக்சின்) மாத்திரைகள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-03.png" alt="Thyroxine (levothyroxine) tablets" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොක්සින් (ලෙවොතයිරොක්සින්) ටැබ්ලට්</h4><ul><li><strong>දිනපතා එකම වේලාවට එක් තයිරොක්සින් පෙත්තක්.</strong></li><li><strong>භාවිතා කළ යුත්තේ:</strong> උදැසන <strong>අවදි වූ විගස, හිස් බඩ, වතුරත් සමඟ.</strong> තේ, කිරි හෝ ආහාර ගැනීමට පෙර <strong>මිනිත්තු 30 ක් රැඳී සිටින්න.</strong></li><li><strong>යකඩ සහ කැල්සියම් ටැබ්ලට් පැය 4ක් පසුවූ විට</strong> ගන්න.</li><li><strong>ශරීරයට සුවයක් දැනුණු පමණින් බෙහෙත් නවත්වන්න එපා.</strong></li><li><strong>ගර්භණීභාවයේදී සහ මව්කිරි දීමේදී තයිරොක්සින් බෙහෙත් භාවිතය ආරක්ෂිතයි.</strong></li></ul></div>
@@ -756,7 +1028,11 @@
 </div>
 
 <div class="blk" id="blk-T-04">
-  <div class="blk-head"><span class="blk-id">T-04</span> Thyroid and pregnancy</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-04</span> Thyroid and pregnancy</div>
+    <div class="bh-si">තයිරොයිඩ් ග්‍රන්තිය සහ ගර්භණීභාවය</div>
+    <div class="bh-ta">தைராய்டும் கர்ப்பமும் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-04.png" alt="Thyroid and pregnancy" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තිය සහ ගර්භණීභාවය</h4><ul><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> එසේනම් <strong>පළමුව තයිරොයිඩ් රුධිර පරීක්ෂාවක් (TSH) කරගන්න.</strong></li><li><strong>තයිරොක්සින් ගන්නා ඔබ ගැබ් ගත් බව දැන ගත්තාද? වහාම</strong> ඒ බව <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong> <strong>තයිරොක්සින් මාත්‍රාව සාමාන්‍යයෙන් වැඩි කළ යුතුයි.</strong></li><li><strong>ගර්භණීභාවයේදී මසකට වරක් පමණ TSH පරීක්ෂාව කළ යුතුයි.</strong></li><li><strong>ප්‍රසූතියෙන් පසු</strong> තයිරොක්සින් මාත්‍රාව සාමාන්‍යයෙන් නැවත අඩුකරයි. <strong>ප්‍රසූතියෙන් පසු සති 6කින් TSH පරීක්ෂාව කළ යුතුයි.</strong></li><li><strong>දරුවාගේ තයිරොයිඩ් පරීක්ෂාව පළමු සතිය තුළ කරයි.</strong></li><li><strong>මව එදිනෙදා ආහාර ගැනීමේදී අයඩීන් යෙදූ ලුණු ස්වල්ප වශයෙන් භාවිතා කරන්න (H-06 බලන්න).</strong> <strong>අමතර අයඩීන් ගැනීම අවශ්‍ය නොවේ.</strong></li></ul></div>
@@ -766,7 +1042,11 @@
 </div>
 
 <div class="blk" id="blk-T-05">
-  <div class="blk-head"><span class="blk-id">T-05</span> Over-active thyroid</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-05</span> Over-active thyroid</div>
+    <div class="bh-si">තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය</div>
+    <div class="bh-ta">அதிகமாகச் சுரக்கும் தைராய்டு (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-05.png" alt="Over-active thyroid" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය</h4><ul><li><strong>ලක්ෂණ:</strong> <strong>හදවත වේගයෙන් ගැහීම හෝ පපුවේ ගැස්ම දැනීම, වෙව්ලීම, අධික ලෙස දහඩිය දැමීම, අධික ලෙස උණුසුම දැනීම, එකවර බර අඩුවීම, කනස්සල්ල, මලපහ දියර ලෙස පිටවීම.</strong> <strong>ගර්භණී සමයේ මුල් අවධියේ අධික වමනය.</strong></li><li><strong>ගර්භණී සමයේ මුල් අවධියේ තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වයට පොදු හේතුව:</strong> <strong>ගර්භණී හෝමෝන.</strong> සාමාන්‍යයෙන් <strong>ගර්භනී සමයේ අවසන් අවධිය වන විට නිසි අගයන්ට පැමිණේ.</strong></li><li><strong>වෙනත් පොදු හේතු:</strong> <strong>ග්‍රේවස් රෝගය (Graves Disease).</strong> <strong>බෙල්ල ඉදිමීම, ඇස් ඉදිමී ඉදිරියට නෙරා ඒම.</strong></li><li><strong>තත්වය පාලනය නොකිරීමේ ප්‍රතිඵල:</strong> හදිසි ගබ්සා වීම්, නියමිත කාලයට පෙර නොමේරු කළල බිහිවීම, <strong>අධි රුධිර පීඩනය.</strong></li></ul></div>
@@ -776,7 +1056,11 @@
 </div>
 
 <div class="blk" id="blk-T-06">
-  <div class="blk-head"><span class="blk-id">T-06</span> Tablets for over-active thyroid</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-06</span> Tablets for over-active thyroid</div>
+    <div class="bh-si">තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය (Hyperthyroidism) සඳහා ප්‍රතිකාර</div>
+    <div class="bh-ta">அதிகமாகச் சுரக்கும் தைராய்டுக்கான மாத்திரைகள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-06.png" alt="Tablets for over-active thyroid" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය (Hyperthyroidism) සඳහා ප්‍රතිකාර</h4><ul><li><strong>ප්‍රතිකාර - කාබිමසෝල් හෝ ප්‍රොපිල් තයෝයුරැසිල් (PTU).</strong> <strong>ගර්භනී සමයේ මුල් කාලයේ ඔබේ වෛද්‍යවරයා විසින් අවශ්‍ය වුවහොත් බෙහෙත් වෙනස් කරයි.</strong> <strong>ඔබ විසින් තනිව බෙහෙත් වෙනස් නොකරන්න.</strong></li><li>මීට අමතරව <strong>ප්‍රොප්‍රැනොලෝල්</strong> යන බෙහෙත ද සාමාන්‍යයෙන් නියම කරයි.</li><li><strong>ඔබට ඇදුම තිබේ නම් ඔබේ වෛද්‍යවරයාට කිව යුතුයි.</strong></li><li><strong>බෙහෙත් නියම කළ පරිදිම ගන්න.</strong> <strong>සති 4-6 කට වරක් රුධිර TSH/T4 පරීක්ෂා කළ යුතුයි.</strong></li><li><strong>පහත සඳහන් ලක්ෂණ ඇති වුවහොත් නොපමාව රෝහලට එන්න:</strong></li><li><strong>උගුර රිදීම, උණ ගතිය, කටේ තුවාල දැමීම.</strong></li><li><strong>ඇස් කහ වීම, තද පැහැති මුත්‍රා පිටවීම හෝ ඇඟේ කසන ගතිය.</strong></li><li><strong>මෙම බෙහෙත් ගන්නා අතර මව්කිරි දීම ආරක්ෂිතයි.</strong> <strong>මව්කිරි දුන් වහාම බෙහෙත් ගන්න.</strong></li><li><strong>හදිසි අවස්ථා:</strong> <strong>අධික උණ, හදවත ඉතා වේගයෙන් ගැසීම, මානසික ව්‍යාකූලත්වය (confusion).</strong> <strong>වහාම රෝහලට පැමිණෙන්න.</strong></li></ul></div>
@@ -786,7 +1070,11 @@
 </div>
 
 <div class="blk" id="blk-T-07">
-  <div class="blk-head"><span class="blk-id">T-07</span> After delivery</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-07</span> After delivery</div>
+    <div class="bh-si">ගර්භණි අයට ප්‍රසූතියෙන් පසු</div>
+    <div class="bh-ta">பிரசவத்திற்குப் பின் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-07.png" alt="After delivery" loading="lazy"></div>
     <div class="lang lang-si"><h4>ගර්භණි අයට ප්‍රසූතියෙන් පසු</h4><ul><li><strong>සමහර කාන්තාවන්ට ප්‍රසූතියෙන් පසු පළමු වසර තුළ තයිරොයිඩ් ගැටලු ඇති වේ.</strong> බොහෝවිට <strong>අධික තෙහෙට්ටුව</strong> හෝ <strong>පසු ප්‍රසව මානසික ව්‍යාකූලත්වය ("Baby blues")</strong> ලෙස මෙය පටලවා වටහා ගත හැක.</li><li><strong>ප්‍රසූතියෙන් පසු ඔබේ වෛද්‍යවරයාට පවසා TSH පරීක්ෂාවක්</strong> කරගන්න.</li><li><strong>ග්‍රේවස් රෝගය (Graves disease) ප්‍රසූතියෙන් පසු නැවත ඇතිවිය හැක.</strong> <strong>සති 6 කදී නැවත TSH පරීක්ෂාවක්</strong> කරගන්න.</li><li><strong>ඉන්පසු වසරකට වරක් TSH පරීක්ෂාවක්</strong> කරගන්න. අවශ්‍ය නම් වෛද්‍යවරයා <strong>බෙහෙත් දිගටම නියම කරයි.</strong></li></ul></div>
@@ -796,7 +1084,11 @@
 </div>
 
 <div class="blk" id="blk-T-08">
-  <div class="blk-head"><span class="blk-id">T-08</span> Thyroid in gynae women</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-08</span> Thyroid in gynae women</div>
+    <div class="bh-si">නාරිවේද කාන්තාවන්ගේ තයිරොයිඩ් රෝග (Gynecology patients)</div>
+    <div class="bh-ta">மகளிர் நோய் கிளினிக் பெண்களில் தைராய்டு (கர்ப்பமில்லாதவர்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-08.png" alt="Thyroid in gynae women" loading="lazy"></div>
     <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ තයිරොයිඩ් රෝග (Gynecology patients)</h4><ul><li><strong>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය සහ අඩු ක්‍රියාකාරිත්වය යන දෙකම</strong> <strong>ඔසප් චක්‍රයේ වෙනස්කම් කරයි</strong> (අධික රුධිර වහනය, ඔසප් වීමේදී ඉතා අඩුවෙන් විදුවිම, ඔසප් වීම පිළිවෙලට නොවීම හෝ බොහෝ කාලයක් ඔසප් නොවීම) සහ <strong>ගැබ් ගැනීම දුෂ්කර කළ හැක.</strong></li><li><strong>ඔසප් චක්‍රය වෙනස් වුවහොත් හෝ හේතුවක් නැතිව එකවර බර වැඩි/අඩු වුවහොත් ඔබේ වෛද්‍යවරයාට පවසන්න.</strong></li><li><strong>ඔසප් වීම නැවතීමේ (ආර්තවහරණය) සහ තයිරොයිඩ් ග්‍රන්තිය ආශ්‍රිත රෝග ලක්ෂණ එකිනෙකට සමානයි.</strong> මෙය <strong>රුධිර පරීක්ෂාවෙන් වෙන්කර දැනගත හැක.</strong></li><li><strong>ශල්‍යකර්මයට පෙර:</strong> <strong>ඔබේ එදිනෙදා ගන්නා බෙහෙත් රැගෙන එන්න.</strong> <strong>තයිරොක්සින් සුපුරුදු පරිදි ගන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>පළමුව ඔබේ වෛද්‍යවරයා හමුවන්න.</strong></li></ul></div>
@@ -806,7 +1098,11 @@
 </div>
 
 <div class="blk" id="blk-T-09">
-  <div class="blk-head"><span class="blk-id">T-09</span> Myths and facts</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">T-09</span> Myths and facts</div>
+    <div class="bh-si">තයිරොයිඩ් රෝග ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය</div>
+    <div class="bh-ta">கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/T-09.png" alt="Myths and facts" loading="lazy"></div>
     <div class="lang lang-si"><h4>තයිරොයිඩ් රෝග ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය</h4><table class="blk-table">
@@ -832,13 +1128,23 @@
 </table></div>
   </div>
 </div>
-</section>
+    </section>
 
-<section id="chap-A" class="chapter">
-  <h2>Chapter 4: Asthma</h2>
-  
+    <section class="view" id="chap-A">
+      <div class="view-title-wrap">
+        <h2 class="view-title">
+          <span class="vt-si">ඇදුම</span>
+          <span class="vt-ta">ஆஸ்துமா</span>
+          <span class="vt-en">Chapter 4: Asthma</span>
+        </h2>
+      </div>
+      
 <div class="blk" id="blk-A-01">
-  <div class="blk-head"><span class="blk-id">A-01</span> What is asthma?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-01</span> What is asthma?</div>
+    <div class="bh-si">ඇදුම යනු කුමක්ද? (සියලුදෙනා)</div>
+    <div class="bh-ta">ஆஸ்துமா என்றால் என்ன? (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-01.png" alt="What is asthma?" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඇදුම යනු කුමක්ද? (සියලුදෙනා)</h4><ul><li><strong>ඇදුම දිගුකාලීන රෝගයකි.</strong> <strong>ශ්වසන නාල වල කුඩා නාලිකා ඉදිමීමට ලක්වී පටු වේ.</strong></li><li><strong>රෝග ලක්ෂණ:</strong> <strong>කැස්ස (බොහෝවිට රාත්‍රියේදී),</strong> <strong>හුස්ම ගැනීමේදී හඬ පිටවීම (විසිල් ශබ්දය),</strong> <strong>හුස්ම හිරවීම,</strong> <strong>පපුවේ තදබව.</strong></li><li><strong>රෝගය වැඩිවන අවස්ථා (උත්තේජක):</strong> දූවිලි, දුම, සීතල වාතය, ආසාදන, තද ගඳ සුවඳ, ව්‍යායාම.</li></ul></div>
@@ -848,7 +1154,11 @@
 </div>
 
 <div class="blk" id="blk-A-02">
-  <div class="blk-head"><span class="blk-id">A-02</span> Asthma and pregnancy</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-02</span> Asthma and pregnancy</div>
+    <div class="bh-si">ඇදුම සහ ගර්භණීභාවය (ගර්භනී)</div>
+    <div class="bh-ta">ஆஸ்துமாவும் கர்ப்பமும் (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-02.png" alt="Asthma and pregnancy" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඇදුම සහ ගර්භණීභාවය (ගර්භනී)</h4><ul><li><strong>ඇදුම ඇති බොහෝ කාන්තාවන්ට නිරෝගී ගර්භණීභාවයක් ඇත.</strong></li><li><strong>ඇදුම වැඩි වීමට, අඩුවීමට හෝ එලෙසම පැවතීමට හැක.</strong></li><li><strong>නමුත් පාලනය නොකළ ඇදුම තත්ත්වය දරුවාට හානිකර විය හැක.</strong> <strong>දරුවාට ඔක්සිජන් සැපයීම අඩු වේ.</strong></li><li><strong>ඇදුම බෙහෙත් ගර්භණීභාවයේදී සහ මව්කිරි දීමේදී ආරක්ෂිතයි.</strong> <strong>පාලනය නොකළ ඇදුම තත්ත්වයේ අවදානම වැඩිය.</strong></li></ul></div>
@@ -858,7 +1168,11 @@
 </div>
 
 <div class="blk" id="blk-A-03">
-  <div class="blk-head"><span class="blk-id">A-03</span> Your two inhalers</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-03</span> Your two inhalers</div>
+    <div class="bh-si">ඔබේ ඉන්හේලර් වර්ග දෙක (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் இரண்டு இன்ஹேலர்கள் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-03.png" alt="Your two inhalers" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ ඉන්හේලර් වර්ග දෙක (සියලුදෙනා)</h4><table class="blk-table">
@@ -892,7 +1206,11 @@
 </div>
 
 <div class="blk" id="blk-A-04">
-  <div class="blk-head"><span class="blk-id">A-04</span> Using the inhaler with the spacer</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-04</span> Using the inhaler with the spacer</div>
+    <div class="bh-si">ස්පේසරය සමඟ ඉන්හේලරය භාවිතා කිරීම (සියලුදෙනා)</div>
+    <div class="bh-ta">ஸ்பேசருடன் இன்ஹேலரைப் பயன்படுத்தும் முறை (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-04a.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04b.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04c.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04d.jpg" alt="Using the inhaler with the spacer" loading="lazy"></div>
     <div class="lang lang-si"><h4>ස්පේසරය සමඟ ඉන්හේලරය භාවිතා කිරීම (සියලුදෙනා)</h4><ol><li><strong>පියන ඉවත් කරන්න.</strong> ඉන්හේලරය <strong>සොලවන්න.</strong></li><li><strong>එය ස්පේසරයට සවි කරන්න.</strong></li><li><strong>කෙළින් හිඳ හෝ සිට ගෙන හුස්ම පිටකරන්න.</strong></li><li>මුඛ කොටස වටා <strong>ඔබේ තොල් තද කරගන්න.</strong></li><li><strong>එක් පෆ් එකක් පමණක් ඔබන්න.</strong></li><li><strong>සෙමින් ගැඹුරින් හුස්ම ගන්න.</strong> <strong>තත්පර 10 ක් හුස්ම රඳවා ගන්න.</strong> <em>නැතහොත් ස්පේසරය හරහා සෙමින් 5 වතාවක් හුස්ම ගෙන පිටකරන්න.</em></li><li><strong>තවත් පෆ් එකක් අවශ්‍ය නම් තත්පර 30-60 ක් රැඳී සිටින්න.</strong> <strong>නැවත සොලවන්න.</strong> <strong>එකවර එක පෆ් එකක් පමණක් භාවිතා කරන්න.</strong></li><li><strong>Seroflo පමණක්: භාවිතා කළ පසු කට සෝදා කෙළ ගසන්න.</strong></li></ol>
@@ -905,7 +1223,11 @@
 </div>
 
 <div class="blk" id="blk-A-05">
-  <div class="blk-head"><span class="blk-id">A-05</span> When the inhaler is nearly empty</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-05</span> When the inhaler is nearly empty</div>
+    <div class="bh-si">ඉන්හේලරය අවසන් වන විට හඳුනාගැනීම (සියලුදෙනා)</div>
+    <div class="bh-ta">இன்ஹேலர் கிட்டத்தட்ட காலியாவதை அறிதல் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-05a.png" alt="When the inhaler is nearly empty" loading="lazy"><img src="images/A-05b.png" alt="When the inhaler is nearly empty" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඉන්හේලරය අවසන් වන විට හඳුනාගැනීම (සියලුදෙනා)</h4><ul><li><strong>අලුත් ඉන්හේලරයක පෆ් 200 ක් පමණ ඇත. පෙට්ටිය බලන්න.</strong> <strong>පරීක්ෂණ ඉසීම්ද (Trials) ගණන් ගැනේ.</strong></li><li><strong>මාත්‍රා ගණකයක් (dose counter) තිබේ නම්: 0 ට ළඟා වන විට මාරු කරන්න.</strong></li><li><strong>ගණකයක් නොමැති නම්:</strong></li></ul>
@@ -921,7 +1243,11 @@
 </div>
 
 <div class="blk" id="blk-A-06">
-  <div class="blk-head"><span class="blk-id">A-06</span> Cleaning and drying</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-06</span> Cleaning and drying</div>
+    <div class="bh-si">පිරිසිදු කිරීම සහ වියළීම (සියලුදෙනා)</div>
+    <div class="bh-ta">சுத்தம் செய்தலும் உலர்த்தலும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-06a.png" alt="Cleaning and drying" loading="lazy"><img src="images/A-06b.png" alt="Cleaning and drying" loading="lazy"><img src="images/A-06c.png" alt="Cleaning and drying" loading="lazy"></div>
     <div class="lang lang-si"><h4>පිරිසිදු කිරීම සහ වියළීම (සියලුදෙනා)</h4><p><strong>ස්පේසරය (සතියකට වරක්):</strong></p>
@@ -943,7 +1269,11 @@
 </div>
 
 <div class="blk" id="blk-A-07">
-  <div class="blk-head"><span class="blk-id">A-07</span> Your asthma traffic-light plan</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-07</span> Your asthma traffic-light plan</div>
+    <div class="bh-si">ඔබේ ඇදුම රථ සංඥා සැලැස්ම (Traffic light plan) (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் ஆஸ்துமா போக்குவரத்து விளக்குத் திட்டம் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-07.png" alt="Your asthma traffic-light plan" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ ඇදුම රථ සංඥා සැලැස්ම (Traffic light plan) (සියලුදෙනා)</h4><table class="blk-table">
@@ -971,7 +1301,11 @@
 </div>
 
 <div class="blk" id="blk-A-08">
-  <div class="blk-head"><span class="blk-id">A-08</span> Avoiding triggers</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-08</span> Avoiding triggers</div>
+    <div class="bh-si">හදිසි උත්සන්න වීම් ඇතිවන උත්තේජක (Triggers) මඟහරවා ගැනීම (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் தூண்டுதல்களைத் தவிர்த்தல் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-08a.jpg" alt="Avoiding triggers" loading="lazy"><img src="images/A-08b.png" alt="Avoiding triggers" loading="lazy"></div>
     <div class="lang lang-si"><h4>හදිසි උත්සන්න වීම් ඇතිවන උත්තේජක (Triggers) මඟහරවා ගැනීම (සියලුදෙනා)</h4><table class="blk-table">
@@ -1011,7 +1345,11 @@
 </div>
 
 <div class="blk" id="blk-A-09">
-  <div class="blk-head"><span class="blk-id">A-09</span> Why long-term control matters</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-09</span> Why long-term control matters</div>
+    <div class="bh-si">දිගුකාලීන පාලනය වැදගත් වන්නේ ඇයි (සියලුදෙනා)</div>
+    <div class="bh-ta">நீண்டகாலக் கட்டுப்பாடு ஏன் முக்கியம் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-09.png" alt="Why long-term control matters" loading="lazy"></div>
     <div class="lang lang-si"><h4>දිගුකාලීන පාලනය වැදගත් වන්නේ ඇයි (සියලුදෙනා)</h4><ul><li><strong>Seroflo නිහඬව ක්‍රියා කරයි.</strong> <strong>එය ක්‍රියා කරන බව ඔබට නොදැනේ.</strong></li><li><strong>ඔබට සනීපයක් දැනුණත් හුස්ම නාළ ඉදිමී පවතී.</strong></li><li><strong>ඔබ නැවැත්වුවහොත් හදිසි උත්සන්න වීම් ඇති විය හැක.</strong></li><li><strong>හොඳ පාලනය:</strong> <strong>හදිසි උත්සන්න වීම් අඩුවීම,</strong> හොඳ නින්ද, සහ ගර්භණීභාවයේදී දරුවාට <strong>වැඩි ඔක්සිජන් ප්‍රමාණයක් ලැබීම.</strong></li><li><strong>ස්ටෙරොයිඩ් ඉන්හේලර් භාවිතා කරන්නේ ඉතා කුඩා මාත්‍රාවකි,</strong> එය <strong>ස්ටෙරොයිඩ් ටැබ්ලටවලට වඩා බෙහෙවින් වෙනස්.</strong></li><li><strong>Asthalin වැඩිපුර අවශ්‍ය වීම අනතුරු ඇඟවීමකි.</strong> <strong>වහාම සායනයට එන්න.</strong></li></ul></div>
@@ -1021,7 +1359,11 @@
 </div>
 
 <div class="blk" id="blk-A-10">
-  <div class="blk-head"><span class="blk-id">A-10</span> Labour, surgery and breastfeeding</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-10</span> Labour, surgery and breastfeeding</div>
+    <div class="bh-si">ප්‍රසූතිය, ශල්‍යකර්ම සහ මව්කිරි දීම (ගර්භනී, ගර්භනී නොවන)</div>
+    <div class="bh-ta">பிரசவம், அறுவைச் சிகிச்சை, தாய்ப்பாலூட்டல் (கர்ப்பிணி, கர்ப்பமில்லாதவர்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-10.png" alt="Labour, surgery and breastfeeding" loading="lazy"></div>
     <div class="lang lang-si"><h4>ප්‍රසූතිය, ශල්‍යකර්ම සහ මව්කිරි දීම (ගර්භනී, ගර්භනී නොවන)</h4><ul><li><strong>ඔබේ ඉන්හේලර් සහ ස්පේසරය රෝහලට රැගෙන එන්න.</strong></li><li><strong>වෛද්‍යවරයාට සහ නිර්වින්දන වෛද්‍යවරයාට ඔබට ඇදුම ඇති බව පවසන්න.</strong> <strong>ප්‍රසූතියේදී සහ ශල්‍යකර්මවලදී භාවිතා කරන සමහර බෙහෙත් ඇදුම උත්තේජනය කළ හැක.</strong></li><li><strong>ශල්‍යකර්මයට පෙර සහ පසුවද ඔබේ ඉන්හේලර් භාවිතා කරන්න.</strong></li><li><strong>සියලුම ඇදුම ඉන්හේලර් මව්කිරි දීමේදී ආරක්ෂිතයි.</strong></li></ul></div>
@@ -1031,7 +1373,11 @@
 </div>
 
 <div class="blk" id="blk-A-11">
-  <div class="blk-head"><span class="blk-id">A-11</span> Myths and facts</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">A-11</span> Myths and facts</div>
+    <div class="bh-si">ඇදුම රෝගය ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</div>
+    <div class="bh-ta">கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/A-11.png" alt="Myths and facts" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඇදුම රෝගය ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
@@ -1057,13 +1403,23 @@
 </table></div>
   </div>
 </div>
-</section>
+    </section>
 
-<section id="chap-O" class="chapter">
-  <h2>Chapter 5: Obesity and Healthy Weight</h2>
-  
+    <section class="view" id="chap-O">
+      <div class="view-title-wrap">
+        <h2 class="view-title">
+          <span class="vt-si">ස්ථුලතාවය සහ නිසි බර</span>
+          <span class="vt-ta">உடல் பருமனும் ஆரோக்கிய எடையும்</span>
+          <span class="vt-en">Chapter 5: Obesity and Healthy Weight</span>
+        </h2>
+      </div>
+      
 <div class="blk" id="blk-O-01">
-  <div class="blk-head"><span class="blk-id">O-01</span> What is obesity?</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-01</span> What is obesity?</div>
+    <div class="bh-si">ස්ථුලතාවය යනු කුමක්ද? (සියලුදෙනා)</div>
+    <div class="bh-ta">உடல் பருமன் என்றால் என்ன? (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-01.png" alt="What is obesity?" loading="lazy"></div>
     <div class="lang lang-si"><h4>ස්ථුලතාවය යනු කුමක්ද? (සියලුදෙනා)</h4><ul><li><strong>ඔබේ සෞඛ්‍යයට සරිලන ප්‍රමාණයට වඩා වැඩි ශරීර මේදයක් තැන්පත්වී තිබීමයි.</strong></li><li><strong>BMI සහ ඉඟටියේ වට ප්‍රමාණයෙන් ස්ථුලතාවය මනිනු ලැබේ.</strong></li><li><strong>දකුණු ආසියානු කාන්තාවන්ට අඩු BMI අගයකදී සෞඛ්‍ය ගැටලු ඇති වන බැවින් අපි ආසියානු සීමාවන් භාවිතා කරමු.</strong></li></ul></div>
@@ -1073,7 +1429,11 @@
 </div>
 
 <div class="blk" id="blk-O-02">
-  <div class="blk-head"><span class="blk-id">O-02</span> Your BMI</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-02</span> Your BMI</div>
+    <div class="bh-si">ඔබේ BMI අගය (සියලුදෙනා)</div>
+    <div class="bh-ta">உங்கள் BMI (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-02a.png" alt="Your BMI" loading="lazy"><img src="images/O-02b.png" alt="Your BMI" loading="lazy"></div>
     <div class="lang lang-si"><h4>ඔබේ BMI අගය (සියලුදෙනා)</h4><p><strong>BMI = බර (kg) / උස (m) / උස (m).</strong> <em>උදාහරණය: 68 kg, 1.55 m: 68 / 1.55 / 1.55 = 28.3.</em></p>
@@ -1107,7 +1467,11 @@
 </div>
 
 <div class="blk" id="blk-O-03">
-  <div class="blk-head"><span class="blk-id">O-03</span> Why weight matters</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-03</span> Why weight matters</div>
+    <div class="bh-si">බර වැදගත් වන්නේ ඇයි (සියලුදෙනා)</div>
+    <div class="bh-ta">எடை ஏன் முக்கியம் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-03.jpg" alt="Why weight matters" loading="lazy"></div>
     <div class="lang lang-si"><h4>බර වැදගත් වන්නේ ඇයි (සියලුදෙනා)</h4><table class="blk-table">
@@ -1144,7 +1508,11 @@
 </div>
 
 <div class="blk" id="blk-O-04">
-  <div class="blk-head"><span class="blk-id">O-04</span> Weight in pregnancy</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-04</span> Weight in pregnancy</div>
+    <div class="bh-si">ගර්භණීභාවයේදී බර (ගර්භනී)</div>
+    <div class="bh-ta">கர்ப்பத்தில் எடை (கர்ப்பிணி)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-04.jpg" alt="Weight in pregnancy" loading="lazy"></div>
     <div class="lang lang-si"><h4>ගර්භණීභාවයේදී බර (ගර්භනී)</h4><ul><li><strong>සෑම පැමිණීමකදීම ඔබේ බර මනිනු ලැබේ.</strong></li><li><strong>ඔබ කොපමණ බර වැඩි කරගත යුතුදැයි ඔබේ වෛද්‍යවරයා කියයි.</strong> මෙහි ලියන්න: ____ [CHECK]</li><li><strong>ගර්භණීභාවයේදී ආහාර පාලනය හෝ "බර අඩු කිරීම" නොකරන්න.</strong> <strong>බර වැඩිවීම මන්දගාමී කිරීම අරමුණු කරන්න, බර අඩු කිරීම නොවේ.</strong></li><li><strong>වේගවත් බර වැඩිවීම හෝ හදිසි ඉදිමීම වහාම වෛද්‍යවරයාට දන්වන්න.</strong></li></ul></div>
@@ -1154,7 +1522,11 @@
 </div>
 
 <div class="blk" id="blk-O-05">
-  <div class="blk-head"><span class="blk-id">O-05</span> Healthy eating for weight control</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-05</span> Healthy eating for weight control</div>
+    <div class="bh-si">බර පාලනය සඳහා නිරෝගී ආහාර (සියලුදෙනා)</div>
+    <div class="bh-ta">எடைக் கட்டுப்பாட்டுக்கான ஆரோக்கிய உணவு (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-05a.png" alt="Healthy eating for weight control" loading="lazy"><img src="images/O-05b.jpg" alt="Healthy eating for weight control" loading="lazy"></div>
     <div class="lang lang-si"><h4>බර පාලනය සඳහා නිරෝගී ආහාර (සියලුදෙනා)</h4><ul><li><strong>පිඟාන භාවිතා කරන්න</strong> (D-05): <strong>භාගයක් එළවළු, හතරෙන් එකක් බත්, හතරෙන් එකක් ප්‍රෝටීන්.</strong></li><li><strong>බත් කෝප්පයකින් මනින්න.</strong> <strong>දෙවන වතාවක් බෙදා නොගන්න.</strong> <strong>රතු හෝ පාබොයිල් බත් සහ පරිප්පු වර්ග තෝරන්න.</strong></li><li><strong>ආහාර වේල් මඟ නොහරින්න. නිසි වේලාවට ආහාර වේල් 3ක් සහ කුඩා වේල් (Snacks) 2ක් ගන්න.</strong></li><li><strong>අඩුවෙන් භාවිතා කළ යුතු දෑ:</strong> <strong>සීනි දැමූ තේ, බෝතල් කළ බීම, යුෂ, රසකැවිලි, බිස්කට්, කේක්, කැවුම්, කොකිස් සහ බැදපු කෑම.</strong></li><li><strong>තෙල් සහ පොල් අඩුවෙන් භාවිතා කරන්න.</strong> <strong>තම්බන්න, වාෂ්ප කරන්න (steam) හෝ බේක් කරන්න.</strong></li><li><strong>සෙමින් කන්න.</strong> <strong>හොඳින් සෑහුණු විට නවත්වන්න.</strong></li><li><strong>අමතර වේල්:</strong> <strong>තම්බාගත් කව්පි හෝ මුං ඇට, කුඩා පලතුරක් (පේර, පැපොල්).</strong></li><li><strong>වතුර: වීදුරු 6-8 ක්.</strong></li><li><strong>ශරීර සිහින් කරන ටැබ්ලට්, තේ හෝ ඔසු භාවිතා නොකරන්න.</strong> <strong>ගර්භණීභාවයේදී හෝ මව්කිරි දීමේදී කිසිවිටෙක භාවිතා නොකරන්න.</strong></li></ul></div>
@@ -1164,7 +1536,11 @@
 </div>
 
 <div class="blk" id="blk-O-06">
-  <div class="blk-head"><span class="blk-id">O-06</span> Being active</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-06</span> Being active</div>
+    <div class="bh-si">ක්‍රියාශීලීව සිටීම (සියලුදෙනා)</div>
+    <div class="bh-ta">சுறுசுறுப்பாக இருத்தல் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-06a.jpg" alt="Being active" loading="lazy"><img src="images/O-06b.jpg" alt="Being active" loading="lazy"></div>
     <div class="lang lang-si"><h4>ක්‍රියාශීලීව සිටීම (සියලුදෙනා)</h4><ul><li><strong>බොහෝ දිනවල මිනිත්තු 30 ක් අරමුණු කරන්න.</strong> <strong>වේගවත් ඇවිදීම වඩාත් හොඳ වේ.</strong> <strong>මිනිත්තු 10 කින් පටන් ගන්න.</strong></li><li><strong>ව්‍යායාම කරන අතරතුර ඔබට පහසුවෙන් කතා කළ හැකි විය යුතුය.</strong></li><li><strong>පිහිනීම, සරල යෝග, ශ්‍රෝණි පතුල් ව්‍යායාම (pelvic floor exercise)</strong> හොඳ ව්‍යායාම වේ.</li><li><strong>ගර්භනී:</strong> රුධිර වහනය, තරල කාන්දු වීම, කරකැවිල්ල, පපුවේ වේදනාව, ගැබ් හැකිලීම හෝ දරුවාගේ චලන අඩුවීම තිබේ නම් <strong>ව්‍යායාම නවතා වහාම</strong> ඔබේ වෛද්‍යවරයාට දන්වන්න.</li><li><strong>ඔබට දියවැඩියාව, අධි රුධිර පීඩනය හෝ ඇදුම ඇත්නම්</strong> ආරක්ෂිත දේ ගැන <strong>වෛද්‍යවරයාගෙන් අසන්න.</strong></li></ul></div>
@@ -1174,7 +1550,11 @@
 </div>
 
 <div class="blk" id="blk-O-07">
-  <div class="blk-head"><span class="blk-id">O-07</span> After delivery and after surgery</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-07</span> After delivery and after surgery</div>
+    <div class="bh-si">ප්‍රසූතියෙන් සහ ශල්‍යකර්මයෙන් පසු (ගර්භනී, ගර්භනී නොවන)</div>
+    <div class="bh-ta">பிரசவத்திற்குப் பின்னும் அறுவைச் சிகிச்சைக்குப் பின்னும் (கர்ப்பிணி, கர்ப்பமில்லாதவர்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-07.jpg" alt="After delivery and after surgery" loading="lazy"></div>
     <div class="lang lang-si"><h4>ප්‍රසූතියෙන් සහ ශල්‍යකර්මයෙන් පසු (ගර්භනී, ගර්භනී නොවන)</h4><ul><li><strong>මව්කිරි දෙන්න.</strong> <strong>එය බර සෙමින් අඩු කිරීමට උපකාරී වේ.</strong></li><li><strong>බර සෙමින් අඩු කරන්න.</strong> <strong>වේගවත් ආහාර පාලනය සුදුසු නොවේ.</strong></li><li><strong>සාමාන්‍ය ප්‍රසූතිය:</strong> <strong>පළමු දින තුළම ඇවිදීම සහ ශ්‍රෝණි ව්‍යායාම කරන්න.</strong></li><li><strong>සිසේරියන් හෝ ගයිනකොලොජි ශල්‍යකර්මයකින් පසු:</strong> <strong>කෙටි දුරක් ඇවිදින්න.</strong> <strong>බර ව්‍යායාම සඳහා ඔබේ වෛද්‍යවරයාගේ අවසරය ලැබෙන තුරු රැඳී සිටින්න.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය නිරෝගී බරකදී සැලසුම් කරන්න.</strong></li></ul></div>
@@ -1184,7 +1564,11 @@
 </div>
 
 <div class="blk" id="blk-O-08">
-  <div class="blk-head"><span class="blk-id">O-08</span> Myths and facts</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">O-08</span> Myths and facts</div>
+    <div class="bh-si">ස්ථුලතාවය සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</div>
+    <div class="bh-ta">கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/O-08.png" alt="Myths and facts" loading="lazy"></div>
     <div class="lang lang-si"><h4>ස්ථුලතාවය සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
@@ -1211,13 +1595,19 @@
 <p><em>These are shown as examples. They are not tear-outs and not given to the woman.</em></p></div>
   </div>
 </div>
-</section>
+    </section>
 
-<section class="samples" id="samples">
-  <h2>Sample diary pages</h2>
-  
+    <section class="view" id="view-samples">
+      <div class="view-title-wrap">
+        <h2 class="view-title"><span class="vt-en">Sample diary pages</span></h2>
+      </div>
+      
 <div class="blk" id="blk-S-01">
-  <div class="blk-head"><span class="blk-id">S-01</span> Sample: blood sugar page</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">S-01</span> Sample: blood sugar page</div>
+    <div class="bh-si">නිදර්ශනය: රුධිර සීනි පිටුව</div>
+    <div class="bh-ta">மாதிரி: இரத்தச் சர்க்கரைப் பக்கம்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/S-01.png" alt="Sample: blood sugar page" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිදර්ශනය: රුධිර සීනි පිටුව</h4><table class="blk-table">
@@ -1236,7 +1626,11 @@
 </div>
 
 <div class="blk" id="blk-S-02">
-  <div class="blk-head"><span class="blk-id">S-02</span> Sample: blood pressure page</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">S-02</span> Sample: blood pressure page</div>
+    <div class="bh-si">නිදර්ශනය: රුධිර පීඩන පිටුව</div>
+    <div class="bh-ta">மாதிரி: இரத்த அழுத்தப் பக்கம்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/S-02.png" alt="Sample: blood pressure page" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිදර්ශනය: රුධිර පීඩන පිටුව</h4><table class="blk-table">
@@ -1255,7 +1649,11 @@
 </div>
 
 <div class="blk" id="blk-S-03">
-  <div class="blk-head"><span class="blk-id">S-03</span> Sample: inhaler and asthma plan</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">S-03</span> Sample: inhaler and asthma plan</div>
+    <div class="bh-si">නිදර්ශනය: ඉන්හේලරය සහ ඇදුම සැලැස්ම</div>
+    <div class="bh-ta">மாதிரி: இன்ஹேலரும் ஆஸ்துமாத் திட்டமும்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/S-03.png" alt="Sample: inhaler and asthma plan" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිදර්ශනය: ඉන්හේලරය සහ ඇදුම සැලැස්ම</h4><ul><li><strong>කොළ:</strong> උදේ සහ සවස Seroflo ____ පෆ්.</li><li><strong>කහ:</strong> Asthalin ____ පෆ්; අද සායනයට.</li><li><strong>රතු:</strong> Asthalin එකින් එක පෆ්; <strong>දැන්ම රෝහලට.</strong></li><li><strong>ඉන්හේලරය ආරම්භ කළ දිනය ____ අවසන් වන දිනය ____.</strong></li></ul></div>
@@ -1265,7 +1663,11 @@
 </div>
 
 <div class="blk" id="blk-S-04">
-  <div class="blk-head"><span class="blk-id">S-04</span> Sample: insulin page</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">S-04</span> Sample: insulin page</div>
+    <div class="bh-si">නිදර්ශනය: ඉන්සියුලින් පිටුව</div>
+    <div class="bh-ta">மாதிரி: இன்சுலின் பக்கம்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/S-04.png" alt="Sample: insulin page" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිදර්ශනය: ඉන්සියුලින් පිටුව</h4><table class="blk-table">
@@ -1296,7 +1698,11 @@
 </div>
 
 <div class="blk" id="blk-S-05">
-  <div class="blk-head"><span class="blk-id">S-05</span> Sample: thyroid and weight page</div>
+  <div class="blk-head">
+    <div class="bh-en"><span class="blk-id">S-05</span> Sample: thyroid and weight page</div>
+    <div class="bh-si">නිදර්ශනය: තයිරොයිඩ් සහ බර පිටුව</div>
+    <div class="bh-ta">மாதிரி: தைராய்டு, எடைப் பக்கம்</div>
+  </div>
   <div class="blk-body">
     <div class="blk-images"><img src="images/S-05.png" alt="Sample: thyroid and weight page" loading="lazy"></div>
     <div class="lang lang-si"><h4>නිදර්ශනය: තයිරොයිඩ් සහ බර පිටුව</h4><table class="blk-table">
@@ -1310,14 +1716,10 @@
 </table></div>
   </div>
 </div>
-</section>
+    </section>
 
-</main>
-
-<footer>
-  <div>Copyright © 2026 Dr. Archuthan Nithiyananthan. All rights reserved.</div>
-  <div class="qr-note">Scan the QR code in the printed book to return to this page.</div>
-</footer>
+  </main>
+</div>
 
 </body>
 </html>
