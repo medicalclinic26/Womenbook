@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Women's Health Patient Education</title>
+<style>
+  :root {
+    --accent: #1f6fb8;
+    --accent-dark: #1a5a94;
+    --ink: #1f2d3a;
+    --muted: #5a6b7a;
+    --bg: #f7f9fb;
+    --card: #ffffff;
+    --border: #e2e8ee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e8edf2; --muted: #a9b7c4; --bg: #11161c; --card: #171f27; --border: #26303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8edf2; --muted: #a9b7c4; --bg: #11161c; --card: #171f27; --border: #26303a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Sinhala", "Noto Sans Tamil", sans-serif;
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff; padding: 48px 16px 40px; text-align: center;
+  }
+  header.hero h1 { margin: 0 0 6px; font-size: 1.9rem; }
+  header.hero .si { font-size: 1.3rem; margin: 2px 0; }
+  header.hero .ta { font-size: 1.15rem; margin: 2px 0; opacity: .95; }
+  header.hero .sub { margin-top: 14px; font-size: .95rem; opacity: .9; }
+  header.hero .edition { margin-top: 10px; font-size: .85rem; opacity: .85; letter-spacing: .03em; text-transform: uppercase; }
+  nav.toc {
+    max-width: 880px; margin: -24px auto 0; background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  }
+  nav.toc a.toc-link {
+    text-decoration: none; color: var(--accent-dark); background: color-mix(in srgb, var(--accent) 10%, transparent);
+    padding: 8px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 28px 16px 70px; }
+  section.frontmatter, section.chapter, section.samples { margin-bottom: 36px; }
+  section.frontmatter h2, section.chapter h2, section.samples h2 {
+    font-size: 1.3rem; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 16px;
+  }
+  .fm-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px;
+  }
+  .fm-card h3 { margin: 0 0 8px; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .fm-card ul { margin: 4px 0; padding-left: 20px; }
+  .fm-card p.dedication { font-style: italic; font-size: 1.05rem; color: var(--ink); }
+  details.blk {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+  }
+  details.blk summary {
+    cursor: pointer; padding: 14px 16px; font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: baseline;
+  }
+  details.blk summary::-webkit-details-marker { display: none; }
+  details.blk summary::before { content: '+'; color: var(--accent); font-weight: 800; margin-right: 2px; }
+  details.blk[open] summary::before { content: '\2212'; }
+  .blk-id { font-size: .72rem; color: #fff; background: var(--accent); padding: 2px 8px; border-radius: 999px; font-weight: 700; }
+  .blk-body { padding: 0 16px 16px; border-top: 1px solid var(--border); }
+  .blk-images { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 4px; }
+  .blk-images img { max-width: 100%; width: 280px; border-radius: 10px; border: 1px solid var(--border); object-fit: cover; }
+  .lang { padding: 12px 0; border-bottom: 1px dashed var(--border); }
+  .lang:last-child { border-bottom: none; }
+  .lang h4 { margin: 0 0 6px; font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .lang-si { font-family: "Noto Sans Sinhala", sans-serif; }
+  .lang-ta { font-family: "Noto Sans Tamil", sans-serif; }
+  .lang p { margin: 6px 0; }
+  .lang ul, .lang ol { margin: 6px 0; padding-left: 22px; }
+  table.blk-table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: .92rem; }
+  table.blk-table th, table.blk-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+  table.blk-table th { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  footer {
+    text-align: center; padding: 30px 16px 50px; color: var(--muted); font-size: .85rem;
+  }
+  .qr-note { margin-top: 8px; font-size: .8rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Women's Health</h1>
+  <div class="si">කාන්තාවන්ගේ සෞඛ්‍ය තත්ත්ව පිළිබඳ අත්පොත</div>
+  <div class="ta">பெண்கள் நலம் – நோயாளர் கல்விப் புத்தகம்</div>
+  <div class="sub">A Patient Education Handbook</div>
+  <div class="sub">ප්‍රසව, පසු ප්‍රසව සහ නාරිවේද සායන වලට පැමිණෙන කාන්තාවන්ගේ සෞඛ්‍ය ගැටළු සඳහා අධ්‍යාපනික අත්පොත</div>
+  <div class="sub">கர்ப்பிணிகள், பிரசவத்திற்குப் பின் மற்றும் மகப்பேறு அல்லாத மகளிர் நோய் கிளினிக் பெண்களுக்கான கற்பித்தல் புத்தகம்</div>
+  <div class="edition">First Edition, 2026</div>
+</header>
+
+<nav class="toc">
+<a href="#chap-D" class="toc-link">Chapter 1: Diabetes</a>
+<a href="#chap-H" class="toc-link">Chapter 2: High Blood Pressure</a>
+<a href="#chap-T" class="toc-link">Chapter 3: Thyroid Disease</a>
+<a href="#chap-A" class="toc-link">Chapter 4: Asthma</a>
+<a href="#chap-O" class="toc-link">Chapter 5: Obesity and Healthy Weight</a>
+<a href="#frontmatter" class="toc-link">About this book</a>
+<a href="#samples" class="toc-link">Sample pages</a>
+</nav>
+
+<main>
+
+<section class="frontmatter" id="frontmatter">
+  <h2>About this book</h2>
+  <div class="fm-card">
+    <h3>Prepared by</h3>
+    <ul><li>Dr. Archuthan Nithiyananthan (RHO)</li></ul>
+    <h3>Translated and Proofread by</h3>
+    <ul><li>Dr. Yasodara Amarasinghe (RHO)</li><li>Dr. Achintha Welivita (RHO)</li><li>Dr. Kasunika Ruwandi Perera (RHO)</li><li>Dr. Thalpe Guruge Madara Malsirini (RHO)</li></ul>
+  </div>
+  <div class="fm-card">
+    <h3>Dedication</h3>
+    <p class="dedication">To all the women who have stepped into our lives — and in doing so, healed us and blessed us in return.</p>
+  </div>
+  <div class="fm-card">
+    <h3>Acknowledgements</h3>
+    <p>We extend our heartfelt gratitude to our Consultant Physician, Dr. Shamitha Dassanayaka, whose guidance and support made this project possible.</p>
+    <p>We also thank our clinical team for their steadfast encouragement:</p>
+    <ul><li>Dr. Kumudu Kulasekara</li><li>Dr. Jeewashini Rathnayake</li><li>Dr. Jeganthy Eapan</li><li>Dr. Azrah Najimudeen</li><li>Mrs. P. K. K. Manike</li><li>Mrs. N. S. M. P. M. Nanayakkara</li><li>Mrs. Manike</li><li>Ms. Sandamali</li><li>Ms. Lakshika</li></ul>
+  </div>
+  <div class="fm-card">
+    <h3>How this book is used</h3>
+    
+<details class="blk">
+  <summary><span class="blk-id">F-01</span> How to use this book</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/F-01.jpg" alt="How to use this book" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඉගැන්වීම සඳහා මෙම පොත භාවිතා කරන ආකාරය (හෙදිය සඳහා)</h4><ul><li>මෙහි එක් එක් පරිච්ඡේදය රෝගියා සමඟ <strong>සාකච්ඡා කරන්න.</strong> එවිටම <strong>පින්තූර පෙන්වා දෙන්න.</strong></li><li><strong>ප්‍රායෝගික ක්‍රියාකාරකම්</strong> ඇතුළත් කොටස් ඔබ මුලින් <strong>නිරූපණය කර පෙන්වා දී</strong> රෝගියාට එය <strong>අනුකරණය කරන්න සලස්වන්න</strong> (සීනි පරීක්ෂාව, ඉන්හේලරය භාවිතය, ඉන්සියුලින් එන්නත් කිරීම).</li><li>පොතේ පසුපස ඇති <strong>නිදර්ශන පිටු</strong> පෙන්වන්න. ඇයට ඒවා <strong>තමන්ගේම සායන පොතට</strong> පිටපත් කරගන්න සලස්වන්න.</li><li>සෑම සායන වාරයකටම තම <strong>සායන පොත සහ භාවිතා කරන බෙහෙත්</strong> ගෙන එන ලෙස පවසන්න.</li></ul></div>
+    <div class="lang lang-ta"><h4>இப்புத்தகத்தைப் பயன்படுத்தும் முறை (செவிலியருக்கு)</h4><ul><li>ஒரு நேரத்தில் ஒரு பகுதியாக அந்தப் பெண்ணுடன் கலந்துரையாடுங்கள். படங்களைக் காட்டுங்கள்.</li><li>அவரையே <strong>செய்து காட்டச்</strong> சொல்லுங்கள் (சர்க்கரை பரிசோதனை, இன்ஹேலர் பயன்பாடு, இன்சுலின் எடுத்தல்).</li><li>பின்னால் உள்ள <strong>மாதிரிப் பக்கங்களைக்</strong> காட்டுங்கள். அவர் அவற்றைத் <strong>தமது சொந்த கிளினிக் புத்தகத்தில்</strong> பிரதி எடுத்துக்கொள்வார்.</li><li>ஒவ்வொரு கிளினிக் வருகைக்கும் <strong>கிளினிக் புத்தகத்தையும் மருந்துகளையும்</strong> கொண்டுவரச் சொல்லுங்கள்.</li></ul></div>
+    <div class="lang lang-en"><h4>How to use this book</h4><ul><li>Go through <strong>one block at a time</strong> with the woman. Point at the pictures.</li><li>Ask her to <strong>show you</strong> (test sugar, use the inhaler, draw up insulin).</li><li>Show the <strong>sample diary pages</strong> at the back. She copies them into <strong>her own clinic book</strong>.</li><li>Ask her to bring her <strong>clinic book and medicines</strong> to every visit.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">F-02</span> Come to hospital NOW</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/F-02.png" alt="Come to hospital NOW" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඕනෑම කාන්තාවක් වහාම රෝහලට පැමිණිය යුතු අවස්ථා</h4><ul><li><strong>අධික රුධිර වහනය</strong> (පැයක් ඇතුළත පෑඩ් එකක් පෙඟී යන තරම්), ගර්භනී කාලයේ ඕනෑම රුධිර වහනයක්.</li><li><strong>යෝනියෙන් එකවර වතුර වැනි දියරයක් පිටවීම</strong> (Water bag එක කැඩීයාම), <strong>දරුවාගේ චලන අඩුවීම.</strong></li><li><strong>වලිප්පුව</strong> හෝ සිහිසුන් වීම.</li><li><strong>දරුණු හිසේ කැක්කුම,</strong> ඇස් ඉදිරිපිට <strong>චායාවන්/එලි වැනි යමක් පෙනීම</strong> හෝ <strong>බොඳවී පෙනීම.</strong></li><li><strong>දරුණු උදරයේ වේදනාව.</strong></li><li><strong>හුස්ම ගැනීමේ අපහසුතාවය,</strong> තොල් හෝ නියපොතු <strong>නිල් පැහැ වීම.</strong></li><li><strong>අධික උණ,</strong> යෝනි මාර්ගයෙන් <strong>දුගඳක් සහිත ස්‍රාවයක් පිටවීම.</strong></li><li><strong>ශල්‍යකර්මයකින් පසු:</strong> තුවාලය විවෘත වීම හෝ <strong>සැරව ගලා යාම,</strong> උණ, <strong>අධික කකුලේ වේදනාව හෝ ඉදිමීම,</strong> ක්ෂණික හුස්ම සිරවීම.</li></ul></div>
+    <div class="lang lang-ta"><h4>உடனடியாக மருத்துவமனைக்கு வாருங்கள் (எல்லாப் பெண்களும்)</h4><ul><li><strong>அதிக இரத்தப்போக்கு</strong> (ஒரு மணி நேரத்தில் பேட் நனையுமளவு), அல்லது கர்ப்ப காலத்தில் எந்த இரத்தப்போக்கும்.</li><li><strong>பனிக்குடம் உடைதல்</strong> அல்லது <strong>குழந்தையின் அசைவு மிகவும் குறைதல்</strong>.</li><li><strong>வலிப்பு</strong>, அல்லது மயங்கி விழுதல்.</li><li><strong>கடுமையான தலைவலி</strong>, <strong>கண்முன் ஒளிக்கீற்றுகள்</strong> அல்லது <strong>பார்வை மங்குதல்</strong>.</li><li><strong>கடுமையான வயிற்று வலி</strong>.</li><li><strong>மூச்சு விடச் சிரமம்</strong>, அல்லது உதடுகள் நீல நிறமாதல்.</li><li><strong>அதிகக் காய்ச்சல்</strong>, அல்லது <strong>துர்நாற்றமுள்ள வெள்ளைப்படுதல்</strong>.</li><li><strong>அறுவைச் சிகிச்சைக்குப் பின்:</strong> காயம் திறத்தல் அல்லது <strong>சீழ் வடிதல்</strong>, காய்ச்சல், <strong>கால் தசை வலி அல்லது வீக்கம்</strong>, திடீர் மூச்சுத் திணறல்.</li></ul></div>
+    <div class="lang lang-en"><h4>Come to hospital NOW</h4><ul><li><strong>Heavy bleeding</strong> (soaking a pad in an hour), or any bleeding in pregnancy.</li><li><strong>Water breaking</strong>, or the <strong>baby moving much less</strong>.</li><li><strong>Fit</strong> (seizure), or fainting.</li><li><strong>Severe headache</strong>, <strong>flashing lights</strong> or <strong>blurred vision</strong>.</li><li><strong>Severe belly pain.</strong></li><li><strong>Difficulty breathing</strong>, or blue lips.</li><li><strong>High fever</strong>, or <strong>foul-smelling discharge</strong>.</li><li><strong>After an operation:</strong> wound opening or <strong>leaking pus</strong>, fever, <strong>calf pain or swelling</strong>, sudden breathlessness.</li></ul></div>
+  </div>
+</details>
+  </div>
+  <div class="fm-card">
+    <p>Copyright © 2026 Dr. Archuthan Nithiyananthan. All rights reserved.</p>
+    <p style="font-size:.82rem;color:var(--muted)">No part of this publication may be reproduced, stored, or transmitted in any form without the prior written permission of the author, except for brief quotations in reviews or educational handouts.</p>
+    <p style="font-weight:600">For patient and community health use.</p>
+  </div>
+</section>
+
+
+<section id="chap-D" class="chapter">
+  <h2>Chapter 1: Diabetes</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">D-01</span> What is diabetes?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-01.png" alt="What is diabetes?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>දියවැඩියාව යනු කුමක්ද?</h4><ul><li>ශරීරයේ ශක්තිය සඳහා රුධිරයේ ඇති සීනි ශරීර සෛල තුළට යැවීමට <strong>ඉන්සියුලින්</strong> උපකාරී වේ.</li><li>දියවැඩියාවේදී ශරීරයේ <strong>ඉන්සියුලින් හෝමෝනය ප්‍රමාණවත් නොවේ, නැතහොත් නිසි ලෙස ක්‍රියා නොකරයි.</strong> එමනිසා රුධිරයේ සීනි ඉහළ මට්ටමක පවතී.</li><li><strong>ගර්භනී කාන්තාවන්ගේ:</strong></li><li><strong>ගර්භණීභාවයට පෙර සිට ඇති දියවැඩියාව</strong> (Type 1 and Type 2).</li><li><strong>ගර්භනී සමයේ දියවැඩියාව (GDM)</strong> - <strong>ගර්භණීභාවයේදී ආරම්භ වී</strong> සාමාන්‍යයෙන් ප්‍රසූතියෙන් පසු සුව වේ.</li><li><strong>ගර්භනී නොවන කාන්තාවන්ගේදී:</strong> බොහෝවිට <strong>Type 2 දියවැඩියාව.</strong></li><li>දකුණු ආසියාතික කාන්තාවන් අතර දියවැඩියාව සුලභ බැවින්, ශ්‍රී ලංකාවේ සියලුම ගර්භනී කාන්තාවන් දියවැඩියාවට පරීක්ෂා කරනු ලැබේ.</li></ul></div>
+    <div class="lang lang-ta"><h4>நீரிழிவு என்றால் என்ன?</h4><ul><li>இரத்தத்தில் உள்ள சர்க்கரையை சக்திக்காக உடற்கலங்களுக்குள் அனுப்ப <strong>இன்சுலின்</strong> உதவுகிறது.</li><li>நீரிழிவில் <strong>இன்சுலின் போதுமானதாக இல்லை, அல்லது சரியாக வேலை செய்யாது.</strong> இரத்தத்தில் சர்க்கரை அதிகமாக இருக்கும்.</li><li><strong>கர்ப்பிணிகளில்:</strong></li><li><strong>கர்ப்பத்திற்கு முன்பிருந்தே உள்ள நீரிழிவு</strong> (வகை 1 அல்லது வகை 2).</li><li><strong>கர்ப்பகால நீரிழிவு (GDM)</strong> - <strong>கர்ப்பத்தின்போது தொடங்கி,</strong> பொதுவாகப் பிரசவத்திற்குப் பின் சரியாகிவிடும்.</li><li><strong>கர்ப்பமில்லாத பெண்களில்:</strong> பெரும்பாலும் <strong>வகை 2 நீரிழிவு</strong>.</li><li>தென்னாசியப் பெண்களுக்கு நீரிழிவு அதிகமாக வருவதால், இலங்கையில் எல்லாக் கர்ப்பிணிகளுக்கும் பரிசோதனை செய்யப்படுகிறது.</li></ul></div>
+    <div class="lang lang-en"><h4>What is diabetes?</h4><ul><li>Your body uses <strong>insulin</strong> to move sugar from the blood into the body for energy.</li><li>In diabetes there is <strong>too little insulin, or it does not work well.</strong> Sugar stays high in the blood.</li><li><strong>In women who are pregnant:</strong></li><li><strong>Diabetes before pregnancy</strong> (Type 1 or Type 2).</li><li><strong>Gestational diabetes (GDM)</strong>, which <strong>starts in pregnancy</strong> and usually goes after delivery.</li><li><strong>In women who are not pregnant:</strong> mostly <strong>Type 2 diabetes</strong>.</li><li>All pregnant women in Sri Lanka are tested, because diabetes is common in South Asian women.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-02</span> Why keep sugar under control?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-02.jpg" alt="Why keep sugar under control?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>රුධිරයේ සීනි පාලනය කළ යුත්තේ ඇයි?</h4><table class="blk-table">
+<tr><th>රුධිරයේ සීනි ඉහළ ගියහොත්</th><th>ප්‍රතිඵල</th></tr>
+<tr><td><strong>ගැබිණි සමයේ</strong></td><td>දරුවාගේ බර වැඩිවීම, ප්‍රසූතිය අපහසු වීම, උපතින් පසු දරුවාගේ සීනි අඩු වීම, අධි රුධිර පීඩනය, ආසාදන, සිසේරියන් සැත්කම් වැඩි වීම</td></tr>
+<tr><td><strong>ගර්භනී නොවන කාන්තාවන් සඳහා</strong></td><td>ශල්‍යකර්මයෙන් පසු තුවාලය සුවවීම ප්‍රමාද වීම, ගර්භාෂ ආසාදන, <strong>යීස්ට් (කැසීම සහිත සුදු ස්‍රාවය)</strong>, මුත්‍රා ආසාදන, ඇස්, වකුගඩු, ස්නායු සහ හදවත් රෝග</td></tr>
+</table>
+<ul><li><strong>හොඳින් පාලනය කළ විට සෞඛ්‍ය සම්පන්න දරුවන් ලැබේ. ආරක්ෂිත ලෙස ශල්‍යකර්ම කරගැනීමට හැකි වේ.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>சர்க்கரையை ஏன் கட்டுப்படுத்த வேண்டும்?</h4><table class="blk-table">
+<tr><th>சர்க்கரை அதிகமாக இருந்தால்</th><th>ஏற்படக்கூடியவை</th></tr>
+<tr><td><strong>கர்ப்பிணி</strong></td><td>குழந்தை பெரிதாதல், கடினமான பிரசவம், பிறந்த பின் குழந்தையின் சர்க்கரை குறைதல், உயர் இரத்த அழுத்தம், தொற்றுகள், அதிக சிசேரியன்</td></tr>
+<tr><td><strong>கர்ப்பமில்லாதவர்</strong></td><td>அறுவைச் சிகிச்சைக்குப் பின் காயம் ஆறத் தாமதம், காயம் மற்றும் கருப்பைத் தொற்றுகள், <strong>பூஞ்சைத் தொற்று (அரிப்புடன் வெள்ளைப்படுதல்)</strong>, சிறுநீர்த் தொற்றுகள், கண், சிறுநீரகம், நரம்பு மற்றும் இதய நோய்கள்</td></tr>
+</table>
+<ul><li><strong>நன்கு கட்டுப்படுத்தினால் ஆரோக்கியமான குழந்தைகளும் பாதுகாப்பான அறுவைச் சிகிச்சைகளும் கிடைக்கும்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Why keep sugar under control?</h4><table class="blk-table">
+<tr><th><strong>If sugar stays high</strong></th><th><strong>What can happen</strong></th></tr>
+<tr><td><strong>Pregnant</strong></td><td>Big baby, difficult birth, baby's sugar low after birth, high BP, infections, more Caesareans</td></tr>
+<tr><td><strong>Not pregnant</strong></td><td>Slow healing after operations, wound and womb infections, <strong>thrush</strong>, urine infections, eye, kidney, nerve and heart problems</td></tr>
+</table>
+<ul><li><strong>Good control means healthy babies and safe operations.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-03</span> Your sugar targets</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-03.png" alt="Your sugar targets" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ සීනි අගයන්ගේ ඉලක්ක</h4><table class="blk-table">
+<tr><th>වේලාව</th><th>ගර්භනී (mg/dL)</th><th>ගර්භනී නොවන</th></tr>
+<tr><td><strong>නිරාහාරව</strong> (උදේ ආහාරයට පෙර)</td><td><strong>95 ට අඩු</strong></td><td>මෙහි ලියන්න: ____ [CHECK]</td></tr>
+<tr><td>ආහාරය ආරම්භ කර <strong>පැය 1 කට පසු</strong></td><td><strong>140 ට අඩු</strong></td><td></td></tr>
+<tr><td>ආහාරය ආරම්භ කර <strong>පැය 2 කට පසු</strong></td><td><strong>120 ට අඩු</strong></td><td>මෙහි ලියන්න: ____</td></tr>
+</table>
+<ul><li><strong>70 ට අඩු වීම ඉතා පහළ මට්ටමකි.</strong> D-16 බලන්න.</li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் சர்க்கரை இலக்குகள்</h4><table class="blk-table">
+<tr><th>நேரம்</th><th>கர்ப்பிணி (mg/dL)</th><th>கர்ப்பமில்லாதவர்</th></tr>
+<tr><td><strong>வெறும் வயிற்றில்</strong> (காலை உணவுக்கு முன்)</td><td><strong>95 க்குக் குறைவு</strong></td><td>உங்கள் மருத்துவர் எழுதுவார்: ____ <strong>[CHECK]</strong></td></tr>
+<tr><td>உணவு தொடங்கி <strong>1 மணி நேரத்திற்குப் பின்</strong></td><td><strong>140 க்குக் குறைவு</strong></td><td></td></tr>
+<tr><td>உணவு தொடங்கி <strong>2 மணி நேரத்திற்குப் பின்</strong></td><td><strong>120 க்குக் குறைவு</strong></td><td>உங்கள் மருத்துவர் எழுதுவார்: ____</td></tr>
+</table>
+<ul><li><strong>70 க்குக் குறைவது மிகவும் குறைந்த அளவு.</strong> D-16 ஐப் பார்க்கவும்.</li></ul></div>
+    <div class="lang lang-en"><h4>Your sugar targets</h4><table class="blk-table">
+<tr><th><strong>When</strong></th><th><strong>Pregnant (mg/dL)</strong></th><th><strong>Not pregnant</strong></th></tr>
+<tr><td><strong>Fasting</strong> (before breakfast)</td><td><strong>under 95</strong></td><td>Your doctor writes: ____ <strong>CHECK</strong></td></tr>
+<tr><td><strong>1 hour</strong> after starting a meal</td><td><strong>under 140</strong></td><td></td></tr>
+<tr><td><strong>2 hours</strong> after starting a meal</td><td><strong>under 120</strong></td><td>Your doctor writes: ____</td></tr>
+</table>
+<ul><li><strong>Under 70 is too low.</strong> See D-16.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-04</span> Testing your sugar at home</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-04a.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04b.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04c.jpg" alt="Testing your sugar at home" loading="lazy"><img src="images/D-04d.png" alt="Testing your sugar at home" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිවසේදී සීනි පරීක්ෂා කිරීම</h4><ol><li>සබන් සහ උණු වතුරෙන් <strong>අත් සෝදා</strong> හොඳින් වියළන්න.</li><li>මීටරයට <strong>අලුත් ස්ට්‍රිප් එකක්</strong> දමන්න.</li><li><strong>අලුත් ලැන්සෙට් එකකින්</strong> ඇඟිල්ලේ <strong>එක පැත්තකට</strong> අනින්න. සෑම වතාවකම වෙනත් ඇඟිල්ලක් භාවිතා කරන්න.</li><li><strong>ලේ බිංදුව</strong> ස්ට්‍රිප් එකට ස්පර්ශ කරන්න.</li><li>ප්‍රතිඵලය සහ වේලාව <strong>ලියා තබන්න.</strong></li><li>ලැන්සෙට් එක <strong>තියුණු දේ දමන බෝතලයට</strong> දමන්න.</li></ol>
+<ul><li><strong>ගර්භනී නම්:</strong> නිරාහාරව, සහ උදේ, දහවල් සහ රාත්‍රී වේල් ආහාර ගැනීම ආරම්භ කළ වේලෙන් සිට <strong>පැය 2 කට පසු.</strong> ඉන්සියුලින් ගන්නේ නම් <strong>නිදාගැනීමට පෙරද.</strong></li><li><strong>ගර්භනී නොවන:</strong> ඔබේ වෛද්‍යවරයා පවසන පරිදි.</li><li><strong>සෑම පැමිණීමකටම ඔබේ සටහන් පොත හෝ සායන පොත ගෙන එන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>வீட்டில் சர்க்கரை பரிசோதனை</h4><ol><li>சோப்பு மற்றும் வெதுவெதுப்பான நீரால் <strong>கைகளைக் கழுவி</strong> நன்கு உலர்த்தவும்.</li><li>மீட்டரில் <strong>புதிய ஸ்டிரிப்</strong> செருகவும்.</li><li><strong>புதிய லான்செட்டால்</strong> விரல் நுனியின் <strong>பக்கத்தில்</strong> குத்தவும். ஒவ்வொரு முறையும் வேறு விரலைப் பயன்படுத்தவும்.</li><li><strong>இரத்தத் துளியை</strong> ஸ்டிரிப்பில் தொடவும்.</li><li>முடிவையும் நேரத்தையும் <strong>எழுதி வைக்கவும்.</strong></li><li>லான்செட்டை <strong>கூரான பொருட்களுக்கான போத்தலில்</strong> போடவும்.</li></ol>
+<ul><li><strong>எப்போது (கர்ப்பிணி):</strong> வெறும் வயிற்றில், மேலும் காலை, மதியம், இரவு உணவின் <strong>முதல் கவளத்திலிருந்து 2 மணி நேரத்திற்குப் பின்.</strong> இன்சுலின் எடுப்பவர்கள் <strong>படுக்கைக்கு முன்பும் செய்யவும்.</strong></li><li><strong>எப்போது (கர்ப்பமில்லாதவர்):</strong> உங்கள் மருத்துவர் கூறுவதுபோல்.</li><li><strong>ஒவ்வொரு வருகைக்கும் உங்கள் குறிப்பேட்டையோ கிளினிக் புத்தகத்தையோ கொண்டுவாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Testing your sugar at home</h4><ol><li><strong>Wash hands</strong> with soap and warm water. Dry well.</li><li>Put a <strong>new strip</strong> in the meter.</li><li>Prick the <strong>side of your fingertip</strong> with a <strong>new lancet</strong>. Use a different finger each time.</li><li>Touch the <strong>blood drop</strong> to the strip.</li><li><strong>Write down</strong> the result and the time.</li><li>Lancet into your <strong>sharps bottle</strong>.</li></ol>
+<ul><li><strong>When (pregnant):</strong> fasting, and <strong>2 hours after the first bite</strong> of breakfast, lunch and dinner. <strong>Bedtime too</strong> if on insulin.</li><li><strong>When (not pregnant):</strong> as your doctor says.</li><li><strong>Bring your diary or clinic book to every visit.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-05</span> Eating well with diabetes</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-05.png" alt="Eating well with diabetes" loading="lazy"></div>
+    <div class="lang lang-si"><h4>දියවැඩියාව සමඟ නිවැරදි ආහාර රටාව</h4><ul><li><strong>පිඟානෙන් භාගයක්: එළවළු සහ කොළ වර්ග</strong> (මැල්ලුම්, බෝංචි, වම්බටු, <strong>බණ්ඩක්කා, ගෝවා, පතෝල (දඬු ලබු)</strong>).</li><li><strong>හතරෙන් එකක්: රතු හෝ පාබොයිල් බත් (වඩාත් සුදුසුයි) හෝ වෙනත් සම්පූර්ණ ධාන්‍ය වර්ග. ඉඳි ආප්ප, ආප්ප, පිට්ටු, නූඩ්ල්ස් සහ පාන්: ස්වල්ප වශයෙන් පමණි.</strong> <strong>කෝප්පයකින් මැනගන්න.</strong></li><li><strong>හතරෙන් එකක්: ප්‍රෝටීන්</strong> (මාළු, බිත්තර, <strong>හම් නැති කුකුළු මස්</strong>, පරිප්පු, කඩල, මුං ඇට).</li><li><strong>තෙල් හෝ පොල් ස්වල්පයක්.</strong> දිනකට <strong>වතුර වීදුරු 6-8 ක් (මිලි ලීටර් 200 වීදුරු).</strong></li><li><strong>ආහාර වේල් 3ක් සහ අමතර වේල් 2ක්, සෑම දිනකම එකම වේලාවලට ගන්න.</strong> <strong>ආහාර වේල් මඟ නොහරින්න.</strong> බඩගින්නේ නොසිටින්න.</li><li><strong>කිරි: දිනකට අඩු මේද හෝ මේද රහිත කිරි වීදුරු 1-2 ක්.</strong></li><li><strong>ගර්භනී:</strong> රාත්‍රී ආහාරයත් උදේ ආහාරයත් අතර <strong>පැය 10-12</strong> ට වැඩි නොවිය යුතුය.</li></ul></div>
+    <div class="lang lang-ta"><h4>நீரிழிவுடன் ஆரோக்கியமான உணவு</h4><ul><li><strong>தட்டில் பாதி: காய்கறிகள் மற்றும் கீரை வகைகள்</strong> (மல்லும், பீன்ஸ், கத்தரிக்காய், <strong>வெண்டைக்காய், முட்டைக்கோஸ், புடலங்காய்</strong>).</li><li><strong>கால் பங்கு: சிவப்பரிசி அல்லது பாபாய்ல்டு அரிசிச் சோறு (சிறந்தது) அல்லது வேறு முழுத்தானிய உணவு. இடியாப்பம், ஆப்பம், பிட்டு, நூடுல்ஸ், பாண்: சிறிதளவு மட்டும்.</strong> <strong>கோப்பையால் அளந்து எடுக்கவும்.</strong></li><li><strong>கால் பங்கு: புரதம்</strong> (மீன், முட்டை, <strong>தோலில்லா கோழி</strong>, பருப்பு, கொண்டைக்கடலை, பாசிப்பயறு).</li><li><strong>சிறிதளவு எண்ணெய் அல்லது தேங்காய்.</strong> நாளொன்றுக்கு <strong>6-8 குவளை தண்ணீர் (200 மி.லி. குவளைகள்).</strong></li><li><strong>3 வேளை உணவும் 2 சிற்றுண்டியும், தினமும் ஒரே நேரங்களில்.</strong> <strong>உணவை விட்டுவிடாதீர்கள்.</strong> பட்டினி கிடக்காதீர்கள்.</li><li><strong>பால்: நாளொன்றுக்கு குறைந்த கொழுப்பு அல்லது கொழுப்பில்லாத பால் 1-2 குவளை.</strong></li><li><strong>கர்ப்பிணி:</strong> இரவு உணவுக்கும் காலை உணவுக்கும் இடையே <strong>10-12 மணி நேரத்திற்கு</strong> மேல் இடைவெளி கூடாது.</li></ul></div>
+    <div class="lang lang-en"><h4>Eating well with diabetes</h4><ul><li><strong>Half the plate: vegetables and leaves</strong> (mallum, beans, brinjal<strong>, ladies fingers, cabbage, pathola (snake gourd)</strong>). </li><li><strong>One quarter: red or parboiled rice (best) or other whole grains. String hoppers, hoppers, pittu, noodles and bread: small amounts only.</strong> Measure with a <strong>cup</strong>.</li><li><strong>One quarter: protein</strong> (fish, egg, <strong>skinless chicken</strong>, dhal, chick peas, green gram). </li><li><strong>Little oil or coconut.</strong> <strong>6-8 glasses of water</strong> a day<strong> (200 ml glasses)</strong>.</li><li><strong>3 meals and 2 snacks, at the same times daily.</strong> <strong>Do not skip meals.</strong> Do not starve.</li><li><strong>Pregnant:</strong> no more than <strong>10-12 hours</strong> between dinner and breakfast.</li><li><strong>Milk: 1-2 glasses of low-fat or non-fat milk a day.</strong> </li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-06</span> Choose and limit</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-06.jpg" alt="Choose and limit" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තෝරාගත යුතු සහ සීමා කළ යුතු ආහාර</h4><table class="blk-table">
+<tr><th>තෝරාගන්න</th><th>සීමා කරන්න හෝ වළක්වන්න</th></tr>
+<tr><td>රතු බත් හෝ පාබොයිල් බත් - කුඩා ප්‍රමාණයෙන්; තම්බාගත් මුං ඇට, කව්පි, කඩල</td><td>සුදු බත්, පාන්, නූඩ්ල්ස් විශාල ප්‍රමාණයෙන්; ඉඳි ආප්ප, ආප්ප, පිට්ටු; කුරක්කන් රොටී සහ තලප</td></tr>
+<tr><td>කොළ වර්ග සහ එළවළු</td><td>සීනි, හකුරු, කිතුල් පැණි, මී පැණි</td></tr>
+<tr><td>මාළු, බිත්තර, <strong>හම් නැති කුකුළු මස්</strong>, පරිප්පු</td><td>රසකැවිලි, කේක්, බිස්කට්, කැවුම්, කොකිස්; සතියකට වරකට වඩා රතු මස්; කුකුළු මස් හම; බටර්, මාගරින්</td></tr>
+<tr><td><strong>මධ්‍යම ප්‍රමාණයේ</strong> සම්පූර්ණ පලතුරු, <strong>දිනකට කොටස් 2-3 කට බෙදා</strong> (හෝ ආහාර වේලකදී කෝප්පයක් භාගයක්) (පේර, <strong>දොඩම්, ඇපල්,</strong> පැපොල් <strong>පෙති ලෙස</strong>)</td><td>පලතුරු යුෂ, බෝතල් බීම, සීනි දැමූ තේ; අඹ, රට ඉඳි, මුද්දරප්පලම්, කොමඩු (ස්වල්ප වශයෙන්); වියළි හෝ ටින් කළ පලතුරු</td></tr>
+<tr><td><strong>අඩු මේද හෝ මේද රහිත කිරි, දිනකට වීදුරු 1-2 ක්</strong></td><td><strong>පූර්ණ මේද කිරි, ක්‍රීම්, සීනි දැමූ කිරි හෝ යෝගට්</strong></td></tr>
+<tr><td><strong>සීනි නැති</strong> ත්‍රීපෝෂ</td><td>බැදපු කෑම</td></tr>
+</table>
+<ul><li>"දියවැඩියා රෝගීන් සඳහා" යැයි කියන රසකැවිලිවලද සීනි ඉහළ නංවයි. <strong>ස්වල්ප වශයෙන් පමණක් අනුභව කරන්න.</strong></li><li><strong>ලුණු: ආහාර පිසීමේදී ඇතුළුව ලුණු අඩුවෙන් භාවිතා කරන්න (H-06 බලන්න).</strong></li><li><strong>ආගමික වතාවන් හේතුවෙන් උපවාස කරන්නේ නම්: පළමුව ඔබේ වෛද්‍යවරයා සමඟ කතා කර උපදෙස් ලබා ගන්න</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>தேர்ந்தெடுக்க வேண்டியவை, குறைக்க வேண்டியவை</h4><table class="blk-table">
+<tr><th>தேர்ந்தெடுங்கள்</th><th>குறையுங்கள் அல்லது தவிர்க்கவும்</th></tr>
+<tr><td>சிவப்பரிசி அல்லது பாபாய்ல்டு அரிசிச் சோறு - சிறிய அளவில்; அவித்த பாசிப்பயறு, காராமணி, கொண்டைக்கடலை</td><td>வெள்ளைச் சோறு, பாண், நூடில்ஸ் பெரிய அளவில்; இடியாப்பம், ஆப்பம், பிட்டு; குருக்கன் ரொட்டி, தலப்பா</td></tr>
+<tr><td>கீரை வகைகள், காய்கறிகள்</td><td>சீனி, வெல்லம், பனங்கருப்பட்டி, தேன்</td></tr>
+<tr><td>மீன், முட்டை, <strong>தோலில்லா கோழி</strong>, பருப்பு</td><td>இனிப்புகள், கேக், பிஸ்கட், கவுன், கொகிஸ்; வாரத்திற்கு ஒரு முறைக்கு மேல் சிவப்பு இறைச்சி; கோழித் தோல்; வெண்ணெய், மார்கரின்</td></tr>
+<tr><td><strong>நடுத்தர அளவு</strong> முழுப் பழங்கள், <strong>நாளொன்றுக்கு 2-3 பங்களாகப் பிரித்து</strong> (அல்லது ஒரு வேளைக்கு அரைக் கோப்பை) (கொய்யா, <strong>ஆரஞ்சு, ஆப்பிள்,</strong> பப்பாளி <strong>பட்டையாக</strong>)</td><td>பழச்சாறு, போத்தல் குளிர்பானம், சீனி போட்ட தேநீர்; மா, திராட்சை, ரெய்சின், தர்பூசணி (சிறிதளவு); உலர்ந்த அல்லது டின் பழங்கள்</td></tr>
+<tr><td><strong>குறைந்த கொழுப்பு அல்லது கொழுப்பில்லாத பால், நாளொன்றுக்கு 1-2 குவளை</strong></td><td><strong>முழுக் கொழுப்புப் பால், கிரீம், சர்க்கரை சேர்த்த பால் அல்லது தயிர்</strong></td></tr>
+<tr><td><strong>சீனி இல்லாத</strong> திரிபோஷா</td><td>பொரித்த உணவுகள்</td></tr>
+</table>
+<ul><li>"நீரிழிவுக்கானது" என்று சொல்லப்படும் இனிப்புகளும் சர்க்கரையை உயர்த்தும். <strong>சிறிதளவு மட்டுமே எடுக்கவும்</strong></li><li><strong>உப்பு: சமையலில் உட்பட குறைவான உப்பு பயன்படுத்துங்கள் (H-06 ஐப் பார்க்கவும்).</strong></li><li><strong>மத நோன்பு இருந்தால், முதலில் உங்கள் மருத்துவரிடம் கலந்துபேசுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Choose and limit</h4><table class="blk-table">
+<tr><th><strong>Choose</strong></th><th><strong>Limit or avoid</strong></th></tr>
+<tr><td>Red rice<strong> or parboiled rice</strong>, small portions; boiled green gram, cowpea, chick peas</td><td>Big portions of white rice, bread, noodles<strong>; hoppers, string hoppers, pittu; kurakkan roti and thalapa</strong></td></tr>
+<tr><td>Green leaves and vegetables</td><td>Sugar, jaggery, treacle, honey</td></tr>
+<tr><td>Fish, egg, <strong>skinless chicken</strong>, dhal</td><td>Sweets, cake, biscuits, kavum, kokis<strong>; red meat more than once a week; chicken skin; butter, margarine</strong></td></tr>
+<tr><td><strong>Medium</strong> whole fruit<strong>, 2-3 portions a day spread out (or half a cup at a meal)</strong> (guava, <strong>orange, apple,</strong> papaw<strong> in slices</strong>)</td><td>Fruit juice, soft drinks, sweet tea<strong>; mango, dates, raisins, watermelon, pineapple (small amounts); dried or canned fruit</strong></td></tr>
+<tr><td>Thriposha <strong>without sugar</strong></td><td>Fried snacks</td></tr>
+<tr><td><strong>Low-fat or non-fat milk, 1-2 glasses a day</strong></td><td><strong>Full-cream milk, cream, sweetened milk or yoghurt</strong><em>.</em></td></tr>
+</table>
+<ul><li>"Diabetic" sweets still raise sugar. <strong>Small amounts only.</strong></li><li><strong>Salt: use less salt, including in cooking (see H-06).</strong> </li><li><strong>Fasting for religious reasons: talk to your doctor first.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-07</span> Be active</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-07.jpg" alt="Be active" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ක්‍රියාශීලීව සිටින්න</h4><ul><li><strong>සෑම ආහාර වේලකින් පසුවම මිනිත්තු 10 ක් ඇවිදින්න,</strong> හෝ දිනකට <strong>මිනිත්තු 30 ක් ඇවිදින්න.</strong></li><li><strong>ගර්භනී කාලයේදී,</strong> රුධිර වහනය, කරකැවිල්ල, පපුවේ වේදනාව, ගැබ් හැකිලීම හෝ දරුවාගේ චලනය අඩුවීම තිබේ නම් <strong>ව්‍යායාම නවතා වහාම</strong> ඔබේ වෛද්‍යවරයාට දන්වන්න.</li><li><strong>ඉන්සියුලින් ගන්නේ නම්,</strong> හිස් බඩින් ව්‍යායාම නොකරන්න.</li></ul></div>
+    <div class="lang lang-ta"><h4>சுறுசுறுப்பாக இருங்கள்</h4><ul><li><strong>ஒவ்வொரு உணவுக்குப் பின்னும் 10 நிமிடம் நடக்கவும்,</strong> அல்லது நாளொன்றுக்கு <strong>30 நிமிடம் நடக்கவும்.</strong></li><li><strong>கர்ப்ப காலத்தில்,</strong> இரத்தப்போக்கு, தலைச்சுற்றல், நெஞ்சு வலி, கருப்பை சுருக்கங்கள் அல்லது குழந்தையின் அசைவு குறைதல் இருந்தால் நிறுத்திவிட்டு உங்கள் மருத்துவரிடம் தெரிவியுங்கள்.</li><li><strong>இன்சுலின் எடுத்தால்,</strong> வெறும் வயிற்றில் உடற்பயிற்சி செய்ய வேண்டாம்.</li></ul></div>
+    <div class="lang lang-en"><h4>Be active</h4><ul><li><strong>Walk 10 minutes after each meal</strong>, or <strong>30 minutes a day.</strong></li><li><strong>In pregnancy,</strong> stop and tell your doctor if you have bleeding, dizziness, chest pain, contractions or the baby moves less.</li><li><strong>If you use insulin,</strong> do not exercise on an empty stomach.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-08</span> Medicines for diabetes</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-08.png" alt="Medicines for diabetes" loading="lazy"></div>
+    <div class="lang lang-si"><h4>දියවැඩියා සඳහා බෙහෙත්</h4><ul><li><strong>ගර්භනී නොවන:</strong> ටැබ්ලට් (උදා: <strong>මෙට්ෆෝමින්</strong>) සහ සමහර විට ඉන්සියුලින්, උපදෙස් ලද පරිදි ආහාර සමඟ ගන්න. <strong>ඔබට කැමති පරිදි නවත්වන්නට හෝ වෙනස් කරන්නට එපා.</strong></li><li><strong>ගර්භනී:</strong> බොහෝ කාන්තාවන් <strong>ආහාර පාලනයෙන්, අවශ්‍ය නම් ඉන්සියුලින්වලින්</strong> පාලනය වේ. සමහරුන් මෙට්ෆෝමින් ගනී.</li><li><strong>ඉන්සියුලින් දරුවාට ආරක්ෂිතයි.</strong> එයට <strong>ඇබ්බැහි වීමක් නොවේ.</strong></li><li><strong>සමහර දියවැඩියා ටැබ්ලට් ගර්භණීභාවයේදී ආරක්ෂිත නොවේ</strong> (උදා: ග්ලයික්ලසයිඩ්). <strong>ගැබ් ගැනීමට සැලසුම් කරන්නේ නම්</strong> ඔබේ වෛද්‍යවරයාට මේ බව කියන්න.</li><li><strong>ශල්‍යකර්මයකට පෙර,</strong> ඔබට දියවැඩියාව ඇති බව, ඔබව ශල්‍යකර්මයට පෙර පරීක්ෂා කරන සියලු වෛද්‍යවරුන්ට කියන්න. <strong>ඔබේ සටහන් පොත ගෙන එන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>நீரிழிவுக்கான மருந்துகள்</h4><ul><li><strong>கர்ப்பமில்லாதவர்:</strong> மாத்திரைகள் (எ.கா. <strong>மெட்ஃபோர்மின்</strong>) மற்றும் சிலருக்கு இன்சுலின். அறிவுறுத்தியபடி உணவுடன் எடுக்கவும். <strong>நீங்களாகவே நிறுத்தவோ மாற்றவோ வேண்டாம்.</strong></li><li><strong>கர்ப்பிணி:</strong> பெரும்பாலான பெண்களுக்கு <strong>உணவுக் கட்டுப்பாடு, தேவைப்பட்டால் இன்சுலின்.</strong> சிலர் மெட்ஃபோர்மின் எடுப்பார்கள்.</li><li><strong>இன்சுலின் குழந்தைக்குப் பாதுகாப்பானது.</strong> அது <strong>போதை பழக்கமாகிவிடாது.</strong></li><li><strong>சில நீரிழிவு மாத்திரைகள் கர்ப்பத்தில் பாதுகாப்பற்றவை</strong> (எ.கா. கிளிக்ளசைட்). <strong>கர்ப்பமாகத் திட்டமிட்டால்</strong> உங்கள் மருத்துவரிடம் தெரிவியுங்கள்.</li><li><strong>அறுவைச் சிகிச்சைக்கு முன்,</strong> உங்களைக் கவனிப்பவர்கள் எல்லோரிடமும் உங்களுக்கு நீரிழிவு இருப்பதைத் தெரிவித்து, <strong>உங்கள் குறிப்பேட்டைக் கொண்டுவாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Medicines for diabetes</h4><ul><li><strong>Not pregnant:</strong> tablets (for example <strong>metformin</strong>) and sometimes insulin. Take with food as advised. <strong>Do not stop or change</strong> on your own.</li><li><strong>Pregnant:</strong> most women use <strong>diet, and insulin if needed.</strong> Some use metformin.</li><li><strong>Insulin is safe for the baby.</strong> It is <strong>not addictive.</strong></li><li><strong>Some diabetes tablets are not safe in pregnancy</strong> (for example gliclazide). If you are <strong>planning pregnancy,</strong> tell your doctor.</li><li><strong>Before an operation,</strong> tell the team you have diabetes and <strong>bring your diary.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-09</span> The two insulins used here</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-09a.png" alt="The two insulins used here" loading="lazy"><img src="images/D-09b.png" alt="The two insulins used here" loading="lazy"></div>
+    <div class="lang lang-si"><h4>භාවිතා කරන ඉන්සියුලින් වර්ග දෙක (ඉන්සියුලින් භාවිතා කරන්නන් සඳහා)</h4><table class="blk-table">
+<tr><th></th><th><strong>දිය වන (Actrapid)</strong></th><th><strong>අයිසොෆේන් (Insulatard)</strong> [CHECK: වෙළඳ නාමය]</th></tr>
+<tr><td><strong>පෙනුම</strong></td><td>ජලය මෙන් <strong>පැහැදිලියි</strong></td><td>රෝල් කළ පසු <strong>කිරි පැහැයි (බොඳ)</strong></td></tr>
+<tr><td><strong>ගතයුත්තේ</strong></td><td><strong>ආහාරවලට පෙර</strong></td><td>සාමාන්‍යයෙන් <strong>නිදාගැනීමට පෙර</strong></td></tr>
+<tr><td><strong>ක්‍රියා කිරීම ආරම්භ වේ</strong></td><td><strong>මිනිත්තු 30</strong> ක් පමණ</td><td>හෙමින්</td></tr>
+<tr><td><strong>අවදානම</strong></td><td>ආහාරය ප්‍රමාද වුවහොත් සීනි අඩු වීම</td><td><strong>රාත්‍රියේ සීනි අඩු වීම</strong></td></tr>
+</table>
+<ul><li><strong>දෙක කිසිවිටෙක පටලවා නොගන්න.</strong> <strong>සෑම වතාවකම ලේබලය කියවන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பயன்படுத்தும் இரண்டு இன்சுலின் வகைகள் (இன்சுலின் எடுப்பவர்களுக்கு)</h4><table class="blk-table">
+<tr><th></th><th><strong>கரையும் -soluble (Actrapid)</strong></th><th><strong>ஐசோஃபேன் (Insulatard)</strong> [CHECK: வணிகப் பெயர்]</th></tr>
+<tr><td><strong>தோற்றம்</strong></td><td>தண்ணீர் போலத் <strong>தெளிவானது</strong></td><td>உருட்டிய பின் <strong>பால் போல் கலங்கலானது</strong></td></tr>
+<tr><td><strong>எப்போது</strong></td><td><strong>உணவுக்கு முன்</strong></td><td>பொதுவாக <strong>படுக்கைக்கு முன்</strong></td></tr>
+<tr><td><strong>வேலை செய்யத் தொடங்குவது</strong></td><td>சுமார் <strong>30 நிமிடத்தில்</strong></td><td>மெதுவாக</td></tr>
+<tr><td><strong>ஆபத்து</strong></td><td>உணவு தாமதமானால் சர்க்கரை குறைதல்</td><td><strong>இரவில் சர்க்கரை குறைதல்</strong></td></tr>
+</table>
+<ul><li><strong>இரண்டையும் ஒருபோதும் மாற்றிக் குழப்பிக்கொள்ளாதீர்கள்.</strong> <strong>ஒவ்வொரு முறையும் லேபிளைப் படியுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>The two insulins used here</h4><table class="blk-table">
+<tr><th></th><th>Soluble (Actrapid)</th><th>Isophane (Insulatard)<strong> </strong>CHECK brand</th></tr>
+<tr><td><strong>Look</strong></td><td><strong>Clear</strong> like water</td><td><strong>Cloudy</strong> after rolling</td></tr>
+<tr><td><strong>When</strong></td><td><strong>Before meals</strong></td><td>Usually <strong>at bedtime</strong></td></tr>
+<tr><td><strong>Starts</strong></td><td>About <strong>30 minutes</strong></td><td>Slowly</td></tr>
+<tr><td><strong>Risk</strong></td><td>Low sugar if the meal is late</td><td><strong>Low sugar in the night</strong></td></tr>
+</table>
+<ul><li><strong>Never mix them up.</strong> <strong>Read the label every time.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-10</span> Food first. Then insulin.</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-10.png" alt="Food first. Then insulin." loading="lazy"></div>
+    <div class="lang lang-si"><h4>මුලින් ආහාර ඉන්පසු ඉන්සියුලින්. (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><ul><li><strong>දිය වන ඉන්සියුලින් මිනිත්තු 30 කින් පමණ ක්‍රියා කරයි.</strong> ආහාර ප්‍රමාද වුවහොත් <strong>සීනි ඉතා පහළ යයි.</strong></li><li><strong>1.</strong> ආහාරය <strong>පිසගෙන පිළියෙල කරන්න.</strong> <strong>2.</strong> <strong>ඉන්පසු එන්නත ගන්න.</strong> <strong>3.</strong> <strong>මිනිත්තු 30 ක් ඇතුළත ආහාර ගන්න.</strong></li><li><strong>ආහාර ගත නොහැකි නම්, දිය වන ඉන්සියුලින් නොගන්න.</strong> ඔබේ වෛද්‍යවරයාගෙන් අසන්න.</li></ul></div>
+    <div class="lang lang-ta"><h4>முதலில் உணவு. பிறகு இன்சுலின். (இன்சுலின் எடுப்பவர்கள்)</h4><ul><li><strong>கரையும் (Soluble) இன்சுலின் சுமார் 30 நிமிடத்தில் வேலை செய்யும்.</strong> உணவு தாமதமானால் <strong>சர்க்கரை மிகவும் குறையும்.</strong></li><li><strong>1.</strong> உணவைச் <strong>சமைத்து மேசையில் வையுங்கள்.</strong> <strong>2.</strong> <strong>பிறகு ஊசி போடுங்கள்.</strong> <strong>3.</strong> <strong>30 நிமிடத்திற்குள் சாப்பிடுங்கள்.</strong></li><li><strong>சாப்பிட முடியாவிட்டால், கரையும்(soluble) இன்சுலினைப் போடாதீர்கள்.</strong> உங்கள் மருத்துவரிடம் கேளுங்கள்.</li></ul></div>
+    <div class="lang lang-en"><h4>Food first. Then insulin.</h4><ul><li><strong>Soluble insulin works in about 30 minutes.</strong> If food is late, <strong>sugar falls too low.</strong></li><li><strong>1.</strong> <strong>Cook and serve</strong> the food. <strong>2.</strong> <strong>Then inject.</strong> <strong>3.</strong> <strong>Eat within 30 minutes.</strong></li><li><strong>If you cannot eat, do not inject soluble insulin.</strong> Ask your doctor.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-11</span> Drawing up insulin from a vial</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-11a.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11b.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11c.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11d.png" alt="Drawing up insulin from a vial" loading="lazy"><img src="images/D-11e.png" alt="Drawing up insulin from a vial" loading="lazy"></div>
+    <div class="lang lang-si"><h4>වයල් එකකින් ඉන්සියුලින් ඇදීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><p>අපගේ වයල් <strong>මිලිලීටරයකට ඒකක 100</strong> කි. අපගේ සිරින්ජ <strong>ඒකක 0-100 ලකුණු කර ඇත.</strong> <strong>ඔබේ වෛද්‍යවරයා පැවසූ අංකය දක්වා ඇදගන්න.</strong></p>
+<ol><li><strong>අත් සෝදන්න.</strong> <strong>ලේබලය, වර්ගය සහ කල් ඉකුත් වන දිනය</strong> පරීක්ෂා කරන්න.</li><li><strong>බොඳ (කිරි පැහැ) ඉන්සියුලින්:</strong> <strong>වයල් එක අත්ලවල් අතර 10 වතාවක් රෝල් කරන්න.</strong> <strong>සොලවන්න එපා.</strong></li><li><strong>රබර් පියන</strong> පිස දමන්න.</li><li>සිරින්ජයට <strong>ඔබේ මාත්‍රාව දක්වා වාතය ඇද ගන්න.</strong></li><li><strong>වාතය වයල් එක තුළට තල්ලු කරන්න.</strong></li><li><strong>වයල් එක යටිකුරු කරන්න.</strong> <strong>ඔබේ මාත්‍රා අංකය දක්වා ඉන්සියුලින් ඇදගන්න.</strong></li><li><strong>බුබුළු අයින් කරන්න</strong> (සිරින්ජය තට්ටු කර). <strong>අංකය නැවත පරීක්ෂා කරන්න.</strong></li></ol></div>
+    <div class="lang lang-ta"><h4>குப்பியிலிருந்து இன்சுலின் எடுத்தல் (இன்சுலின் எடுப்பவர்கள்)</h4><p>எங்கள் குப்பிகள் <strong>ஒரு மி.லி.க்கு 100 அலகுகள்.</strong> எங்கள் சிரிஞ்சுகளில் <strong>0-100 அலகுகள் குறிக்கப்பட்டுள்ளன.</strong> <strong>உங்கள் மருத்துவர் சொன்ன எண் வரை இழுத்து எடுங்கள்.</strong></p>
+<ol><li><strong>கைகளைக் கழுவுங்கள்.</strong> <strong>லேபிள், வகை, காலாவதி தேதி</strong> ஆகியவற்றைச் சரிபார்க்கவும்.</li><li><strong>கலங்கலான (பால் நிற) இன்சுலின்:</strong> <strong>குப்பியை இரு உள்ளங்கைகளுக்கு இடையே 10 முறை உருட்டுங்கள்.</strong> <strong>குலுக்க வேண்டாம்.</strong></li><li><strong>ரப்பர் மூடியைத்</strong> துடைக்கவும்.</li><li>சிரிஞ்சில் <strong>உங்கள் அளவு வரை காற்றை இழுக்கவும்.</strong></li><li><strong>காற்றைக் குப்பிக்குள் செலுத்துங்கள்.</strong></li><li><strong>குப்பியைத் தலைகீழாகப் பிடியுங்கள்.</strong> <strong>உங்கள் அளவு எண் வரை இன்சுலினை இழுக்கவும்.</strong></li><li><strong>குமிழிகளை</strong> (சிரிஞ்சைத் தட்டி) <strong>வெளியேற்றுங்கள்.</strong> <strong>எண்ணை மீண்டும் சரிபார்க்கவும்.</strong></li></ol></div>
+    <div class="lang lang-en"><h4>Drawing up insulin from a vial</h4><p>Our vials are <strong>100 units per ml.</strong> Our syringes are <strong>marked 0-100 units.</strong> <strong>Draw up to the number your doctor said.</strong></p>
+<ol><li><strong>Wash hands.</strong> <strong>Check the label, type and expiry.</strong></li><li><strong>Cloudy insulin:</strong> <strong>roll the vial 10 times</strong> between your palms. <strong>Do not shake.</strong></li><li><strong>Wipe the rubber top.</strong></li><li><strong>Draw air</strong> into the syringe up to your dose.</li><li><strong>Push the air into the vial.</strong></li><li><strong>Turn the vial upside down.</strong> <strong>Draw insulin to your dose number.</strong></li><li><strong>Tap out bubbles.</strong> <strong>Check the number again.</strong></li></ol></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-12</span> Mixing clear and cloudy in one syringe</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-12.png" alt="Mixing clear and cloudy in one syringe" loading="lazy"></div>
+    <div class="lang lang-si"><h4>පැහැදිලි සහ බොඳ ඉන්සියුලින් එකම සිරින්ජයේ මිශ්‍ර කිරීම (හෙදිය විසින් උගන්වා ඇත්නම් පමණි)</h4><p><strong>මතක තබාගන්න: පැහැදිලි ඉන්සියුලින් එක බොඳ එකට පෙර.</strong></p>
+<ol><li><strong>බොඳ වයල් එකට වාතය</strong> ඇද දමන්න. ඉඳිකටුව ඉවත් කරන්න. <strong>ඉන්සියුලින් ඇදගන්න එපා.</strong></li><li><strong>පැහැදිලි වයල් එකට වාතය</strong> ඇද දමන්න. <strong>පැහැදිලි මාත්‍රාව ඇදගන්න.</strong></li><li><strong>ඉඳිකටුව බොඳ වයල් එකට දමන්න. මුළු අංකය දක්වා ඇදගන්න.</strong></li></ol>
+<ul><li><strong>උදාහරණය:</strong> පැහැදිලි 6 + බොඳ 10 = <strong>16</strong> දක්වා ඇදගන්න.</li><li><strong>බොඳ එක වැඩියෙන් ඇදගත්තොත්, සියල්ල ඉවත දමා නැවත පටන් ගන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>தெளிவான, கலங்கலான இன்சுலினை ஒரே சிரிஞ்சில் கலத்தல் (செவிலியர் கற்றுக்கொடுத்திருந்தால் மட்டும்)</h4><p><strong>நினைவில் வையுங்கள்: தெளிவானது முதலில், கலங்கலானது பின்னர்.</strong></p>
+<ol><li><strong>கலங்கலான குப்பிக்குள் காற்றைச்</strong> செலுத்துங்கள். ஊசியை வெளியே எடுங்கள். <strong>இன்சுலினை இழுக்க வேண்டாம்.</strong></li><li><strong>தெளிவான குப்பிக்குள் காற்றைச்</strong> செலுத்துங்கள். <strong>தெளிவான அளவை இழுத்து எடுங்கள்.</strong></li><li><strong>ஊசியைக் கலங்கலான குப்பிக்குள் செலுத்துங்கள். மொத்த எண் வரை இழுக்கவும்.</strong></li></ol>
+<ul><li><strong>எடுத்துக்காட்டு:</strong> தெளிவானது 6 + கலங்கலானது 10 = <strong>16</strong> வரை இழுக்கவும்.</li><li><strong>கலங்கலானது அதிகமாக வந்துவிட்டால், எல்லாவற்றையும் கொட்டிவிட்டு மீண்டும் தொடங்குங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Mixing clear and cloudy in one syringe</h4><p><strong>Remember: CLEAR before CLOUDY.</strong></p>
+<ol><li><strong>Air into the cloudy vial.</strong> Pull the needle out. <strong>Draw nothing.</strong></li><li><strong>Air into the clear vial.</strong> <strong>Draw the clear dose.</strong></li><li><strong>Put the needle in the cloudy vial. Draw up to the total number.</strong></li></ol>
+<ul><li><strong>Example:</strong> 6 clear + 10 cloudy = draw up to <strong>16.</strong></li><li><strong>If you draw too much cloudy, throw it all away and start again.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-13</span> Giving the injection</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-13a.jpg" alt="Giving the injection" loading="lazy"><img src="images/D-13b.jpg" alt="Giving the injection" loading="lazy"><img src="images/D-13c.png" alt="Giving the injection" loading="lazy"></div>
+    <div class="lang lang-si"><h4>එන්නත ලබා ගැනීම (ඉන්සියුලින් ගන්නා කාන්තාවන් සඳහා)</h4><ol><li><strong>පිරිසිදු, වියළි ස්ථානයක්</strong> තෝරන්න (D-14).</li><li><strong>ඉඳිකටුව කෙළින්ම</strong> ඇතුළු කරන්න. ඔබ කෙට්ටු කෙනෙක් නම් සම ඇඹරගන්න.</li><li><strong>පිස්ටනය සෙමින් සම්පූර්ණයෙන් තල්ලු කරන්න.</strong></li><li>ඉවතට ගැනීමට පෙර <strong>10 දක්වා ගණන් කරන්න.</strong></li><li><strong>අතුල්ලන්න එපා.</strong></li><li><strong>පියන නැවත දමන්න එපා.</strong> සිරින්ජය <strong>තියුණු දේ දමන බෝතලයට</strong> (පියනක් සහිත ශක්තිමත් ප්ලාස්ටික් බෝතලයක්) දමන්න.</li><li><strong>සෑම වතාවකම අලුත් සිරින්ජයක් භාවිතා කරන්න.</strong></li></ol></div>
+    <div class="lang lang-ta"><h4>ஊசி போடுதல் (இன்சுலின் எடுப்பவர்கள்)</h4><ol><li><strong>சுத்தமான, உலர்ந்த இடத்தைத்</strong> தேர்ந்தெடுங்கள் (D-14).</li><li><strong>ஊசியை நேராகச்</strong> செலுத்துங்கள். மெலிந்தவர்கள் தோலைச் சிறிது பிடித்துக்கொள்ளுங்கள்.</li><li><strong>உலக்கையை மெதுவாக முழுவதும் அழுத்துங்கள்.</strong></li><li>வெளியே எடுப்பதற்கு முன் <strong>10 வரை எண்ணுங்கள்.</strong></li><li><strong>தேய்க்க வேண்டாம்.</strong></li><li><strong>மூடியை மீண்டும் போட வேண்டாம்.</strong> சிரிஞ்சை <strong>கூரான பொருட்களுக்கான போத்தலில்</strong> (மூடியுடன் கூடிய உறுதியான பிளாஸ்டிக் போத்தல்) போடுங்கள்.</li><li><strong>ஒவ்வொரு முறையும் புதிய சிரிஞ்ச்.</strong></li></ol></div>
+    <div class="lang lang-en"><h4>Giving the injection</h4><ol><li><strong>Choose a clean, dry site</strong> (D-14).</li><li><strong>Needle straight in.</strong> Pinch the skin if you are thin.</li><li><strong>Push the plunger slowly all the way.</strong></li><li><strong>Count to 10</strong> before pulling out.</li><li><strong>Do not rub.</strong></li><li><strong>Do not put the cap back.</strong> Drop the syringe into the <strong>sharps bottle</strong> (a strong plastic bottle with a lid).</li><li><strong>New syringe every time.</strong></li></ol></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-14</span> Where to inject</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-14a.png" alt="Where to inject" loading="lazy"><img src="images/D-14b.png" alt="Where to inject" loading="lazy"></div>
+    <div class="lang lang-si"><h4>එන්නත ලබා ගත යුතු ස්ථාන (ඉන්සියුලින් ලබාගන්නන් සඳහා )</h4><table class="blk-table">
+<tr><th>ස්ථානය</th><th>භාවිතය</th></tr>
+<tr><td><strong>උදරය</strong> (නාභියේ සිට <strong>සෙන්ටිමීටර 5</strong> ක් ඈත්ව; ගර්භණීභාවයේ අග කාලයේ <strong>පැති පැත්ත</strong>)</td><td>ආහාරවලට පෙර දිය වන ඉන්සියුලින්</td></tr>
+<tr><td><strong>කලවය</strong> (ඉදිරිපස, පිටත)</td><td>නිදාගැනීමට පෙර අයිසොෆේන්</td></tr>
+<tr><td><strong>ඉහළ අතේ පිටුපස, තට්ටම</strong></td><td>ඕනෑම එකක්</td></tr>
+</table>
+<ul><li><strong>සෑම වතාවකම ස්ථානය වෙනස් කරන්න.</strong> පෙර ස්ථානයෙන් <strong>සෙන්ටිමීටර 2</strong> ක් පමණ ඉවතින් තබන්න.</li><li><strong>ගැටිති, කැළැල් හෝ තැලුණු තැන්වලට එන්නත් නොකරන්න.</strong> <strong>ගැටිති ගැන ඔබේ හෙදියට කියන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>ஊசி போடும் இடங்கள் (இன்சுலின் எடுப்பவர்கள்)</h4><table class="blk-table">
+<tr><th>இடம்</th><th>பயன்பாடு</th></tr>
+<tr><td><strong>வயிறு</strong> (தொப்புளிலிருந்து <strong>5 செ.மீ.</strong> விலகி; கர்ப்பத்தின் பிற்பகுதியில் <strong>பக்கவாட்டில்</strong>)</td><td>உணவுக்கு முன் கரையும் (Soluble) இன்சுலின்</td></tr>
+<tr><td><strong>தொடை</strong> (முன்புறம், வெளிப்புறம்)</td><td>படுக்கைக்கு முன் ஐசோஃபேன்</td></tr>
+<tr><td><strong>மேல் கையின் பின்புறம், புட்டம்</strong></td><td>எதுவும்</td></tr>
+</table>
+<ul><li><strong>ஒவ்வொரு முறையும் இடத்தை மாற்றுங்கள்.</strong> முந்தைய இடத்திலிருந்து சுமார் <strong>2 செ.மீ.</strong> தள்ளி வையுங்கள்.</li><li><strong>கட்டிகள், தழும்புகள், காயம்பட்ட இடங்களில் போட வேண்டாம்.</strong> <strong>கட்டிகள் இருந்தால் செவிலியரிடம் தெரிவியுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Where to inject</h4><table class="blk-table">
+<tr><th><strong>Site</strong></th><th><strong>Use</strong></th></tr>
+<tr><td><strong>Abdomen</strong> (stay <strong>5 cm from the belly button</strong>; <strong>sides</strong> in late pregnancy)</td><td>Soluble before meals</td></tr>
+<tr><td><strong>Thigh</strong> (front, outer)</td><td>Isophane at bedtime</td></tr>
+<tr><td><strong>Back of upper arm, buttock</strong></td><td>Either</td></tr>
+</table>
+<ul><li><strong>Change the spot each time.</strong> Keep about <strong>2 cm</strong> from the last spot.</li><li><strong>Do not inject into lumps, scars or bruises.</strong> <strong>Tell your nurse about lumps.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-15</span> Storing insulin</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-15a.png" alt="Storing insulin" loading="lazy"><img src="images/D-15b.png" alt="Storing insulin" loading="lazy"><img src="images/D-15c.png" alt="Storing insulin" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඉන්සියුලින් ගබඩා කිරීම (ඉන්සියුලින් ලබාගන්නන් සඳහා)</h4><ul><li><strong>විවෘත නොකළ වයල්:</strong> <strong>ශීතකරණයේ</strong> (කිසිවිටෙක ෆ්‍රීසරයේ නොවේ).</li><li><strong>භාවිතා කරන වයල්:</strong> හැකි නම් <strong>ශීතකරණයේ</strong>, නැතහොත් <strong>සෙවණ සහිත සිසිල් තැනක.</strong> <strong>විවෘත කළ දිනය ලියන්න.</strong> <strong>සති 4 ක් ඇතුළත භාවිතා කර</strong> <strong>[CHECK]</strong> ඉන්පසු ඉවත දමන්න.</li><li><strong>කිසිවිටෙක</strong> ඉන්සියුලින් හිරු එළියේ, රත් වූ වාහනයක, හෝ ලිපක් අසල නොතබන්න.</li><li><strong>භාවිතා නොකරන්න:</strong> ශීත කළ ඉන්සියුලින්, <strong>බොඳ පැහැති පැහැදිලි ඉන්සියුලින්</strong>, <strong>ගැටිති සහිත බොඳ ඉන්සියුලින්</strong>, හෝ කල් ඉකුත් වූ ඉන්සියුලින්.</li><li><strong>Regifoam පෙට්ටියෙන් ගෙදර ගෙන යාම:</strong> <strong>අයිස් පැකට් රෙදි කඩකින් ඔතන්න,</strong> <strong>වයල් අයිස් හා ස්පර්ශ නොවිය යුතුයි.</strong> කෙළින්ම ගෙදර යන්න. <strong>පැමිණි විගස ශීතකරණයේ තබන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>இன்சுலினைச் சேமித்தல் (இன்சுலின் எடுப்பவர்கள்)</h4><ul><li><strong>திறக்காத குப்பிகள்:</strong> <strong>குளிர்சாதனப் பெட்டியில்</strong> (ஒருபோதும் உறைவிப்பானில் அல்ல).</li><li><strong>பயன்பாட்டில் உள்ள குப்பி:</strong> முடிந்தால் <strong>குளிர்சாதனப் பெட்டியில்,</strong> அல்லது <strong>நிழலான குளிர்ச்சியான இடத்தில்.</strong> <strong>திறந்த தேதியை எழுதுங்கள்.</strong> <strong>4 வாரங்களுக்குள் பயன்படுத்தி</strong> <strong>[CHECK]</strong> பின்னர் தூக்கியெறியுங்கள்.</li><li><strong>ஒருபோதும்</strong> இன்சுலினை வெயிலில், சூடான வாகனத்தில், அல்லது அடுப்புக்கு அருகில் வைக்காதீர்கள்.</li><li><strong>பயன்படுத்த வேண்டாம்:</strong> உறைந்த இன்சுலின், <strong>கலங்கிய தெளிவான இன்சுலின்</strong>, <strong>கட்டிகளுள்ள கலங்கலான இன்சுலின்</strong>, அல்லது காலாவதியானது.</li><li><strong>Regifoam பெட்டியில் வீட்டுக்குக் கொண்டு செல்லுதல்:</strong> <strong>ஐஸ் பேக்குகளைத் துணியில் சுற்றுங்கள்,</strong> <strong>குப்பிகள் ஐஸ் மீது படக்கூடாது.</strong> நேராக வீட்டுக்குச் செல்லுங்கள். <strong>வந்தவுடன் குளிர்சாதனப் பெட்டியில் வையுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Storing insulin</h4><ul><li><strong>Unopened vials:</strong> in the <strong>fridge</strong> (never in the freezer).</li><li><strong>Vial in use:</strong> in the <strong>fridge</strong> if you can, or in a <strong>cool shady place.</strong> <strong>Write the date you opened it.</strong> <strong>Use within 4 weeks</strong> <strong>CHECK</strong>, then throw away.</li><li><strong>Never</strong> leave insulin in the sun, in a hot vehicle, or near the stove.</li><li><strong>Do not use:</strong> frozen insulin, <strong>clear insulin that looks cloudy</strong>, <strong>cloudy insulin with lumps</strong>, or out-of-date insulin.</li><li><strong>Carrying home in the Regifoam box:</strong> <strong>ice packs wrapped in cloth</strong>, <strong>vials must not touch the ice.</strong> Go home straight away. <strong>Fridge on arrival.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-16</span> Low sugar: under 70</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-16a.png" alt="Low sugar: under 70" loading="lazy"><img src="images/D-16b.png" alt="Low sugar: under 70" loading="lazy"><img src="images/D-16c.png" alt="Low sugar: under 70" loading="lazy"></div>
+    <div class="lang lang-si"><h4>සීනි අඩු වීම: 70 ට අඩු (ඉන්සියුලින් සහ ටැබ්ලට් ගන්නන්)</h4><ul><li><strong>රෝග ලක්ෂණ:</strong> වෙව්ලීම, දහඩිය දැමීම, හදවත වේගයෙන් ගැහීම, බඩගින්න, කරකැවිල්ල, හිසේ කැක්කුම, <strong>ව්‍යාකුල සහගත බව (confused).</strong></li><li><strong>හේතු:</strong> ප්‍රමාද වූ හෝ මඟ හැරුණු ආහාර වේල, ඉන්සියුලින් වැඩිවීම, ව්‍යායාම, වමනය.</li><li><strong>කළ යුත්තේ:</strong></li></ul>
+<ol><li><strong>පරීක්ෂා කරන්න.</strong> අඩු නම්, <strong>හෝ අඩු යැයි හැඟී පරීක්ෂා කළ නොහැකි නම්, වහාම ප්‍රතිකාර කරන්න.</strong></li><li><strong>වතුර වීදුරුවක අඩකට තේ හැඳි 3 ක් සීනි දමා ගන්න,</strong> හෝ <strong>පැණි බීමක්.</strong></li><li><strong>මිනිත්තු 15 ක් රැඳී සිටින්න.</strong> <strong>නැවත පරීක්ෂා කරන්න.</strong> <strong>තවම අඩු නම් නැවත කරන්න.</strong></li><li><strong>ඉන්පසු කෙටි ආහාරයක් හෝ ප්‍රධාන ආහාරය ගන්න.</strong></li></ol>
+<ul><li><strong>සැමවිටම සීනි රැගෙන යන්න.</strong> <strong>ඔබේ පවුලේ අයට කියන්න.</strong></li><li><strong>ඇයට ගිල ගත නොහැකි නම් හෝ සිහිසුන් නම්: කටට කිසිවක් නොදමන්න. ඇයව පැත්තකට හරවා තබන්න. වහාම රෝහලට යන්න.</strong></li><li><strong>සමහර රුධිර පීඩන සහ තයිරොයිඩ් ටැබ්ලට් (ලැබටලෝල්, ප්‍රොප්‍රැනොලෝල්) මෙම සලකුණු සඟවයි.</strong> ඔබේ පරීක්ෂාව මත රඳා පවතින්න.</li></ul></div>
+    <div class="lang lang-ta"><h4>சர்க்கரை குறைதல்: 70 க்குக் கீழ் (இன்சுலின், மாத்திரை எடுப்பவர்கள்)</h4><ul><li><strong>அறிகுறிகள்:</strong> நடுக்கம், வியர்வை, இதயம் வேகமாகத் துடித்தல், பசி, தலைச்சுற்றல், தலைவலி, குழப்பம்.</li><li><strong>காரணங்கள்:</strong> தாமதமான அல்லது தவறவிட்ட உணவு, அதிக இன்சுலின், உடற்பயிற்சி, வாந்தி.</li><li><strong>செய்ய வேண்டியது:</strong></li></ul>
+<ol><li><strong>பரிசோதியுங்கள்.</strong> குறைவாக இருந்தால், <strong>அல்லது குறைவாக உணர்ந்து பரிசோதிக்க முடியாவிட்டால், உடனே சிகிச்சை செய்யுங்கள்.</strong></li><li><strong>அரை குவளை தண்ணீரில் 3 தேக்கரண்டி சீனி கலந்து குடியுங்கள்,</strong> அல்லது <strong>இனிப்புப் பானம்.</strong></li><li><strong>15 நிமிடம் காத்திருங்கள்.</strong> <strong>மீண்டும் பரிசோதியுங்கள்.</strong> <strong>இன்னும் குறைவாக இருந்தால் மீண்டும் செய்யுங்கள்.</strong></li><li><strong>பிறகு சிற்றுண்டி அல்லது உணவு சாப்பிடுங்கள்.</strong></li></ol>
+<ul><li><strong>எப்போதும் சீனியைக் கையில் வைத்திருங்கள்.</strong> <strong>குடும்பத்தினருக்குச் சொல்லுங்கள்.</strong></li><li><strong>அவரால் விழுங்க முடியாவிட்டால் அல்லது மயக்கமாக இருந்தால்: வாயில் எதுவும் ஊற்ற வேண்டாம். ஒரு பக்கமாகச் சாய்த்துப் படுக்க வையுங்கள். உடனே மருத்துவமனைக்குச் செல்லுங்கள்.</strong></li><li><strong>சில இரத்த அழுத்த, தைராய்டு மாத்திரைகள் (லபெடலால், புரோப்ரனோலால்) இந்த அறிகுறிகளை மறைக்கக்கூடும்.</strong> பரிசோதனையை நம்புங்கள்.</li></ul></div>
+    <div class="lang lang-en"><h4>Low sugar: under 70</h4><ul><li><strong>Signs:</strong> shaking, sweating, fast heartbeat, hunger, dizziness, headache, confusion.</li><li><strong>Causes:</strong> late or missed meal, too much insulin, exercise, vomiting.</li><li><strong>What to do:</strong></li></ul>
+<ol><li><strong>Test.</strong> If low, <strong>or you feel low and cannot test, treat at once.</strong></li><li><strong>Take 3 teaspoons of sugar in half a glass of water</strong>, or a <strong>sweet drink</strong>.</li><li><strong>Wait 15 minutes.</strong> <strong>Test again.</strong> <strong>Repeat if still low.</strong></li><li><strong>Then eat a snack or meal.</strong></li></ol>
+<ul><li><strong>Always carry sugar.</strong> <strong>Tell your family.</strong></li><li><strong>If she cannot swallow or is unconscious: put nothing in her mouth. Turn her on her side. Go to hospital now.</strong></li><li><strong>Some BP and thyroid tablets (labetalol, propranolol) can hide the signs.</strong> Rely on your test.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-17</span> When you are unwell</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-17.png" alt="When you are unwell" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබට අසනීප වූ විට (සියලුදෙනා)</h4><ul><li><strong>අසනීප නිසා කිසිවිටෙක ඉන්සියුලින් නොනවත්වන්න.</strong></li><li><strong>වඩාත් නිතර පරීක්ෂා කරන්න.</strong> <strong>දියර වැඩිපුර පානය කරන්න.</strong></li><li><strong>පහත සඳහන් ලකුණු ඇතනම් රෝහලට එන්න:</strong> වමනය කර දියර රඳවා ගත නොහැකි නම්, <strong>දැඩි පිපාසය සහ නිදිමත</strong>, <strong>වේගවත් හුස්ම ගැනීම</strong> හෝ <strong>බඩේ වේදනාව.</strong></li><li><strong>සීනි ඉලක්කයට වඩා දෙවරක් ඉහළ නම්: එදිනම සායනයට දන්වන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உடல்நலமில்லாதபோது (எல்லோரும்)</h4><ul><li><strong>உடல்நலமில்லாததால் இன்சுலினை ஒருபோதும் நிறுத்தாதீர்கள்.</strong></li><li><strong>அடிக்கடி பரிசோதியுங்கள்.</strong> <strong>திரவங்களை அதிகம் அருந்துங்கள்.</strong></li><li><strong>மருத்துவமனைக்கு வாருங்கள்:</strong> வாந்தியால் திரவங்களை உள்ளே தங்க வைக்க முடியாவிட்டால், <strong>அதிகத் தாகம், தூக்கக் கலக்கம்</strong>, <strong>வேகமான சுவாசம்</strong> அல்லது <strong>வயிற்று வலி</strong> இருந்தால்.</li><li><strong>சர்க்கரை இலக்கை விட இரு முறை அதிகமாக இருந்தால்: அதே நாளில் கிளினிக்கிற்குத் தெரிவியுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>When you are unwell</h4><ul><li><strong>Never stop insulin because you are sick.</strong></li><li><strong>Test more often.</strong> <strong>Drink fluids.</strong></li><li><strong>Come to hospital if:</strong> vomiting and cannot keep fluids down, <strong>very thirsty and drowsy</strong>, <strong>fast breathing</strong> or <strong>belly pain.</strong></li><li><strong>Sugar over target twice: tell your clinic the same day.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-18</span> Diabetes in pregnancy: baby and delivery</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-18.jpg" alt="Diabetes in pregnancy: baby and delivery" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ගර්භනී කාලයේ දියවැඩියාව: දරුවා සහ ප්‍රසූතිය (ගර්භනී)</h4><ul><li><strong>දරුවාගේ චලනය:</strong> සති <strong>28</strong> පමණ සිට දරුවාගේ සාමාන්‍ය චලන රටාව හඳුනාගන්න. <strong>චලනය අඩු වුවහොත් එවෙලෙහිම පැමිණෙන්න.</strong></li><li><strong>ප්‍රසූතිය</strong> ඔබේ වෛද්‍යවරයා සමඟ සැලසුම් කෙරේ. <strong>ඔබේ සටහන් පොත, බෙහෙත් සහ සායන පොත ගෙන එන්න.</strong></li><li><strong>ප්‍රසූතියෙන් පසු:</strong> <strong>GDM ටැබ්ලට් හෝ ඉන්සියුලින් නවතී.</strong> <strong>කලින් සිට ඇති දියවැඩියාව:</strong> ඉන්සියුලින් අවශ්‍යතාව අඩු වේ. <strong>ඔබේ වෛද්‍යවරයා නව මාත්‍රාවක් ලබා දෙනු ඇත.</strong></li><li><strong>මුල් කාලයේම කිරි දෙන්න.</strong> කිරි දීමේදී <strong>ඉන්සියුලින් සහ මෙට්ෆෝමින් ආරක්ෂිතයි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>கர்ப்பகால நீரிழிவு: குழந்தையும் பிரசவமும் (கர்ப்பிணி)</h4><ul><li><strong>குழந்தையின் அசைவுகள்:</strong> சுமார் <strong>28</strong> வாரங்களிலிருந்து குழந்தையின் வழக்கமான அசைவு முறையைக் கவனியுங்கள். <strong>அசைவு குறைந்தால் அதே நாளில் வாருங்கள்.</strong></li><li><strong>பிரசவம்</strong> உங்கள் மருத்துவருடன் திட்டமிடப்படும். <strong>உங்கள் குறிப்பேடு, மருந்துகள், கிளினிக் புத்தகத்தைக் கொண்டுவாருங்கள்.</strong></li><li><strong>பிரசவத்திற்குப் பின்:</strong> <strong>GDM மாத்திரைகள் அல்லது இன்சுலின் நிறுத்தப்படும்.</strong> <strong>முன்பே இருந்த நீரிழிவு:</strong> இன்சுலின் தேவை குறையும். <strong>உங்கள் மருத்துவர் புதிய அளவு தருவார்.</strong></li><li><strong>சீக்கிரமே தாய்ப்பால் கொடுங்கள்.</strong> தாய்ப்பாலூட்டும்போது <strong>இன்சுலினும் மெட்ஃபோர்மினும் பாதுகாப்பானவை.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Diabetes in pregnancy: baby and delivery</h4><ul><li><strong>Baby's movements:</strong> from about <strong>28 weeks</strong> learn your baby's usual pattern. <strong>Less movement: come the same day.</strong></li><li><strong>Delivery</strong> is planned with your doctor. <strong>Bring your diary, medicines and clinic book.</strong></li><li><strong>After delivery:</strong> <strong>GDM tablets or insulin stop.</strong> <strong>Pre-existing diabetes:</strong> insulin need falls. <strong>Your doctor gives a new dose.</strong></li><li><strong>Breastfeed early.</strong> <strong>Insulin and metformin are safe</strong> in breastfeeding.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-19</span> After delivery: the sugar test</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-19.png" alt="After delivery: the sugar test" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ප්‍රසූතියෙන් පසු: සීනි පරීක්ෂාව (ගර්භනී)</h4><ul><li><strong>ප්‍රසූතියෙන් සති 6-12 කට පසු සීනි පරීක්ෂාවක් (OGTT) සඳහා පැමිණෙන්න.</strong> <strong>දරුවාගේ එන්නත් පැමිණීම සමඟ වෙන් කරගන්න.</strong></li><li><strong>සාමාන්‍ය නම්: සෑම වසරකම පරීක්ෂා කරන්න.</strong></li><li><strong>GDM තිබූ කාන්තාවන්ට වර්ග 2 දියවැඩියාව වැළඳීමේ අවදානම වැඩිය.</strong> <strong>නිරෝගී ආහාර, ව්‍යායාම සහ නිසි බර මගින් එම අවදානම අඩු කළ හැක.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය: ඔබේ වෛද්‍යවරයාට කලින්ම දන්වා සැලසුම් කරන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பிரசவத்திற்குப் பின்: சர்க்கரைப் பரிசோதனை (கர்ப்பிணி)</h4><ul><li><strong>பிரசவத்திற்குப் பின் 6-12 வாரங்களில் சர்க்கரைப் பரிசோதனைக்கு (OGTT) வாருங்கள்.</strong> <strong>குழந்தையின் தடுப்பூசி வருகையுடன் சேர்த்துப் பதிவு செய்யுங்கள்.</strong></li><li><strong>இயல்பாக இருந்தால்: ஆண்டுதோறும் பரிசோதியுங்கள்.</strong></li><li><strong>GDM இருந்த பெண்களுக்கு வகை 2 நீரிழிவு வரும் வாய்ப்பு அதிகம்.</strong> <strong>ஆரோக்கிய உணவு, உடற்பயிற்சி, சரியான எடை ஆகியவை இந்த ஆபத்தைக் குறைக்கும்.</strong></li><li><strong>அடுத்த கர்ப்பம்: முன்கூட்டியே உங்கள் மருத்துவரிடம் தெரிவித்துத் திட்டமிடுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>After delivery: the sugar test</h4><ul><li><strong>Come for a sugar test (OGTT) 6-12 weeks after delivery.</strong> <strong>Book it with your baby's immunisation visit.</strong></li><li><strong>If normal: test every year.</strong></li><li><strong>Women who had GDM are more likely to get Type 2 diabetes.</strong> <strong>Healthy food, exercise and healthy weight lower the chance.</strong></li><li><strong>Next pregnancy: tell your doctor early and plan it.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-20</span> Diabetes in gynae women</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-20.jpg" alt="Diabetes in gynae women" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ දියවැඩියාව (ගර්භනී නොවන)</h4><ul><li><strong>ශල්‍යකර්මයට පෙර:</strong> ඔබේ සටහන් පොත ගෙන එන්න. එදින <strong>ඔබ රැකබලා ගන්නා කණ්ඩායම ඔබේ බෙහෙත් වෙනස් කරනු ලැබිය හැක.</strong> <strong>උපදෙස් නොලැබුණහොත් ඉන්සියුලින් නොනවත්වන්න.</strong></li><li><strong>නිරාහාරව සිටීම:</strong> ආහාර හා පාන වර්ග නවත්වන විට කණ්ඩායම ඔබට කියනු ඇත. සාමාන්‍ය රීතිය නම් ශල්‍යකර්මයට පැය 2 කට පෙර දක්වා පැහැදිලි දියර සහ පැය 6 කට පෙර දක්වා සැහැල්ලු ආහාරයකි.</li><li><strong>ශල්‍යකර්මයෙන් පසු:</strong> <strong>හොඳ සීනි පාලනය යනු වේගවත් සුවය සහ අඩු ආසාදනයි.</strong> නැවත කවදා කෑමට හැකිද යන්න ඔබේ කණ්ඩායමෙන් අසන්න: (පැය 24 ඇතුළත) කලින් පරිදි ආහාර ගැනීම සුවය වේගවත් කරයි.</li><li><strong>යීස්ට් ආසාදනය (කැසීම, සුදු ස්‍රාවය)</strong> සහ <strong>මුත්‍රා ආසාදන</strong> සීනි ඉහළ විට වැඩියෙන් වේ. <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li><li><strong>PMOS සහ අක්‍රමවත් ඔසප්</strong> දියවැඩියාව වැළඳීමේ අවදානම වැඩි කරයි. <strong>වසරකට වරක් සීනි පරීක්ෂා කරන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>කලින් පැමිණෙන්න,</strong> බෙහෙත් සහ සීනි ආරක්ෂිත මට්ටමකට ගෙන ඒමට.</li></ul></div>
+    <div class="lang lang-ta"><h4>மகளிர் நோய் கிளினிக் பெண்களில் நீரிழிவு (கர்ப்பமில்லாதவர்)</h4><ul><li><strong>அறுவைச் சிகிச்சைக்கு முன்:</strong> உங்கள் குறிப்பேட்டைக் கொண்டுவாருங்கள். அன்று <strong>உங்களைக் கவனிக்கும் குழு உங்கள் மருந்துகளை மாற்றலாம்.</strong> <strong>சொல்லப்படாவிட்டால் இன்சுலினை நிறுத்த வேண்டாம்.</strong></li><li><strong>உண்ணாநோன்பு:</strong> உணவும் பானமும் எப்போது நிறுத்த வேண்டும் என்று குழு உங்களுக்குச் சொல்லும். வழக்கமான விதி: அறுவைச் சிகிச்சைக்கு 2 மணி நேரம் முன் வரை தெளிவான திரவங்களும், 6 மணி நேரம் முன் வரை இலேசான உணவும்.</li><li><strong>அறுவைச் சிகிச்சைக்குப் பின்:</strong> <strong>நல்ல சர்க்கரைக் கட்டுப்பாடு என்றால் வேகமான ஆறுதல், குறைவான தொற்று.</strong> எப்போது மீண்டும் சாப்பிடலாம் என்று உங்கள் குழுவிடம் கேளுங்கள்: சீக்கிரமே (24 மணி நேரத்திற்குள்) வழக்கமான உணவு சுவாதீனத்தை விரைவுபடுத்தும்.</li><li><strong>பூஞ்சைத் தொற்று (அரிப்பு, வெள்ளைப்படுதல்)</strong> மற்றும் <strong>சிறுநீர்த் தொற்றுகள்</strong> சர்க்கரை அதிகமாக இருக்கும்போது அதிகம் வரும். <strong>உங்கள் மருத்துவரிடம் சொல்லுங்கள்.</strong></li><li><strong>PMOS மற்றும் ஒழுங்கற்ற மாதவிடாய்</strong> நீரிழிவு வரும் வாய்ப்பை அதிகரிக்கும். <strong>ஆண்டுக்கு ஒருமுறை சர்க்கரை பரிசோதியுங்கள்.</strong></li><li><strong>கர்ப்பமாகத் திட்டமிடுகிறீர்களா?</strong> <strong>முதலில் வாருங்கள்,</strong> மருந்துகளையும் சர்க்கரையையும் பாதுகாப்பான நிலைக்குக் கொண்டுவர.</li></ul></div>
+    <div class="lang lang-en"><h4>Diabetes in gynae women</h4><ul><li><strong>Before surgery:</strong> bring your diary. Your team may <strong>change your medicine</strong> on the day. <strong>Do not stop insulin</strong> unless told.</li><li><strong>Fasting: your team will tell you when to stop food and drink. The usual rule is clear fluids up to 2 hours and a light meal up to 6 hours before surgery.</strong> </li><li><strong>After surgery:</strong> <strong>good sugar means faster healing and less infection. Ask your team when you can eat again: normal food early (within 24 hours) helps healing.</strong> </li><li><strong>Thrush (itching, white discharge)</strong> and <strong>urine infections</strong> are more common with high sugar. <strong>Tell your doctor.</strong></li><li><strong>PMOS and irregular periods</strong> raise the chance of diabetes. <strong>Check sugar once a year.</strong></li><li><strong>Planning pregnancy?</strong> <strong>Come first</strong> so medicines and sugar can be made safe.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">D-21</span> Myths and facts</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/D-21.png" alt="Myths and facts" loading="lazy"></div>
+    <div class="lang lang-si"><h4>මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>මිථ්‍යාව</th><th>සත්‍යය</th></tr>
+<tr><td>"ඉන්සියුලින් මගේ දරුවාට හානි කරයි."</td><td><strong>ඉහළ සීනි</strong> දරුවාට හානිකරයි. <strong>ඉන්සියුලින් ආරක්ෂිතයි.</strong></td></tr>
+<tr><td>"ඉන්සියුලින් පටන් ගත්තොත් කවදාවත් නවත්වන්න බෑ."</td><td><strong>GDM වලට භාවිතා කරන ඉන්සියුලින් ප්‍රසූතියෙන් පසු නවතී.</strong></td></tr>
+<tr><td>"මම දෙදෙනෙකුට කෑමට ඕනෑ."</td><td><strong>ටිකක් වැඩියෙන් පමණි,</strong> දෙගුණයක් නොවේ.</td></tr>
+<tr><td>"සීනි නැති රසකැවිලි නිදහස්."</td><td><strong>ස්වල්ප වශයෙන් පමණි.</strong></td></tr>
+<tr><td>"දියවැඩියාව කියන්නේ බත් නැහැ."</td><td><strong>මනින ලද ප්‍රමාණයෙන් බත් කෑමට කමක් නැත. රතු හෝ පාබොයිල් බත් වඩාත් සුදුසුයි.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கட்டுக்கதை</th><th>உண்மை</th></tr>
+<tr><td>"இன்சுலின் என் குழந்தைக்குத் தீங்கு செய்யும்."</td><td><strong>அதிகச் சர்க்கரையே</strong> குழந்தைக்குத் தீங்கு. <strong>இன்சுலின் பாதுகாப்பானது.</strong></td></tr>
+<tr><td>"இன்சுலின் ஆரம்பித்தால் ஒருபோதும் நிறுத்த முடியாது."</td><td><strong>GDM இன்சுலின் பிரசவத்திற்குப் பின் நிறுத்தப்படும்.</strong></td></tr>
+<tr><td>"நான் இருவருக்குச் சாப்பிட வேண்டும்."</td><td><strong>சற்றுக் கூடுதல்</strong> மட்டும்; இரு மடங்கு அல்ல.</td></tr>
+<tr><td>"சீனி இல்லாத இனிப்புகள் தடையில்லை."</td><td><strong>சிறிதளவு மட்டுமே.</strong></td></tr>
+<tr><td>"நீரிழிவு என்றால் சோறு கூடாது."</td><td><strong>அளந்த அளவில் சோறு சாப்பிடலாம். சிவப்பரிசி அல்லது பாபாய்ல்டு அரிசி சிறந்தது.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Myths and facts</h4><table class="blk-table">
+<tr><th><strong>Myth</strong></th><th><strong>Fact</strong></th></tr>
+<tr><td>"Insulin will harm my baby."</td><td><strong>High sugar</strong> harms the baby. <strong>Insulin is safe.</strong></td></tr>
+<tr><td>"Once I start insulin I can never stop."</td><td><strong>GDM insulin stops after delivery.</strong></td></tr>
+<tr><td>"I must eat for two."</td><td><strong>A little extra</strong>, not double.</td></tr>
+<tr><td>"Sugar-free sweets are free."</td><td><strong>Small amounts only.</strong></td></tr>
+<tr><td>"Diabetes means no rice."</td><td><strong>Rice is fine in measured portions. Red or parboiled rice is best.</strong></td></tr>
+</table></div>
+  </div>
+</details>
+</section>
+
+<section id="chap-H" class="chapter">
+  <h2>Chapter 2: High Blood Pressure</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">H-01</span> What is blood pressure?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-01.png" alt="What is blood pressure?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>රුධිර පීඩනය යනු කුමක්ද?</h4><ul><li>රුධිර පීඩනය (BP) යනු <strong>ඔබේ රුධිර නාළවලට රුධිරය යොදන බලයයි.</strong></li><li>එය <strong>සංඛ්‍යා දෙකකින්</strong> ලියයි, උදා: <strong>120/80</strong>.</li><li><strong>140/90 හෝ ඊට වැඩි නම් අධිකයි.</strong></li><li><strong>අධි රුධිර පීඩනය බොහෝවිට කිසිදු රෝග ලක්ෂණයක් නොපෙන්වයි.</strong> එබැවින් අපි එය පරීක්ෂා කරමු.</li></ul></div>
+    <div class="lang lang-ta"><h4>இரத்த அழுத்தம் என்றால் என்ன?</h4><ul><li>இரத்த அழுத்தம் (BP) என்பது <strong>இரத்தக் குழாய்களின் மீது இரத்தம் செலுத்தும் விசை.</strong></li><li>இது <strong>இரண்டு எண்களாக</strong> எழுதப்படும், எ.கா. <strong>120/80</strong>.</li><li><strong>140/90 அல்லது அதற்கு மேல் என்றால் அதிகம்.</strong></li><li><strong>உயர் இரத்த அழுத்தம் பெரும்பாலும் எந்த அறிகுறியும் காட்டாது.</strong> அதனால்தான் நாங்கள் அதைப் பரிசோதிக்கிறோம்.</li></ul></div>
+    <div class="lang lang-en"><h4>What is blood pressure?</h4><ul><li>BP is the <strong>force of blood on your blood vessels.</strong></li><li>It has <strong>two numbers</strong>, for example <strong>120/80</strong>.</li><li><strong>140/90 or more is high.</strong></li><li><strong>High BP usually gives no symptoms.</strong> That is why we check it.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-02</span> Kinds of high BP</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-02.png" alt="Kinds of high BP" loading="lazy"></div>
+    <div class="lang lang-si"><h4>අධි රුධිර පීඩන වර්ග (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>වර්ගය</th><th>එය කුමක්ද</th></tr>
+<tr><td><strong>දිගුකාලීන අධි රුධිර පීඩනය</strong></td><td>ගර්භණීභාවයට පෙර, හෝ ගර්භනී නොවන කාන්තාවක තුළ</td></tr>
+<tr><td><strong>ගර්භණීභාවයේ අධි රුධිර පීඩනය</strong></td><td>සති 20 න් පසු <strong>අලුතින්</strong> ඇතිවේ. සාමාන්‍යයෙන් ප්‍රසූතියෙන් පසු සුව වේ.</td></tr>
+<tr><td><strong>ප්‍රී-එක්ලැම්ප්සියා</strong></td><td>සති 20 න් පසු අධි රුධිර පීඩනය <strong>සමඟ මුත්‍රාවල ප්‍රෝටීන් හෝ වෙනත් අවයව බලපෑම්.</strong> <strong>භයානක විය හැක.</strong></td></tr>
+</table>
+<ul><li><strong>පාලනය නොකළ අධි රුධිර පීඩනය</strong> <strong>ආඝාතය, හෘද සහ වකුගඩු රෝග</strong> ඇති කළ හැක.</li><li><strong>ගර්භණීභාවයේදී</strong> එය <strong>දරුවාගේ වර්ධනය අඩාල වීම, කල් නොපිරී උපත සහ වලිප්පු</strong> ඇති කළ හැක.</li></ul></div>
+    <div class="lang lang-ta"><h4>உயர் இரத்த அழுத்த வகைகள் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>வகை</th><th>அது என்ன</th></tr>
+<tr><td><strong>நீண்டகால உயர் இரத்த அழுத்தம்</strong></td><td>கர்ப்பத்திற்கு முன்பே, அல்லது கர்ப்பமில்லாத பெண்ணில்</td></tr>
+<tr><td><strong>கர்ப்பகால உயர் இரத்த அழுத்தம்</strong></td><td>20 வாரங்களுக்குப் பின் <strong>புதிதாக</strong> வருவது. பொதுவாகப் பிரசவத்திற்குப் பின் சரியாகிவிடும்.</td></tr>
+<tr><td><strong>ப்ரீ-எக்லாம்ப்சியா</strong></td><td>20 வாரங்களுக்குப் பின் உயர் இரத்த அழுத்தத்துடன் <strong>சிறுநீரில் புரதம் அல்லது பிற உறுப்புப் பாதிப்பு.</strong> <strong>ஆபத்தானது.</strong></td></tr>
+</table>
+<ul><li><strong>கட்டுப்படுத்தப்படாத உயர் இரத்த அழுத்தம்</strong> <strong>பக்கவாதம், இதய, சிறுநீரக நோய்களை</strong> ஏற்படுத்தலாம்.</li><li><strong>கர்ப்பத்தில்</strong> இது <strong>குழந்தையின் வளர்ச்சிக் குறைவு, குறைப்பிரசவம், வலிப்பு</strong> ஆகியவற்றையும் ஏற்படுத்தலாம்.</li></ul></div>
+    <div class="lang lang-en"><h4>Kinds of high BP</h4><table class="blk-table">
+<tr><th><strong>Kind</strong></th><th><strong>What it is</strong></th></tr>
+<tr><td><strong>Long-term high BP</strong></td><td>Before pregnancy, or in a woman who is not pregnant</td></tr>
+<tr><td><strong>Gestational high BP</strong></td><td><strong>New</strong>, after 20 weeks of pregnancy. Usually goes after delivery.</td></tr>
+<tr><td><strong>Pre-eclampsia</strong></td><td>High BP after 20 weeks <strong>with protein in the urine or other organ effects.</strong> <strong>Can be dangerous.</strong></td></tr>
+</table>
+<ul><li><strong>Untreated high BP</strong> can cause <strong>stroke, heart and kidney disease.</strong></li><li><strong>In pregnancy</strong> it can also cause <strong>poor baby growth, early birth and fits.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-03</span> Your BP numbers</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-03.png" alt="Your BP numbers" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ රුධිර පීඩන අගයන් (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>කියවීම</th><th>ක්‍රියාමාර්ගය</th></tr>
+<tr><td><strong>140/90 ට අඩු</strong></td><td><strong>හොඳයි. 120-139/80-89 නම්, තවමත් ලුණු අඩු කර, ක්‍රියාශීලීව සිට, නිසි බර පවත්වා ගන්න.</strong></td></tr>
+<tr><td><strong>140/90 හෝ ඊට වැඩි</strong></td><td><strong>එදිනම ඔබේ සායනයට දන්වන්න</strong></td></tr>
+<tr><td><strong>160/110 හෝ ඊට වැඩි,</strong> හෝ <strong>අනතුරු ඇඟවීමේ ලක්ෂණයක්</strong> (H-07)</td><td><strong>දැන්ම රෝහලට එන්න</strong></td></tr>
+</table>
+<ul><li>ඔබේ වෛද්‍යවරයා <strong>අඩු ඉලක්කයක්</strong> තැබිය හැක. මෙහි ලියන්න: ____ <strong>[CHECK: ගර්භනී නොවන කාන්තාවන් සඳහා]</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் இரத்த அழுத்த அளவுகள் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>அளவீடு</th><th>செய்ய வேண்டியது</th></tr>
+<tr><td><strong>140/90 க்குக் குறைவு</strong></td><td><strong>நல்லது. 120-139/80-89 எனில், தொடர்ந்து உப்பைக் குறைத்து, சுறுசுறுப்பாக இருந்து, சரியான எடையைப் பேணுங்கள்.</strong></td></tr>
+<tr><td><strong>140/90 அல்லது அதற்கு மேல்</strong></td><td><strong>அதே நாளில் உங்கள் கிளினிக்கிற்குத் தெரிவியுங்கள்</strong></td></tr>
+<tr><td><strong>160/110 அல்லது அதற்கு மேல்,</strong> அல்லது <strong>ஆபத்து அறிகுறி</strong> (H-07)</td><td><strong>உடனே மருத்துவமனைக்கு வாருங்கள்</strong></td></tr>
+</table>
+<ul><li>உங்கள் மருத்துவர் <strong>குறைந்த இலக்கை</strong> தரலாம். இங்கே எழுதுங்கள்: ____ <strong>[CHECK: கர்ப்பமில்லாத பெண்களுக்கு]</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Your BP numbers</h4><table class="blk-table">
+<tr><th><strong>Reading</strong></th><th><strong>Action</strong></th></tr>
+<tr><td><strong>Under 140/90</strong></td><td><strong>Good. If it is 120-139 / 80-89, still cut salt, stay active and keep a healthy weight.</strong></td></tr>
+<tr><td><strong>140/90 or more</strong></td><td><strong>Tell your clinic the same day</strong></td></tr>
+<tr><td><strong>160/110 or more</strong>, or a <strong>danger sign</strong> (H-07)</td><td><strong>Come to hospital now</strong></td></tr>
+</table>
+<ul><li>Your doctor may set a <strong>lower target.</strong> Write it here: ____ <strong>CHECK for non-pregnant women</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-04</span> Checking BP</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-04a.jpg" alt="Checking BP" loading="lazy"><img src="images/H-04b.png" alt="Checking BP" loading="lazy"></div>
+    <div class="lang lang-si"><h4>රුධිර පීඩනය පරීක්ෂා කිරීම (සියලුදෙනා)</h4><ol><li><strong>හිඳගෙන මිනිත්තු 5 ක් විවේක ගන්න.</strong></li><li>පරීක්ෂාවට <strong>මිනිත්තු 30 කට පෙර තේ, කෝපි, දුම්පානය හෝ ව්‍යායාම නොකරන්න.</strong> <strong>මුත්‍රාශය හිස් කරන්න.</strong></li><li><strong>පිටට ආධාරයක්, පාද බිම තබා, අත හදවත මට්ටමට තබා ගන්න.</strong></li><li><strong>ඉහළ අතට</strong> <strong>නිවැරදි ප්‍රමාණයේ කෆ් එකක්</strong> පළඳින්න. ලොකු අත් සඳහා <strong>විශාල කෆ් එකක්</strong> අවශ්‍යයි.</li><li><strong>කතා නොකරන්න.</strong></li><li><strong>විනාඩියක ඉඩක් තබා කියවීම් දෙකක් ලබා ගන්න.</strong> <strong>දෙකම ලියන්න.</strong></li><li><strong>සෑම දිනකම එකම වේලාවලට</strong> (උදේ සහ සවස), හෝ උපදෙස් ලද පරිදි.</li></ol></div>
+    <div class="lang lang-ta"><h4>இரத்த அழுத்தத்தைப் பரிசோதித்தல் (எல்லோரும்)</h4><ol><li><strong>உட்கார்ந்து 5 நிமிடம் ஓய்வெடுங்கள்.</strong></li><li>பரிசோதனைக்கு <strong>30 நிமிடம் முன்பு தேநீர், காபி, புகைபிடித்தல், உடற்பயிற்சி வேண்டாம்.</strong> <strong>சிறுநீர்ப்பையைக் காலி செய்யுங்கள்.</strong></li><li><strong>முதுகுக்கு ஆதரவு, பாதங்கள் தரையில், கை இதய மட்டத்தில் இருக்க வேண்டும்.</strong></li><li><strong>மேல் கையில்</strong> <strong>சரியான அளவுள்ள கஃப்பைக்</strong> கட்டுங்கள். பருமனான கைகளுக்கு <strong>பெரிய கஃப்</strong> தேவை.</li><li><strong>பேச வேண்டாம்.</strong></li><li><strong>ஒரு நிமிட இடைவெளியில் இரண்டு அளவீடுகள்.</strong> <strong>இரண்டையும் எழுதுங்கள்.</strong></li><li><strong>தினமும் ஒரே நேரங்களில்</strong> (காலை மற்றும் மாலை), அல்லது கூறியபடி.</li></ol></div>
+    <div class="lang lang-en"><h4>Checking BP</h4><ol><li><strong>Rest 5 minutes</strong>, sitting.</li><li><strong>No tea, coffee, smoking or exercise</strong> for 30 minutes before. <strong>Empty your bladder.</strong></li><li><strong>Back supported, feet flat, arm resting at heart level.</strong></li><li><strong>Correct cuff size</strong> on the <strong>upper arm.</strong> Big arms need a <strong>large cuff.</strong></li><li><strong>No talking.</strong></li><li><strong>Two readings, 1 minute apart.</strong> <strong>Write both.</strong></li><li><strong>Same times each day</strong> (morning and evening), or as told.</li></ol></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-05</span> Your medicines</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-05.png" alt="Your medicines" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ බෙහෙත් (සියලුදෙනා)</h4><ul><li><strong>සෑම දිනකම ගන්න. සනීපෙන් සිටියත්, නවත්වන්නවත් මඟ හරින්නවත් එපා.</strong></li><li><strong>ගර්භනී:</strong> සාමාන්‍යයෙන් <strong>ලැබටලෝල්, නිෆෙඩිපින් සහ මෙතිල්ඩෝපා</strong> භාවිතා කරයි. <strong>මෙතිල්ඩෝපා නිසා නිදිමත ඇති විය හැක.</strong></li><li><strong>ගර්භණීභාවයේදී ආරක්ෂිත නොවන බෙහෙත්: එනලාප්‍රිල්, ලොසාටන්, ඇම්ලොඩිපින්.</strong> <strong>ඒවා ගන්නා අතරේ ගැබ් ගත්තොත්, හෝ ගැබ් ගැනීමට සැලසුම් කරන්නේ නම්, වහාම ඔබේ වෛද්‍යවරයා වෙත යන්න.</strong></li><li><strong>ප්‍රසූතියෙන් පසු</strong> ඔබේ වෛද්‍යවරයා ටැබ්ලට් වෙනස් කළ හැක. <strong>කිරි දීමේදී ආරක්ෂිත ඒවා මොනවාදැයි අසන්න.</strong></li><li><strong>ඔබට ඇදුම තිබේ නම්, ඔබට ප්‍රතිකාර කරන සෑම වෛද්‍යවරයෙකුටම කියන්න.</strong> <strong>ඇදුම ඇති අය සඳහා ලැබටලෝල් වැළැක්විය යුතුයි.</strong></li><li><strong>වේදනා නාශක:</strong> <strong>පැරසිටමෝල්</strong> භාවිතා කරන්න. <strong>ඩයික්ලොෆෙනැක් වැනි ඒවා</strong> ඔබේ වෛද්‍යවරයා කියන්නේ නම් මිස <strong>වළක්වන්න.</strong></li><li><strong>උපත් පාලන පෙති සහ හෝමෝන ප්‍රතිකාර රුධිර පීඩනය ඉහළ දැමිය හැක.</strong> <strong>පටන් ගැනීමට පෙර ඔබට අධි රුධිර පීඩනය ඇති බව ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் மருந்துகள் (எல்லோரும்)</h4><ul><li><strong>தினமும் எடுங்கள், நலமாக உணர்ந்தாலும்.</strong> <strong>நிறுத்தவோ தவறவிடவோ வேண்டாம்.</strong></li><li><strong>கர்ப்பிணி:</strong> பொதுவாகப் பயன்படுத்துவது <strong>லபெடலால், நிஃபெடிபின், மெதில்டோபா.</strong> <strong>மெதில்டோபா தூக்கக் கலக்கம் தரலாம்.</strong></li><li><strong>கர்ப்பத்தில் பாதுகாப்பற்றவை: எனலாப்ரில், லோசார்டன், அம்லோடிபின்.</strong> <strong>இவற்றை எடுக்கும்போது கர்ப்பமானாலோ, கர்ப்பமாகத் திட்டமிட்டாலோ உடனே உங்கள் மருத்துவரைப் பாருங்கள்.</strong></li><li><strong>பிரசவத்திற்குப் பின்</strong> உங்கள் மருத்துவர் மாத்திரையை மாற்றலாம். <strong>தாய்ப்பாலூட்டும்போது எவை பாதுகாப்பானவை என்று கேளுங்கள்.</strong></li><li><strong>உங்களுக்கு ஆஸ்துமா இருந்தால், உங்களுக்குச் சிகிச்சை அளிக்கும் ஒவ்வொரு மருத்துவரிடமும் சொல்லுங்கள்.</strong> <strong>ஆஸ்துமாவில் லபெடலாலைத் தவிர்க்க வேண்டும்.</strong></li><li><strong>வலி நிவாரணிகள்:</strong> <strong>பாரசிட்டமால்</strong> பயன்படுத்துங்கள். உங்கள் மருத்துவர் கூறாவிட்டால் <strong>டைக்ளோஃபெனாக் போன்றவற்றைத் தவிர்க்கவும்.</strong></li><li><strong>கருத்தடை மாத்திரை, ஹார்மோன் சிகிச்சை இரத்த அழுத்தத்தை உயர்த்தலாம்.</strong> <strong>தொடங்குவதற்கு முன் உங்களுக்கு உயர் இரத்த அழுத்தம் இருப்பதை உங்கள் மருத்துவரிடம் சொல்லுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Your medicines</h4><ul><li><strong>Take every day, even if you feel well.</strong> <strong>Do not stop or skip.</strong></li><li><strong>Pregnant:</strong> the usual medicines are <strong>labetalol, nifedipine and methyldopa.</strong> <strong>Methyldopa can make you sleepy.</strong></li><li><strong>Not safe in pregnancy: enalapril, losartan, amlodipine.</strong> <strong>If you take one and are pregnant, or planning pregnancy, see your doctor at once.</strong></li><li><strong>After delivery,</strong> your doctor may change the tablet. <strong>Ask which are safe with breastfeeding.</strong></li><li><strong>If you have asthma, tell every doctor.</strong> <strong>Labetalol should be avoided in asthma.</strong></li><li><strong>Painkillers:</strong> use <strong>paracetamol.</strong> <strong>Avoid diclofenac and similar</strong> unless your doctor says.</li><li><strong>Contraceptive pill and hormone treatment can raise BP.</strong> <strong>Tell your doctor you have high BP</strong> before you start.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-06</span> Food and lifestyle</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-06.jpg" alt="Food and lifestyle" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ආහාර සහ ජීවන රටාව (සියලුදෙනා)</h4><ul><li><strong>ලුණු අඩුවෙන් ගන්න.</strong> <strong>වියළි මාළු, ලුණු මාළු, අච්චාරු, පපඩම්, චිප්ස්, ඉන්ස්ටන්ට් නූඩ්ල්ස්, ස්ටොක් කියුබ්, සෝයා සෝස්, සෝස්, MSG, ටින් මාළු, සොසේජස්, ලුණු දැමූ කෑම</strong> සීමා කරන්න.</li><li><strong>මේසයේදී ලුණු එකතු නොකරන්න.</strong></li><li><strong>වැඩිපුර ලුණු වෙනුවට රස සඳහා කරපිංචා, කුරුඳු, ඉඟුරු, ගම්මිරිස්, මිරිස් හෝ කරි කුඩු භාවිතා කරන්න.</strong></li><li><strong>පලතුරු සහ එළවළු වැඩියෙන්: දිනකට වේල් 4-5 (ග්‍රෑම් 400 ක් පමණ).</strong></li><li><strong>නිසි බර</strong> (පරිච්ඡේදය 5). <strong>අවම වශයෙන් මිනිත්තු 30 ක් දිනපතා ඇවිදින්න.</strong></li><li><strong>කන්න: මාළු සහ රනිල කුලයට අයත් ඒවා (පරිප්පු, කඩල, සෝයා) වැඩියෙන්, හම් නැති කුකුළු මස්, අඩු මේද කිරි වීදුරු 1-2 ක්; රතු මස් සහ මේදය අඩුවෙන්.</strong></li><li><strong>දුම්පානය, මත්පැන්, දුම්කොළ සහිත බුලත් එපා.</strong></li><li><strong>ගර්භනී:</strong> <strong>වම් පැත්තට හැරී විවේක ගන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உணவும் வாழ்க்கை முறையும் (எல்லோரும்)</h4><ul><li><strong>உப்பைக் குறையுங்கள்.</strong> <strong>கருவாடு, உப்புமீன், ஊறுகாய், அப்பளம், சிப்ஸ், இன்ஸ்டன்ட் நூடில்ஸ், ஸ்டாக் கியூப், சோயா சாஸ், சாஸ்கள், MSG, டின் மீன், சாசேஜ், உப்பு தின்பண்டங்கள்</strong> ஆகியவற்றைக் குறைக்கவும்.</li><li><strong>மேசை உப்பைச் சேர்க்க வேண்டாம்.</strong></li><li><strong>கூடுதல் உப்புக்குப் பதிலாக கறிவேப்பிலை, இலவங்கப்பட்டை, இஞ்சி, மிளகு, மிளகாய் அல்லது கறிப்பொடியைச் சுவைக்குப் பயன்படுத்துங்கள்.</strong></li><li><strong>பழங்களும் காய்கறிகளும் அதிகம்: நாளொன்றுக்கு 4-5 பங்குகள் (சுமார் 400 கிராம்).</strong></li><li><strong>சரியான எடை</strong> (அத்தியாயம் 5). <strong>தினமும் குறைந்தது 30 நிமிடம் நடக்கவும்.</strong></li><li><strong>சாப்பிடுங்கள்: மீன் மற்றும் பருப்பு வகைகள் (பருப்பு, கொண்டைக்கடலை, சோயா) அதிகம், தோலில்லா கோழி, குறைந்த கொழுப்புப் பால் 1-2 குவளை; சிவப்பு இறைச்சியும் கொழுப்பும் குறைவாக.</strong></li><li><strong>புகைபிடித்தல், மது, புகையிலை போட்ட வெற்றிலை வேண்டாம்.</strong></li><li><strong>கர்ப்பிணி:</strong> <strong>இடது பக்கமாகச் சாய்ந்து ஓய்வெடுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Food and lifestyle</h4><ul><li><strong>Eat less salt.</strong> Limit <strong>dry fish, salted fish, pickles, papadam, crisps, instant noodles, stock cubes, soy sauce, sauces, MSG, canned fish, sausages, salted snacks.</strong> </li><li><strong>Do not add salt at the table.</strong></li><li><strong>Use curry leaves, cinnamon, ginger, pepper, chilli or curry powder for taste instead of extra salt.</strong> </li><li><strong>More fruit and vegetables: 4-5 servings (about 400 g) a day.</strong> </li><li><strong>Healthy weight</strong> (Chapter 5). <strong>Walk daily, at least 30 minutes.</strong> </li><li><strong>No smoking, no alcohol, no tobacco betel.</strong></li><li><strong>Eat: more fish and pulses (dhal, gram, soya), skinless chicken, 1-2 glasses of low-fat milk; less red meat and less fat.</strong> </li><li><strong>Pregnant:</strong> <strong>rest on your left side.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-07</span> Pre-eclampsia danger signs: come to hospital NOW</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-07.png" alt="Pre-eclampsia danger signs: come to hospital NOW" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ප්‍රී-එක්ලැම්ප්සියා අනතුරු ඇඟවීම්: දැන්ම රෝහලට එන්න (ගර්භනී)</h4><ul><li><strong>පහව නොයන දරුණු ඔළු කැක්කුම.</strong></li><li><strong>බොඳ පෙනීම හෝ ආලෝක ගැටිති.</strong></li><li><strong>උදරයේ ඉහළ දකුණු පැත්තේ වේදනාව</strong> හෝ ගර්භණීභාවයේ අග කාලයේ <strong>වමනය.</strong></li><li><strong>මුහුණ සහ අත් හදිසියේ ඉදිමීම.</strong></li><li><strong>දරුවාගේ චලනය අඩුවීම.</strong></li><li><strong>වලිප්පු හෝ සිතේ පටලැවිලි සහිත ස්වභාවය.</strong></li><li><strong>මේවා ප්‍රසූතියෙන් පසුවද ආරම්භ විය හැක.</strong> <strong>සති 6 ඇතුළත මේවා තිබේ නම් පැමිණෙන්න.</strong></li><li><strong>ප්‍රී-එක්ලැම්ප්සියා රෝහලේදී ප්‍රතිකාර කෙරේ.</strong> <strong>ප්‍රසූතිය තමයි සුවය.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>ப்ரீ-எக்லாம்ப்சியா ஆபத்து அறிகுறிகள்: உடனே மருத்துவமனைக்கு வாருங்கள் (கர்ப்பிணி)</h4><ul><li><strong>நீங்காத கடுமையான தலைவலி.</strong></li><li><strong>பார்வை மங்குதல் அல்லது ஒளிக்கீற்றுகள்.</strong></li><li><strong>மேல் வலப்பக்க வயிற்று வலி</strong> அல்லது கர்ப்பத்தின் பிற்பகுதியில் <strong>வாந்தி.</strong></li><li><strong>முகம், கைகள் திடீரென வீங்குதல்.</strong></li><li><strong>குழந்தையின் அசைவு குறைதல்.</strong></li><li><strong>வலிப்பு அல்லது குழப்பம்.</strong></li><li><strong>இவை பிரசவத்திற்குப் பின்னரும் தொடங்கலாம்.</strong> <strong>6 வாரங்களுக்குள் இவை இருந்தால் வாருங்கள்.</strong></li><li><strong>ப்ரீ-எக்லாம்ப்சியாவுக்கு மருத்துவமனையில் சிகிச்சை அளிக்கப்படும்.</strong> <strong>பிரசவமே தீர்வு.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Pre-eclampsia danger signs: come to hospital NOW</h4><ul><li><strong>Severe headache</strong> that does not go away.</li><li><strong>Blurred vision or flashing lights.</strong></li><li><strong>Pain in the upper right belly</strong> or <strong>vomiting</strong> in late pregnancy.</li><li><strong>Sudden swelling</strong> of face and hands.</li><li><strong>Baby moving less.</strong></li><li><strong>Fits or confusion.</strong></li><li><strong>These can start after delivery.</strong> <strong>Come in if you have them within 6 weeks.</strong></li><li><strong>Pre-eclampsia is treated in hospital.</strong> <strong>Delivery is the cure.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-08</span> Aspirin</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-08.png" alt="Aspirin" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඇස්ප්‍රීන් (ගර්භනී, නියම කළ විට)</h4><ul><li>සමහර කාන්තාවන්ට <strong>ප්‍රී-එක්ලැම්ප්සියා වීමේ අවදානම අඩු කිරීමට</strong> ගර්භණීභාවයේ මුල සිට <strong>රාත්‍රියට අඩු මාත්‍රාවේ ඇස්ප්‍රීන්</strong> ලබා දේ.</li><li><strong>ඔබට ලියා දී ඇති මාත්‍රාව ගන්න.</strong></li><li><strong>ඔබට ඇදුම, ගැස්ට්‍රයිටිස් හෝ ආමාශයේ තුවාල තිබේ නම්,</strong> හෝ වේදනා නාශකයකින් ප්‍රතික්‍රියාවක් වී ඇත්නම් <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>ஆஸ்பிரின் (கர்ப்பிணி, பரிந்துரைத்தால்)</h4><ul><li>சில பெண்களுக்கு <strong>ப்ரீ-எக்லாம்ப்சியா வரும் வாய்ப்பைக் குறைக்க</strong> ஆரம்பக் கர்ப்பத்திலிருந்து <strong>இரவில் குறைந்த அளவு ஆஸ்பிரின்</strong> தரப்படும்.</li><li><strong>உங்களுக்கு எழுதித் தரப்பட்ட அளவை எடுங்கள்.</strong></li><li><strong>உங்களுக்கு ஆஸ்துமா, இரைப்பை அழற்சி அல்லது வயிற்றுப் புண் இருந்தால்,</strong> அல்லது ஒரு வலி நிவாரணியால் எதிர்வினை ஏற்பட்டிருந்தால் <strong>உங்கள் மருத்துவரிடம் சொல்லுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Aspirin</h4><ul><li>Some women are given <strong>low-dose aspirin at night</strong> from early pregnancy to <strong>lower the chance of pre-eclampsia.</strong></li><li><strong>Take the dose written for you.</strong></li><li><strong>Tell your doctor if you have asthma, gastritis or an ulcer,</strong> or a painkiller ever caused a reaction.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-09</span> After delivery</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-09.png" alt="After delivery" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ප්‍රසූතියෙන් පසු (ගර්භනී)</h4><ul><li><strong>පළමු සතියේදී රුධිර පීඩනය ඉහළ යා හැක.</strong></li><li><strong>ටැබ්ලට් ගන්නේ නම් සති 1-2 කදී නැවත පරීක්ෂා කරන්න.</strong> <strong>සෑම කෙනෙකුටම සති 6 කදී නැවත පරීක්ෂා කිරීම අවශ්‍ය වේ.</strong> <strong>මඟ නොහරින්න.</strong></li><li><strong>ජීවිතාන්තය දක්වා වාර්ෂික රුධිර පීඩන පරීක්ෂාව.</strong> <strong>ගර්භණීභාවයේදී අධි රුධිර පීඩනය තිබූ කාන්තාවන්ට පසුව අධි රුධිර පීඩනය වැළඳීමේ අවදානම වැඩිය.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය: කලින්ම ඔබේ වෛද්‍යවරයාට කියන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பிரசவத்திற்குப் பின் (கர்ப்பிணி)</h4><ul><li><strong>முதல் வாரத்தில் இரத்த அழுத்தம் உயரலாம்.</strong></li><li><strong>மாத்திரை எடுத்தால் 1-2 வாரங்களில் மீள்பரிசோதனை.</strong> <strong>எல்லோருக்கும் 6 வாரங்களில் மீள்பரிசோதனை.</strong> <strong>தவறவிடாதீர்கள்.</strong></li><li><strong>வாழ்நாள் முழுவதும் ஆண்டுதோறும் இரத்த அழுத்தப் பரிசோதனை.</strong> <strong>கர்ப்பத்தில் உயர் இரத்த அழுத்தம் இருந்த பெண்களுக்குப் பின்னர் உயர் இரத்த அழுத்தம் வரும் வாய்ப்பு அதிகம்.</strong></li><li><strong>அடுத்த கர்ப்பம்: முன்கூட்டியே உங்கள் மருத்துவரைப் பாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>After delivery</h4><ul><li><strong>BP can rise in the first week.</strong></li><li><strong>Review in 1-2 weeks if on tablets.</strong> <strong>Review at 6 weeks for all.</strong> <strong>Do not miss.</strong></li><li><strong>Yearly BP check</strong> for life. <strong>Women who had high BP in pregnancy are more likely to get high BP later.</strong></li><li><strong>Next pregnancy: see your doctor early.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-10</span> High BP in gynae women</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-10.jpg" alt="High BP in gynae women" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ අධි රුධිර පීඩනය (ගර්භනී නොවන)</h4><ul><li><strong>බෙහෙත් සෑම දිනකම ගන්න. ඔබේ රුධිර පීඩන සටහන් පොත හෝ සායන පොත ගෙන එන්න.</strong></li><li><strong>ශල්‍යකර්මයට පෙර: කණ්ඩායමට කියන්න.</strong> <strong>රුධිර පීඩන ටැබ්ලට් උපදෙස් දුන් පරිදි ගන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>පළමුව ඔබේ වෛද්‍යවරයා බලන්න.</strong> <strong>ලොසාටන්, එනලාප්‍රිල් සහ ඇම්ලොඩිපින් ගැබ් ගැනීමට පෙර වෙනස් කළ යුතුයි.</strong></li><li><strong>ඔසප් නැවතීම</strong> රුධිර පීඩනය ඉහළ දැමිය හැක. <strong>සෑම වසරකම පරීක්ෂා කරන්න.</strong></li><li><strong>ආඝාත ලක්ෂණ:</strong> මුහුණ ඇදවීම, අත දුර්වල වීම, කතාව අපැහැදිලි වීම. <strong>වහාම රෝහලට එන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மகளிர் நோய் கிளினிக் பெண்களில் உயர் இரத்த அழுத்தம் (கர்ப்பமில்லாதவர்)</h4><ul><li><strong>மருந்துகளைத் தினமும் எடுங்கள். உங்கள் இரத்த அழுத்தக் குறிப்பேடு அல்லது கிளினிக் புத்தகத்தைக் கொண்டுவாருங்கள்.</strong></li><li><strong>அறுவைச் சிகிச்சைக்கு முன்: குழுவிடம் சொல்லுங்கள்.</strong> <strong>இரத்த அழுத்த மாத்திரைகளை அறிவுறுத்தியபடி எடுங்கள்.</strong></li><li><strong>கர்ப்பமாகத் திட்டமிடுகிறீர்களா?</strong> <strong>முதலில் உங்கள் மருத்துவரைப் பாருங்கள்.</strong> <strong>லோசார்டன், எனலாப்ரில், அம்லோடிபின் ஆகியவற்றைக் கர்ப்பமாவதற்கு முன் மாற்ற வேண்டும்.</strong></li><li><strong>மாதவிடாய் நிறுத்தம்</strong> இரத்த அழுத்தத்தை உயர்த்தலாம். <strong>ஆண்டுதோறும் பரிசோதியுங்கள்.</strong></li><li><strong>பக்கவாத அறிகுறிகள்:</strong> முகம் கோணுதல், கை பலவீனம், பேச்சுக் குளறல். <strong>உடனே மருத்துவமனைக்கு வாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>High BP in gynae women</h4><ul><li><strong>Take medicine every day. Bring your BP diary or clinic book.</strong></li><li><strong>Before surgery: tell the team.</strong> <strong>Take BP tablets as instructed.</strong></li><li><strong>Planning pregnancy?</strong> <strong>See your doctor first.</strong> <strong>Losartan, enalapril and amlodipine must be changed</strong> before you conceive.</li><li><strong>Menopause</strong> may raise BP. <strong>Check every year.</strong></li><li><strong>Stroke signs:</strong> face drooping, arm weakness, slurred speech. <strong>Come to hospital at once.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">H-11</span> Myths and facts</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/H-11.png" alt="Myths and facts" loading="lazy"></div>
+    <div class="lang lang-si"><h4>මිථ්‍යා සහ සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>මිථ්‍යාව</th><th>සත්‍යය</th></tr>
+<tr><td>"රුධිර පීඩන ටැබ්ලට් මගේ දරුවාට හානි කරයි."</td><td><strong>අනතුර වන්නේ පාලනය නොකළ රුධිර පීඩනයයි</strong>. <strong>ගර්භණීභාවයේදී භාවිතා කරන ටැබ්ලට් ආරක්ෂිතයි.</strong></td></tr>
+<tr><td>"මට සනීපයි, එබැවින් නවත්වන්න පුළුවන්."</td><td><strong>අධි රුධිර පීඩනය බොහෝවිට ලක්ෂණ නොපෙන්වයි.</strong></td></tr>
+<tr><td>"ලුණු වලින් පමණයි වන්නේ."</td><td><strong>හේතු බොහෝය.</strong> <strong>බෙහෙත් අවශ්‍යයි.</strong></td></tr>
+<tr><td>"පාද ඉදිමීම යනු ප්‍රී-එක්ලැම්ප්සියා."</td><td><strong>සුළු පාද ඉදිමීම සුලභයි.</strong> <strong>ඔළු කැක්කුම සමඟ මුහුණ සහ අත් හදිසියේ ඉදිමීමයි ගැටලුව.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கட்டுக்கதை</th><th>உண்மை</th></tr>
+<tr><td>"இரத்த அழுத்த மாத்திரைகள் என் குழந்தைக்குத் தீங்கு செய்யும்."</td><td><strong>கட்டுப்படுத்தப்படாத இரத்த அழுத்தமே</strong> ஆபத்து. <strong>கர்ப்பத்தில் பயன்படுத்தும் மாத்திரைகள் பாதுகாப்பானவை.</strong></td></tr>
+<tr><td>"எனக்கு நலமாக இருக்கிறது, நிறுத்திவிடலாம்."</td><td><strong>உயர் இரத்த அழுத்தம் பெரும்பாலும் அறிகுறி காட்டாது.</strong></td></tr>
+<tr><td>"உப்பினால் மட்டுமே வருகிறது."</td><td><strong>பல காரணங்கள் உண்டு.</strong> <strong>மருந்து அவசியம்.</strong></td></tr>
+<tr><td>"கால் வீக்கம் என்றால் ப்ரீ-எக்லாம்ப்சியா."</td><td><strong>லேசான கால் வீக்கம் சாதாரணம்.</strong> <strong>தலைவலியுடன் முகம், கைகள் திடீரென வீங்குவதே கவலைக்குரியது.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Myths and facts</h4><table class="blk-table">
+<tr><th><strong>Myth</strong></th><th><strong>Fact</strong></th></tr>
+<tr><td>"BP tablets will harm my baby."</td><td><strong>Untreated BP</strong> is the danger. <strong>The tablets used in pregnancy are safe.</strong></td></tr>
+<tr><td>"I feel fine, so I can stop."</td><td><strong>High BP often has no symptoms.</strong></td></tr>
+<tr><td>"Only salt causes it."</td><td><strong>Many causes.</strong> <strong>Medicine is needed.</strong></td></tr>
+<tr><td>"Swollen feet mean pre-eclampsia."</td><td><strong>Mild foot swelling is common.</strong> <strong>Sudden face and hand swelling with headache is the worry.</strong></td></tr>
+</table></div>
+  </div>
+</details>
+</section>
+
+<section id="chap-T" class="chapter">
+  <h2>Chapter 3: Thyroid Disease</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">T-01</span> What is the thyroid?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-01.png" alt="What is the thyroid?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්ථිය යනු කුමක්ද?</h4><ul><li><strong>තයිරොයිඩ් ග්‍රන්ථිය</strong> බෙල්ලේ ඉදිරිපස ඇති <strong>කුඩා ග්‍රන්ථියකි.</strong></li><li>එය <strong>ශරීර ශක්තිය, හදවත ගැහෙන වේගය, ශරීරයේ බර, ඔසප් චක්‍රය සහ හැඟීම් පාලනය</strong> සඳහා බලපාන <strong>තයිරොයිඩ් හෝමෝනය</strong> නිපදවයි.</li><li>ගර්භණීභාවයේදී එය ඔබේ දරුවාගේ <strong>මොළයේ වර්ධනයටද තයිරොයිඩ් හෝමෝනය අත්‍යවශ්‍යයි.</strong></li><li><strong>තයිරොයිඩ් ග්‍රන්ථිය ආශ්‍රිත ප්‍රධාන රෝගී තත්ව දෙකකි:</strong> <strong>ග්‍රන්ථියේ අඩු ක්‍රියාකාරිත්වය</strong> සහ <strong>අධි ක්‍රියාකාරිත්වය.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>தைராய்டு என்றால் என்ன? (எல்லோரும்)</h4><ul><li><strong>கழுத்தின் முன்புறத்தில் உள்ள சிறிய சுரப்பி.</strong></li><li>இது <strong>சக்தி, இதயத் துடிப்பு, எடை, மாதவிடாய், மனநிலை</strong> ஆகியவற்றுக்கான <strong>தைராய்டு ஹார்மோனை</strong> உற்பத்தி செய்கிறது.</li><li>கர்ப்பத்தில் இது <strong>உங்கள் குழந்தையின் மூளை வளர்ச்சிக்கும் அவசியம்.</strong></li><li><strong>இரண்டு பிரச்சினைகள்:</strong> <strong>குறைவாகச் சுரத்தல்</strong> மற்றும் <strong>அதிகமாகச் சுரத்தல்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>What is the thyroid?</h4><ul><li>A <strong>small gland in the front of the neck.</strong></li><li>It makes <strong>thyroid hormone</strong> for <strong>energy, heart rate, weight, periods and mood.</strong></li><li>In pregnancy it is also <strong>needed for your baby's brain growth.</strong></li><li><strong>Two problems:</strong> <strong>under-active</strong> and <strong>over-active.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-02</span> Under-active thyroid</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-02.png" alt="Under-active thyroid" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්ථියේ අඩු ක්‍රියාකාරිත්වය (ගැබිණි සහ ගැබිණි නොවන)</h4><ul><li><strong>ලක්ෂණ:</strong> තෙහෙට්ටුව, අසාමාන්‍ය සීතලක් දැනීම, ශරීරයේ බර වැඩිවීම, මලබද්ධය, සම වියළීම, හිසකෙස් ගැලවීම, මානසික අවපීඩනය, <strong>ඔසප් චක්‍රය අක්‍රමවත් වීම සහ ඔසප් වීමේදී අධික රුධිර වහනය.</strong></li><li><strong>ගර්භණීභාවයේදී, ප්‍රතිකාර නොකළහොත් සිදුවන දේ:</strong> හදිසි ගබ්සා වීම්, නියමිත කාලයට පෙර නොමේරු කළල බිහිවීම සහ <strong>දරුවාගේ මොළයේ වර්ධනය දුර්වල වීම.</strong></li><li><strong>ගර්භනී නොවන කාන්තාවන්ගේ:</strong> <strong>ඔසප් චක්‍රයේ සහ ගැබ් ගැනීමේ ගැටලු.</strong></li><li><strong>ප්‍රතිකාර කිරීම පහසුයි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>குறைவாகச் சுரக்கும் தைராய்டு (எல்லோரும்)</h4><ul><li><strong>அறிகுறிகள்:</strong> சோர்வு, குளிர் உணர்வு, எடை கூடுதல், மலச்சிக்கல், வறண்ட தோல், முடி உதிர்தல், மனச்சோர்வு, <strong>அதிக அல்லது ஒழுங்கற்ற மாதவிடாய்.</strong></li><li><strong>கர்ப்பத்தில், சிகிச்சை இல்லாவிட்டால்:</strong> கருச்சிதைவு, குறைப்பிரசவம், <strong>குழந்தையின் மூளை வளர்ச்சிக் குறைவு.</strong></li><li><strong>கர்ப்பமில்லாத பெண்களில்:</strong> <strong>மாதவிடாய் மற்றும் கருத்தரித்தலில் பிரச்சினைகள்.</strong></li><li><strong>சிகிச்சை எளிது.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Under-active thyroid</h4><ul><li><strong>Signs:</strong> tired, cold, weight gain, constipation, dry skin, hair loss, low mood, <strong>heavy or irregular periods.</strong></li><li><strong>In pregnancy, untreated:</strong> miscarriage, early birth and <strong>poor baby brain growth.</strong></li><li><strong>In women who are not pregnant:</strong> <strong>problems with periods and conceiving.</strong></li><li><strong>Easy to treat.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-03</span> Thyroxine (levothyroxine) tablets</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-03.png" alt="Thyroxine (levothyroxine) tablets" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොක්සින් (ලෙවොතයිරොක්සින්) ටැබ්ලට්</h4><ul><li><strong>දිනපතා එකම වේලාවට එක් තයිරොක්සින් පෙත්තක්.</strong></li><li><strong>භාවිතා කළ යුත්තේ:</strong> උදැසන <strong>අවදි වූ විගස, හිස් බඩ, වතුරත් සමඟ.</strong> තේ, කිරි හෝ ආහාර ගැනීමට පෙර <strong>මිනිත්තු 30 ක් රැඳී සිටින්න.</strong></li><li><strong>යකඩ සහ කැල්සියම් ටැබ්ලට් පැය 4ක් පසුවූ විට</strong> ගන්න.</li><li><strong>ශරීරයට සුවයක් දැනුණු පමණින් බෙහෙත් නවත්වන්න එපා.</strong></li><li><strong>ගර්භණීභාවයේදී සහ මව්කිරි දීමේදී තයිරොක්සින් බෙහෙත් භාවිතය ආරක්ෂිතයි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>தைராக்சின் (லெவோதைராக்சின்) மாத்திரைகள் (எல்லோரும்)</h4><ul><li><strong>தினமும் ஒரே நேரத்தில் ஒரு மாத்திரை.</strong></li><li><strong>காலையில் எழுந்தவுடன், வெறும் வயிற்றில், தண்ணீருடன்.</strong> தேநீர், பால், உணவுக்கு முன் <strong>30 நிமிடம் காத்திருங்கள்.</strong></li><li><strong>இரும்பு, கால்சியம் மாத்திரைகளை 4 மணி நேர இடைவெளியில் எடுங்கள்.</strong></li><li><strong>நலமாக உணர்ந்ததும் நிறுத்த வேண்டாம்.</strong></li><li><strong>கர்ப்பத்திலும் தாய்ப்பாலூட்டும்போதும் பாதுகாப்பானது.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Thyroxine (levothyroxine) tablets</h4><ul><li><strong>One tablet every day, same time.</strong></li><li><strong>On waking, empty stomach, with water.</strong> <strong>Wait 30 minutes</strong> before tea, milk or food.</li><li><strong>Iron and calcium tablets: take them 4 hours apart.</strong></li><li><strong>Do not stop when you feel better.</strong></li><li><strong>Safe in pregnancy and breastfeeding.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-04</span> Thyroid and pregnancy</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-04.png" alt="Thyroid and pregnancy" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තිය සහ ගර්භණීභාවය</h4><ul><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> එසේනම් <strong>පළමුව තයිරොයිඩ් රුධිර පරීක්ෂාවක් (TSH) කරගන්න.</strong></li><li><strong>තයිරොක්සින් ගන්නා ඔබ ගැබ් ගත් බව දැන ගත්තාද? වහාම</strong> ඒ බව <strong>ඔබේ වෛද්‍යවරයාට කියන්න.</strong> <strong>තයිරොක්සින් මාත්‍රාව සාමාන්‍යයෙන් වැඩි කළ යුතුයි.</strong></li><li><strong>ගර්භණීභාවයේදී මසකට වරක් පමණ TSH පරීක්ෂාව කළ යුතුයි.</strong></li><li><strong>ප්‍රසූතියෙන් පසු</strong> තයිරොක්සින් මාත්‍රාව සාමාන්‍යයෙන් නැවත අඩුකරයි. <strong>ප්‍රසූතියෙන් පසු සති 6කින් TSH පරීක්ෂාව කළ යුතුයි.</strong></li><li><strong>දරුවාගේ තයිරොයිඩ් පරීක්ෂාව පළමු සතිය තුළ කරයි.</strong></li><li><strong>මව එදිනෙදා ආහාර ගැනීමේදී අයඩීන් යෙදූ ලුණු ස්වල්ප වශයෙන් භාවිතා කරන්න (H-06 බලන්න).</strong> <strong>අමතර අයඩීන් ගැනීම අවශ්‍ය නොවේ.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>தைராய்டும் கர்ப்பமும் (கர்ப்பிணி)</h4><ul><li><strong>கர்ப்பமாகத் திட்டமிடுகிறீர்களா?</strong> <strong>முதலில் தைராய்டு இரத்தப் பரிசோதனை (TSH) செய்யுங்கள்.</strong></li><li><strong>தைராக்சின் எடுக்கும் நீங்கள் கர்ப்பமானதை அறிந்தீர்களா? உடனே உங்கள் மருத்துவரிடம் தெரிவியுங்கள்.</strong> <strong>அளவை வழக்கமாக அதிகரிக்க வேண்டும்.</strong></li><li><strong>கர்ப்பத்தில் ஏறத்தாழ 4 வாரங்களுக்கு ஒருமுறை TSH பரிசோதனை.</strong></li><li><strong>பிரசவத்திற்குப் பின்</strong> அளவு பொதுவாக மீண்டும் குறைக்கப்படும். <strong>6 வாரங்களில் TSH.</strong></li><li><strong>குழந்தைக்கு முதல் வாரத்தில் தைராய்டு பரிசோதனை செய்யப்படும்.</strong></li><li><strong>அயோடின் கலந்த உப்பை சிறிதளவு பயன்படுத்துங்கள் (H-06 ஐப் பார்க்கவும்).</strong> <strong>கூடுதல் அயோடின் எடுக்க வேண்டாம்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Thyroid and pregnancy</h4><ul><li><strong>Planning pregnancy?</strong> <strong>Have a thyroid blood test (TSH) first.</strong></li><li><strong>Take thyroxine and just found out you are pregnant? Tell your doctor at once.</strong> <strong>The dose usually has to go up.</strong></li><li><strong>TSH test about every 4 weeks in pregnancy.</strong></li><li><strong>After delivery,</strong> the dose usually goes back. <strong>TSH at 6 weeks.</strong></li><li><strong>Your baby has a thyroid test in the first week.</strong></li><li><strong>Use iodised salt, in small amounts (see H-06).</strong> <strong>Do not take extra iodine.</strong> </li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-05</span> Over-active thyroid</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-05.png" alt="Over-active thyroid" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය</h4><ul><li><strong>ලක්ෂණ:</strong> <strong>හදවත වේගයෙන් ගැහීම හෝ පපුවේ ගැස්ම දැනීම, වෙව්ලීම, අධික ලෙස දහඩිය දැමීම, අධික ලෙස උණුසුම දැනීම, එකවර බර අඩුවීම, කනස්සල්ල, මලපහ දියර ලෙස පිටවීම.</strong> <strong>ගර්භණී සමයේ මුල් අවධියේ අධික වමනය.</strong></li><li><strong>ගර්භණී සමයේ මුල් අවධියේ තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වයට පොදු හේතුව:</strong> <strong>ගර්භණී හෝමෝන.</strong> සාමාන්‍යයෙන් <strong>ගර්භනී සමයේ අවසන් අවධිය වන විට නිසි අගයන්ට පැමිණේ.</strong></li><li><strong>වෙනත් පොදු හේතු:</strong> <strong>ග්‍රේවස් රෝගය (Graves Disease).</strong> <strong>බෙල්ල ඉදිමීම, ඇස් ඉදිමී ඉදිරියට නෙරා ඒම.</strong></li><li><strong>තත්වය පාලනය නොකිරීමේ ප්‍රතිඵල:</strong> හදිසි ගබ්සා වීම්, නියමිත කාලයට පෙර නොමේරු කළල බිහිවීම, <strong>අධි රුධිර පීඩනය.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>அதிகமாகச் சுரக்கும் தைராய்டு (எல்லோரும்)</h4><ul><li><strong>அறிகுறிகள்:</strong> <strong>இதயம் வேகமாக அல்லது படபடவென்று துடித்தல், நடுக்கம், வியர்வை, வெப்ப உணர்வு, எடை குறைதல், பதட்டம், வயிற்றுப்போக்கு.</strong> <strong>ஆரம்பக் கர்ப்பத்தில் வாந்தி.</strong></li><li><strong>ஆரம்பக் கர்ப்பத்தில் பொதுவான காரணம்:</strong> <strong>கர்ப்ப ஹார்மோன்கள்.</strong> <strong>பொதுவாகத் தானாகச் சரியாகும்.</strong></li><li><strong>மற்றொரு காரணம்: கிரேவ்ஸ் நோய்.</strong> <strong>கண்கள் அல்லது கழுத்து வீங்குதல்.</strong></li><li><strong>கட்டுப்படுத்தாவிட்டால்:</strong> கருச்சிதைவு, குறைப்பிரசவம், உயர் இரத்த அழுத்தம், <strong>இதயத்திற்குச் சுமை.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Over-active thyroid</h4><ul><li><strong>Signs:</strong> <strong>fast or thumping heart, shaking, sweating, feeling hot, weight loss, anxiety, diarrhoea.</strong> <strong>Vomiting in early pregnancy.</strong></li><li><strong>Common cause in early pregnancy:</strong> <strong>pregnancy hormones.</strong> <strong>Usually settles.</strong></li><li><strong>Another cause: Graves' disease.</strong> <strong>Swollen eyes or neck.</strong></li><li><strong>Uncontrolled:</strong> miscarriage, early birth, high BP, <strong>heart strain.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-06</span> Tablets for over-active thyroid</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-06.png" alt="Tablets for over-active thyroid" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය (Hyperthyroidism) සඳහා ප්‍රතිකාර</h4><ul><li><strong>ප්‍රතිකාර - කාබිමසෝල් හෝ ප්‍රොපිල් තයෝයුරැසිල් (PTU).</strong> <strong>ගර්භනී සමයේ මුල් කාලයේ ඔබේ වෛද්‍යවරයා විසින් අවශ්‍ය වුවහොත් බෙහෙත් වෙනස් කරයි.</strong> <strong>ඔබ විසින් තනිව බෙහෙත් වෙනස් නොකරන්න.</strong></li><li>මීට අමතරව <strong>ප්‍රොප්‍රැනොලෝල්</strong> යන බෙහෙත ද සාමාන්‍යයෙන් නියම කරයි.</li><li><strong>ඔබට ඇදුම තිබේ නම් ඔබේ වෛද්‍යවරයාට කිව යුතුයි.</strong></li><li><strong>බෙහෙත් නියම කළ පරිදිම ගන්න.</strong> <strong>සති 4-6 කට වරක් රුධිර TSH/T4 පරීක්ෂා කළ යුතුයි.</strong></li><li><strong>පහත සඳහන් ලක්ෂණ ඇති වුවහොත් නොපමාව රෝහලට එන්න:</strong></li><li><strong>උගුර රිදීම, උණ ගතිය, කටේ තුවාල දැමීම.</strong></li><li><strong>ඇස් කහ වීම, තද පැහැති මුත්‍රා පිටවීම හෝ ඇඟේ කසන ගතිය.</strong></li><li><strong>මෙම බෙහෙත් ගන්නා අතර මව්කිරි දීම ආරක්ෂිතයි.</strong> <strong>මව්කිරි දුන් වහාම බෙහෙත් ගන්න.</strong></li><li><strong>හදිසි අවස්ථා:</strong> <strong>අධික උණ, හදවත ඉතා වේගයෙන් ගැසීම, මානසික ව්‍යාකූලත්වය (confusion).</strong> <strong>වහාම රෝහලට පැමිණෙන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>அதிகமாகச் சுரக்கும் தைராய்டுக்கான மாத்திரைகள் (எல்லோரும்)</h4><ul><li><strong>கார்பிமசோல் அல்லது PTU.</strong> <strong>ஆரம்பக் கர்ப்பத்தில் உங்கள் மருத்துவர் மாத்திரையை மாற்றலாம்.</strong> <strong>நீங்களாக மாற்ற வேண்டாம்.</strong></li><li><strong>பரிந்துரைத்தபடியே எடுங்கள்.</strong> <strong>4-6 வாரங்களுக்கு ஒருமுறை இரத்தப் பரிசோதனை.</strong></li><li><strong>புரோப்ரனோலால்</strong> நடுக்கத்தைக் குறைக்கலாம். <strong>உங்களுக்கு ஆஸ்துமா இருந்தால் உங்கள் மருத்துவரிடம் சொல்லுங்கள்.</strong></li><li><strong>பின்வருவன ஏற்பட்டால் அதே நாளில் மருத்துவமனைக்கு வாருங்கள்:</strong></li><li><strong>தொண்டை வலி, காய்ச்சல் அல்லது வாய்ப்புண்.</strong></li><li><strong>கண்கள் மஞ்சளாதல், அடர் நிறச் சிறுநீர் அல்லது அரிப்பு.</strong></li><li><strong>தாய்ப்பாலூட்டல் பாதுகாப்பானது.</strong> <strong>பாலூட்டிய உடனே மாத்திரையை எடுங்கள்.</strong></li><li><strong>அவசரநிலை:</strong> <strong>மிக அதிகக் காய்ச்சல், மிக வேகமான இதயத்துடிப்பு, குழப்பம்.</strong> <strong>உடனே மருத்துவமனைக்கு வாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Tablets for over-active thyroid</h4><ul><li><strong>Carbimazole or PTU.</strong> <strong>Your doctor may change the tablet in early pregnancy.</strong> <strong>Do not change it yourself.</strong></li><li><strong>Take exactly as prescribed.</strong> <strong>Blood tests every 4-6 weeks.</strong></li><li><strong>Propranolol</strong> may calm the shaking. <strong>Tell your doctor if you have asthma.</strong></li><li><strong>Come to hospital the same day if you get:</strong></li><li><strong>Sore throat, fever or mouth ulcers.</strong></li><li><strong>Yellow eyes, dark urine or itching.</strong></li><li><strong>Breastfeeding is safe.</strong> <strong>Take the tablet right after a feed.</strong></li><li><strong>Emergency:</strong> <strong>very high fever, very fast heart, confusion.</strong> <strong>Come to hospital now.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-07</span> After delivery</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-07.png" alt="After delivery" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ගර්භණි අයට ප්‍රසූතියෙන් පසු</h4><ul><li><strong>සමහර කාන්තාවන්ට ප්‍රසූතියෙන් පසු පළමු වසර තුළ තයිරොයිඩ් ගැටලු ඇති වේ.</strong> බොහෝවිට <strong>අධික තෙහෙට්ටුව</strong> හෝ <strong>පසු ප්‍රසව මානසික ව්‍යාකූලත්වය ("Baby blues")</strong> ලෙස මෙය පටලවා වටහා ගත හැක.</li><li><strong>ප්‍රසූතියෙන් පසු ඔබේ වෛද්‍යවරයාට පවසා TSH පරීක්ෂාවක්</strong> කරගන්න.</li><li><strong>ග්‍රේවස් රෝගය (Graves disease) ප්‍රසූතියෙන් පසු නැවත ඇතිවිය හැක.</strong> <strong>සති 6 කදී නැවත TSH පරීක්ෂාවක්</strong> කරගන්න.</li><li><strong>ඉන්පසු වසරකට වරක් TSH පරීක්ෂාවක්</strong> කරගන්න. අවශ්‍ය නම් වෛද්‍යවරයා <strong>බෙහෙත් දිගටම නියම කරයි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பிரசவத்திற்குப் பின் (கர்ப்பிணி)</h4><ul><li><strong>சில பெண்களுக்கு முதல் ஆண்டில் தைராய்டு பிரச்சினைகள் வரும்.</strong> <strong>பெரும்பாலும் சோர்வு அல்லது "பேபி புளூஸ்" என்று தவறாகக் கருதப்படும்.</strong></li><li><strong>உங்கள் மருத்துவரிடம் சொல்லி</strong> <strong>TSH பரிசோதனை</strong> கேளுங்கள்.</li><li><strong>கிரேவ்ஸ் நோய் மீண்டும் தீவிரமடையலாம்.</strong> <strong>6 வாரங்களில் மீள்பரிசோதனை.</strong></li><li><strong>ஆண்டுதோறும் TSH பரிசோதனை.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>After delivery</h4><ul><li><strong>Some women get thyroid problems in the first year.</strong> <strong>Often mistaken for tiredness or "baby blues".</strong></li><li><strong>Tell your doctor</strong> and ask for a <strong>TSH test.</strong></li><li><strong>Graves' disease can flare.</strong> <strong>Review at 6 weeks.</strong></li><li><strong>Yearly TSH check.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-08</span> Thyroid in gynae women</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-08.png" alt="Thyroid in gynae women" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නාරිවේද කාන්තාවන්ගේ තයිරොයිඩ් රෝග (Gynecology patients)</h4><ul><li><strong>තයිරොයිඩ් ග්‍රන්තියේ අධි ක්‍රියාකාරිත්වය සහ අඩු ක්‍රියාකාරිත්වය යන දෙකම</strong> <strong>ඔසප් චක්‍රයේ වෙනස්කම් කරයි</strong> (අධික රුධිර වහනය, ඔසප් වීමේදී ඉතා අඩුවෙන් විදුවිම, ඔසප් වීම පිළිවෙලට නොවීම හෝ බොහෝ කාලයක් ඔසප් නොවීම) සහ <strong>ගැබ් ගැනීම දුෂ්කර කළ හැක.</strong></li><li><strong>ඔසප් චක්‍රය වෙනස් වුවහොත් හෝ හේතුවක් නැතිව එකවර බර වැඩි/අඩු වුවහොත් ඔබේ වෛද්‍යවරයාට පවසන්න.</strong></li><li><strong>ඔසප් වීම නැවතීමේ (ආර්තවහරණය) සහ තයිරොයිඩ් ග්‍රන්තිය ආශ්‍රිත රෝග ලක්ෂණ එකිනෙකට සමානයි.</strong> මෙය <strong>රුධිර පරීක්ෂාවෙන් වෙන්කර දැනගත හැක.</strong></li><li><strong>ශල්‍යකර්මයට පෙර:</strong> <strong>ඔබේ එදිනෙදා ගන්නා බෙහෙත් රැගෙන එන්න.</strong> <strong>තයිරොක්සින් සුපුරුදු පරිදි ගන්න.</strong></li><li><strong>ගැබ් ගැනීමට සැලසුම් කරනවාද?</strong> <strong>පළමුව ඔබේ වෛද්‍යවරයා හමුවන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மகளிர் நோய் கிளினிக் பெண்களில் தைராய்டு (கர்ப்பமில்லாதவர்)</h4><ul><li><strong>குறைவாகவும் அதிகமாகவும் சுரக்கும் தைராய்டு இரண்டும்</strong> <strong>மாதவிடாயை மாற்றும்</strong> (அதிகம், குறைவு அல்லது நின்றுபோதல்) மற்றும் <strong>கருத்தரிப்பைக் கடினமாக்கலாம்.</strong></li><li><strong>மாதவிடாய் மாறினாலோ, காரணமின்றி எடை கூடினாலோ குறைந்தாலோ உங்கள் மருத்துவரிடம் சொல்லுங்கள்.</strong></li><li><strong>மாதவிடாய் நிறுத்த அறிகுறிகளும் தைராய்டு அறிகுறிகளும் ஒன்றுபோல் இருக்கும்.</strong> <strong>இரத்தப் பரிசோதனை அவற்றைப் பிரித்துக் காட்டும்.</strong></li><li><strong>அறுவைச் சிகிச்சைக்கு முன்:</strong> <strong>உங்கள் மருந்துகளைக் கொண்டுவாருங்கள்.</strong> <strong>தைராக்சினை வழக்கம்போல எடுங்கள்.</strong></li><li><strong>கர்ப்பமாகத் திட்டமிடுகிறீர்களா?</strong> <strong>முதலில் உங்கள் மருத்துவரைப் பாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Thyroid in gynae women</h4><ul><li><strong>Under- and over-active thyroid</strong> <strong>change periods</strong> (heavy, light or missing) and <strong>can make it hard to conceive.</strong></li><li><strong>Tell your doctor</strong> if periods change or you gain or lose weight without reason.</li><li><strong>Menopause and thyroid symptoms look alike.</strong> <strong>A blood test tells them apart.</strong></li><li><strong>Before surgery:</strong> <strong>bring your medicines.</strong> <strong>Take thyroxine as usual.</strong></li><li><strong>Planning pregnancy?</strong> <strong>See your doctor first.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">T-09</span> Myths and facts</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/T-09.png" alt="Myths and facts" loading="lazy"></div>
+    <div class="lang lang-si"><h4>තයිරොයිඩ් රෝග ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය</h4><table class="blk-table">
+<tr><th>මිථ්‍යාව</th><th>සත්‍යය</th></tr>
+<tr><td>"තයිරොයිඩ් ටැබ්ලට් දරුවාට හානි කරයි."</td><td><strong>ප්‍රතිකාර නොකළ තයිරොයිඩ් රෝග</strong> දරුවාට හානිකරයි. <strong>බෙහෙත් ආරක්ෂිතයි.</strong></td></tr>
+<tr><td>"මට සනීපයි, බෙහෙත් නවත්වන්න පුළුවන්."</td><td><strong>ඔබේ වෛද්‍යවරයා කියන විට පමණක් නවත්වන්න.</strong></td></tr>
+<tr><td>"අමතර අයඩීන් මෙය සුව කරයි."</td><td><strong>අයඩීන් යෙදූ ලුණු භාවිතා කරන්න.</strong> <strong>අමතර අයඩීන් හානිකර විය හැක.</strong></td></tr>
+<tr><td>"තයිරොයිඩ් රෝගයක් සමඟ මව්කිරි දෙන්න බෑ."</td><td><strong>ඔබට මව්කිරි දිය හැක.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கட்டுக்கதை</th><th>உண்மை</th></tr>
+<tr><td>"தைராய்டு மாத்திரைகள் குழந்தைக்குத் தீங்கு செய்யும்."</td><td><strong>சிகிச்சையில்லாத தைராய்டே</strong> குழந்தைக்குத் தீங்கு. <strong>மாத்திரைகள் பாதுகாப்பானவை.</strong></td></tr>
+<tr><td>"எனக்கு நலமாக இருக்கிறது, நிறுத்திவிடலாம்."</td><td><strong>உங்கள் மருத்துவர் சொல்லும்போது மட்டும் நிறுத்துங்கள்.</strong></td></tr>
+<tr><td>"கூடுதல் அயோடின் இதைச் சரிசெய்யும்."</td><td><strong>அயோடின் கலந்த உப்பைப் பயன்படுத்துங்கள்.</strong> <strong>கூடுதல் அயோடின் தீங்கு தரலாம்.</strong></td></tr>
+<tr><td>"தைராய்டு நோய் இருந்தால் தாய்ப்பால் கொடுக்க முடியாது."</td><td><strong>நீங்கள் தாய்ப்பால் கொடுக்கலாம்.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Myths and facts</h4><table class="blk-table">
+<tr><th><strong>Myth</strong></th><th><strong>Fact</strong></th></tr>
+<tr><td>"Thyroid tablets harm the baby."</td><td><strong>Untreated thyroid</strong> harms the baby. <strong>The tablets are safe.</strong></td></tr>
+<tr><td>"I feel well, so I can stop."</td><td><strong>Stop only when your doctor says.</strong></td></tr>
+<tr><td>"Extra iodine will fix it."</td><td><strong>Use iodised salt.</strong> <strong>Extra iodine can be harmful.</strong></td></tr>
+<tr><td>"I cannot breastfeed with thyroid disease."</td><td><strong>You can.</strong></td></tr>
+</table></div>
+  </div>
+</details>
+</section>
+
+<section id="chap-A" class="chapter">
+  <h2>Chapter 4: Asthma</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">A-01</span> What is asthma?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-01.png" alt="What is asthma?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඇදුම යනු කුමක්ද? (සියලුදෙනා)</h4><ul><li><strong>ඇදුම දිගුකාලීන රෝගයකි.</strong> <strong>ශ්වසන නාල වල කුඩා නාලිකා ඉදිමීමට ලක්වී පටු වේ.</strong></li><li><strong>රෝග ලක්ෂණ:</strong> <strong>කැස්ස (බොහෝවිට රාත්‍රියේදී),</strong> <strong>හුස්ම ගැනීමේදී හඬ පිටවීම (විසිල් ශබ්දය),</strong> <strong>හුස්ම හිරවීම,</strong> <strong>පපුවේ තදබව.</strong></li><li><strong>රෝගය වැඩිවන අවස්ථා (උත්තේජක):</strong> දූවිලි, දුම, සීතල වාතය, ආසාදන, තද ගඳ සුවඳ, ව්‍යායාම.</li></ul></div>
+    <div class="lang lang-ta"><h4>ஆஸ்துமா என்றால் என்ன? (எல்லோரும்)</h4><ul><li><strong>நீண்டகால நோய்.</strong> <strong>சுவாசக் குழாய்கள் வீங்கிச் சுருங்கும்.</strong></li><li><strong>அறிகுறிகள்:</strong> <strong>இருமல் (பெரும்பாலும் இரவில்)</strong>, <strong>மூச்சிரைப்பு (விசில் சத்தம்)</strong>, <strong>மூச்சுத் திணறல்</strong>, <strong>நெஞ்சு இறுக்கம்.</strong></li><li><strong>தூண்டுதல்கள்:</strong> தூசி, புகை, குளிர்காற்று, தொற்றுகள், கடும் நெடி, உடற்பயிற்சி.</li></ul></div>
+    <div class="lang lang-en"><h4>What is asthma?</h4><ul><li><strong>A long-term condition.</strong> <strong>The breathing tubes swell and narrow.</strong></li><li><strong>Signs:</strong> <strong>cough (often at night)</strong>, <strong>wheeze</strong>, <strong>breathlessness</strong>, <strong>tight chest.</strong></li><li><strong>Triggers:</strong> dust, smoke, cold air, infections, strong smells, exercise.</li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-02</span> Asthma and pregnancy</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-02.png" alt="Asthma and pregnancy" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඇදුම සහ ගර්භණීභාවය (ගර්භනී)</h4><ul><li><strong>ඇදුම ඇති බොහෝ කාන්තාවන්ට නිරෝගී ගර්භණීභාවයක් ඇත.</strong></li><li><strong>ඇදුම වැඩි වීමට, අඩුවීමට හෝ එලෙසම පැවතීමට හැක.</strong></li><li><strong>නමුත් පාලනය නොකළ ඇදුම තත්ත්වය දරුවාට හානිකර විය හැක.</strong> <strong>දරුවාට ඔක්සිජන් සැපයීම අඩු වේ.</strong></li><li><strong>ඇදුම බෙහෙත් ගර්භණීභාවයේදී සහ මව්කිරි දීමේදී ආරක්ෂිතයි.</strong> <strong>පාලනය නොකළ ඇදුම තත්ත්වයේ අවදානම වැඩිය.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>ஆஸ்துமாவும் கர்ப்பமும் (கர்ப்பிணி)</h4><ul><li><strong>ஆஸ்துமா உள்ள பெரும்பாலான பெண்களுக்கு ஆரோக்கியமான கர்ப்பம் அமையும்.</strong></li><li><strong>ஆஸ்துமா குறையலாம், அதிகரிக்கலாம் அல்லது அப்படியே இருக்கலாம்.</strong></li><li><strong>கட்டுப்படுத்தப்படாத ஆஸ்துமாவே ஆபத்து.</strong> <strong>குழந்தைக்கு ஆக்சிஜன் குறையும்.</strong></li><li><strong>ஆஸ்துமா மருந்துகள் கர்ப்பத்திலும் தாய்ப்பாலூட்டும்போதும் பாதுகாப்பானவை.</strong> <strong>சிகிச்சையில்லாத ஆஸ்துமாவின் ஆபத்தே அதிகம்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Asthma and pregnancy</h4><ul><li><strong>Most women with asthma have a healthy pregnancy.</strong></li><li><strong>Asthma may get better, worse or stay the same.</strong></li><li><strong>Uncontrolled asthma is the danger.</strong> <strong>Less oxygen for the baby.</strong></li><li><strong>Asthma medicines are safe in pregnancy and breastfeeding.</strong> <strong>The risk from untreated asthma is greater.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-03</span> Your two inhalers</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-03.png" alt="Your two inhalers" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ ඉන්හේලර් වර්ග දෙක (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th></th><th><strong>Asthalin (සහන දෙන - RELIEVER)</strong></th><th><strong>Seroflo (වළක්වන - PREVENTER)</strong></th></tr>
+<tr><td><strong>ක්‍රියා කරන ආකාරය</strong></td><td><strong>හුස්ම නාළ ඉක්මනින් විවර කරයි</strong></td><td><strong>ඉදිමීම අඩුකරයි</strong> (ක්‍රියාකිරීමට දින කිහිපයක් යයි)</td></tr>
+<tr><td><strong>භාවිතා කළ යුත්තේ</strong></td><td><strong>රෝග ලක්ෂණ ඇති විට පමණි</strong></td><td><strong>සෑම දිනකම, උදේ සහ සවස, සනීපෙන් සිටියත්</strong></td></tr>
+<tr><td><strong>ඔබේ මාත්‍රාව</strong></td><td>අවශ්‍ය විට ____ පෆ්</td><td>උදේ සහ සවස ____ පෆ්</td></tr>
+<tr><td><strong>භාවිතයෙන් පසු</strong></td><td></td><td><strong>කට සෝදා කෙළ ගසන්න</strong></td></tr>
+<tr><td><strong>වර්ණය</strong></td><td>හෙදිය විසින් සැබෑ ඉන්හේලරය පෙන්වනු ලැබේ <strong>[CHECK]</strong></td><td>හෙදිය විසින් සැබෑ ඉන්හේලරය පෙන්වනු ලැබේ <strong>[CHECK]</strong></td></tr>
+</table>
+<ul><li><strong>"Asthalin = රෝග ලක්ෂණ ඇතිවිට (හදිසි උත්සන්න වීම). Seroflo = සෑම දිනකම."</strong></li><li><strong>දෙකම Aerolife ස්පේසරය සමඟ භාවිත කළ යුතුය.</strong></li><li><strong>Seroflo මගින් හදිසි උත්සන්න වීම් නවත්වන්නේ නැත.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் இரண்டு இன்ஹேலர்கள் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th></th><th><strong>Asthalin (நிவாரணி - RELIEVER)</strong></th><th><strong>Seroflo (தடுப்பான் - PREVENTER)</strong></th></tr>
+<tr><td><strong>வேலை</strong></td><td><strong>சுவாசக் குழாய்களை விரைவாகத் திறக்கும்</strong></td><td><strong>வீக்கத்தைத் தணிக்கும்</strong> (சில நாட்களில் செயல்படும்)</td></tr>
+<tr><td><strong>எப்போது</strong></td><td><strong>அறிகுறிகள் இருக்கும்போது மட்டும்</strong></td><td><strong>தினமும், காலையும் மாலையும், நலமாக இருந்தாலும்</strong></td></tr>
+<tr><td><strong>உங்கள் அளவு</strong></td><td>தேவைப்படும்போது ____ பஃப்</td><td>காலை, மாலை ____ பஃப்</td></tr>
+<tr><td><strong>பயன்படுத்திய பின்</strong></td><td></td><td><strong>வாயைக் கொப்பளித்துத் துப்புங்கள்</strong></td></tr>
+<tr><td><strong>நிறம்</strong></td><td>செவிலியர் உண்மையான இன்ஹேலரைக் காண்பிப்பார் <strong>[CHECK]</strong></td><td>செவிலியர் உண்மையான இன்ஹேலரைக் காண்பிப்பார் <strong>[CHECK]</strong></td></tr>
+</table>
+<ul><li><strong>"Asthalin = தாக்குதலின் போது. Seroflo = தினமும்."</strong></li><li><strong>இரண்டும் Aerolife ஸ்பேசருடன்.</strong></li><li><strong>Seroflo தாக்குதலை நிறுத்தாது.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Your two inhalers</h4><table class="blk-table">
+<tr><th></th><th>Asthalin (RELIEVER)</th><th>Seroflo (PREVENTER)</th></tr>
+<tr><td><strong>Job</strong></td><td><strong>Opens the airways quickly</strong></td><td><strong>Calms swelling</strong> (works over days)</td></tr>
+<tr><td><strong>When</strong></td><td><strong>Only when you have symptoms</strong></td><td><strong>Every day, morning and evening, even when well</strong></td></tr>
+<tr><td><strong>Your dose</strong></td><td>____ puffs when needed</td><td>____ puffs, morning and evening</td></tr>
+<tr><td><strong>After use</strong></td><td></td><td><strong>Rinse mouth and spit</strong></td></tr>
+<tr><td><strong>Colour</strong></td><td>Nurse shows real inhaler <strong>CHECK</strong></td><td>Nurse shows real inhaler <strong>CHECK</strong></td></tr>
+</table>
+<ul><li><strong>"Asthalin = attack. Seroflo = every day."</strong></li><li><strong>Both with the Aerolife spacer.</strong></li><li><strong>Seroflo does not stop an attack.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-04</span> Using the inhaler with the spacer</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-04a.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04b.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04c.jpg" alt="Using the inhaler with the spacer" loading="lazy"><img src="images/A-04d.jpg" alt="Using the inhaler with the spacer" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ස්පේසරය සමඟ ඉන්හේලරය භාවිතා කිරීම (සියලුදෙනා)</h4><ol><li><strong>පියන ඉවත් කරන්න.</strong> ඉන්හේලරය <strong>සොලවන්න.</strong></li><li><strong>එය ස්පේසරයට සවි කරන්න.</strong></li><li><strong>කෙළින් හිඳ හෝ සිට ගෙන හුස්ම පිටකරන්න.</strong></li><li>මුඛ කොටස වටා <strong>ඔබේ තොල් තද කරගන්න.</strong></li><li><strong>එක් පෆ් එකක් පමණක් ඔබන්න.</strong></li><li><strong>සෙමින් ගැඹුරින් හුස්ම ගන්න.</strong> <strong>තත්පර 10 ක් හුස්ම රඳවා ගන්න.</strong> <em>නැතහොත් ස්පේසරය හරහා සෙමින් 5 වතාවක් හුස්ම ගෙන පිටකරන්න.</em></li><li><strong>තවත් පෆ් එකක් අවශ්‍ය නම් තත්පර 30-60 ක් රැඳී සිටින්න.</strong> <strong>නැවත සොලවන්න.</strong> <strong>එකවර එක පෆ් එකක් පමණක් භාවිතා කරන්න.</strong></li><li><strong>Seroflo පමණක්: භාවිතා කළ පසු කට සෝදා කෙළ ගසන්න.</strong></li></ol>
+<ul><li><strong>දෙකම භාවිතා කරන්නේ නම්: මුලින් Asthalin, මිනිත්තු 5 කට පසු Seroflo.</strong></li><li><strong>අලුත් ඉන්හේලරයක් හෝ දිගු කාලයක් භාවිතා නොකළ එකක්: මුලින් වාතයට එක් වරක් හෝ දෙවරක් ඉසින්න</strong> (පත්‍රිකාවේ සඳහන් පරිදි).</li><li><strong>හෙදියට: සෑම පැමිණීමකදීම රෝගියාට භාවිතා කරන ආකාරය පෙන්වන ලෙස ඉල්ලන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>ஸ்பேசருடன் இன்ஹேலரைப் பயன்படுத்தும் முறை (எல்லோரும்)</h4><ol><li><strong>மூடியை அகற்றுங்கள்.</strong> இன்ஹேலரை <strong>குலுக்குங்கள்.</strong></li><li><strong>அதை ஸ்பேசரில் பொருத்துங்கள்.</strong></li><li><strong>நிமிர்ந்து உட்காருங்கள் அல்லது நில்லுங்கள்.</strong> <strong>மூச்சை வெளியே விடுங்கள்.</strong></li><li>வாய்ப்பகுதியைச் சுற்றி <strong>உதடுகளை இறுக்கமாக மூடுங்கள்.</strong></li><li><strong>ஒரே ஒரு பஃப் மட்டும் அழுத்துங்கள்.</strong></li><li><strong>மெதுவாக ஆழமாக உள்ளிழுங்கள்.</strong> <strong>10 விநாடி மூச்சை நிறுத்துங்கள்.</strong> <em>அல்லது ஸ்பேசர் வழியாக மெதுவாக 5 முறை உள்ளிழுத்து வெளிவிடுங்கள்.</em></li><li><strong>இன்னொரு பஃப் தேவையா? 30-60 விநாடி காத்திருங்கள். மீண்டும் குலுக்குங்கள். ஒரு நேரத்தில் ஒரு பஃப் மட்டும்.</strong></li><li><strong>Seroflo மட்டும்: வாயைக் கொப்பளித்துத் துப்புங்கள்.</strong></li></ol>
+<ul><li><strong>இரண்டையும் பயன்படுத்தினால்: முதலில் Asthalin, 5 நிமிடம் கழித்து Seroflo.</strong></li><li><strong>புதிய இன்ஹேலர் அல்லது நீண்ட நாள் பயன்படுத்தாதது: முதலில் காற்றில் ஒன்றிரண்டு முறை தெளியுங்கள்</strong> (துண்டுப்பிரசுரத்தில் உள்ளபடி).</li><li><strong>செவிலியருக்கு: ஒவ்வொரு வருகையிலும் அவரைச் செய்து காட்டச் சொல்லுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Using the inhaler with the spacer</h4><ol><li><strong>Remove the cap.</strong> <strong>Shake</strong> the inhaler.</li><li><strong>Fit it into the spacer.</strong></li><li><strong>Sit or stand straight.</strong> <strong>Breathe out.</strong></li><li><strong>Seal your lips</strong> around the mouthpiece.</li><li><strong>Press ONE puff.</strong></li><li><strong>Breathe in slowly and deeply.</strong> <strong>Hold 10 seconds.</strong> <em>Or breathe slowly in and out 5 times through the spacer.</em></li><li><strong>Another puff? Wait 30-60 seconds. Shake again. One puff at a time.</strong></li><li><strong>Seroflo: rinse your mouth and spit.</strong></li></ol>
+<ul><li><strong>Using both: Asthalin first, then Seroflo 5 minutes later.</strong></li><li><strong>New inhaler or unused for a while: spray once or twice into the air first</strong> (as the leaflet says).</li><li><strong>Nurse: ask her to show you every visit.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-05</span> When the inhaler is nearly empty</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-05a.png" alt="When the inhaler is nearly empty" loading="lazy"><img src="images/A-05b.png" alt="When the inhaler is nearly empty" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඉන්හේලරය අවසන් වන විට හඳුනාගැනීම (සියලුදෙනා)</h4><ul><li><strong>අලුත් ඉන්හේලරයක පෆ් 200 ක් පමණ ඇත. පෙට්ටිය බලන්න.</strong> <strong>පරීක්ෂණ ඉසීම්ද (Trials) ගණන් ගැනේ.</strong></li><li><strong>මාත්‍රා ගණකයක් (dose counter) තිබේ නම්: 0 ට ළඟා වන විට මාරු කරන්න.</strong></li><li><strong>ගණකයක් නොමැති නම්:</strong></li></ul>
+<ol><li><strong>ආරම්භ කළ දිනය ටින් එකේ ලියන්න.</strong></li><li><strong>දිනකට පෆ් ගණන x දින ගණන.</strong> <strong>උදාහරණය: දිනකට පෆ් 4 ක්, පෆ් 200 = දින 50.</strong></li><li><strong>අවසන් වන දිනය ටින් එකේ ලියන්න.</strong></li><li><strong>සතියකට පමණ පෙර අලුත් එකක් ඉල්ලන්න.</strong></li></ol>
+<ul><li><strong>වතුරේ පා කර බලන්න එපා.</strong> <strong>එය විශ්වාසදායක නොවේ.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>இன்ஹேலர் கிட்டத்தட்ட காலியாவதை அறிதல் (எல்லோரும்)</h4><ul><li><strong>புதிய இன்ஹேலரில் சுமார் 200 பஃப்கள் உள்ளன. பெட்டியைப் பாருங்கள்.</strong> <strong>சோதனைத் தெளிப்புகளும் எண்ணப்படும்.</strong></li><li><strong>அளவுக் கணக்கி (dose counter) இருந்தால்: 0 ஐ நெருங்கும்போது மாற்றுங்கள்.</strong></li><li><strong>கணக்கி இல்லாவிட்டால்:</strong></li></ul>
+<ol><li><strong>தொடங்கிய தேதியை டப்பாவில் எழுதுங்கள்.</strong></li><li><strong>நாளொன்றுக்குப் பஃப்கள் x நாட்கள்.</strong> <strong>எடுத்துக்காட்டு: நாளொன்றுக்கு 4 பஃப், 200 பஃப் = 50 நாட்கள்.</strong></li><li><strong>முடியும் தேதியை டப்பாவில் எழுதுங்கள்.</strong></li><li><strong>ஒரு வாரத்திற்கு முன்பே புதியது கேளுங்கள்.</strong></li></ol>
+<ul><li><strong>தண்ணீரில் மிதக்கவிட்டுப் பார்க்க வேண்டாம்.</strong> <strong>அது நம்பகமானதல்ல.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>When the inhaler is nearly empty</h4><ul><li><strong>A new inhaler has about 200 puffs. Check the box.</strong> <strong>Test sprays count.</strong></li><li><strong>If it has a dose counter: replace when it nears 0.</strong></li><li><strong>If it has NO counter:</strong></li></ul>
+<ol><li><strong>Write the start date on the canister.</strong></li><li><strong>Puffs a day x days.</strong> <strong>Example: 4 puffs a day, 200 puffs = 50 days.</strong></li><li><strong>Write the finish date on the canister.</strong></li><li><strong>Ask for a new one about 1 week before.</strong></li></ol>
+<ul><li><strong>Do not float it in water.</strong> <strong>It is unreliable.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-06</span> Cleaning and drying</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-06a.png" alt="Cleaning and drying" loading="lazy"><img src="images/A-06b.png" alt="Cleaning and drying" loading="lazy"><img src="images/A-06c.png" alt="Cleaning and drying" loading="lazy"></div>
+    <div class="lang lang-si"><h4>පිරිසිදු කිරීම සහ වියළීම (සියලුදෙනා)</h4><p><strong>ස්පේසරය (සතියකට වරක්):</strong></p>
+<ol><li><strong>ස්පේසරය ගලවන්න.</strong></li><li><strong>උණු වතුරේ ඩිෂ් වොෂ් දියර බින්දු කිහිපයක් දමා මිනිත්තු 15 ක් පොඟවන්න.</strong></li><li><strong>ඇතුළත අතුල්ලන්න එපා. තුවායකින් වියළීම සිදු නොකරන්න</strong> (ස්ථිතික විද්‍යුත් නිසා).</li><li><strong>රාක්කයක් මත වාතයෙන් වියළන්න.</strong> <strong>වියළුණු පසු නැවත සවි කරන්න.</strong></li></ol>
+<p><strong>ඉන්හේලර් කවචය (සතියකට වරක්):</strong></p>
+<ol><li><strong>ලෝහ ටින් එක ඉවතට ගන්න.</strong></li><li><strong>ප්ලාස්ටික් කවචය ගලා යන වතුරෙන් සෝදන්න.</strong> <strong>ටින් එක කිසිවිටෙක වතුරේ නොදමන්න.</strong></li><li><strong>කවචය වියළා, ටින් එක නැවත සවි කරන්න.</strong></li></ol>
+<ul><li><strong>ස්පේසරය ඉරිතැලී ඇත්නම් මාරු කරන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>சுத்தம் செய்தலும் உலர்த்தலும் (எல்லோரும்)</h4><p><strong>ஸ்பேசர் (வாரம் ஒருமுறை):</strong></p>
+<ol><li><strong>அதைப் பிரித்தெடுங்கள்.</strong></li><li><strong>வெதுவெதுப்பான நீரில் சில துளி பாத்திரம் கழுவும் திரவம் விட்டு 15 நிமிடம் ஊறவையுங்கள்.</strong></li><li><strong>உட்புறத்தைத் தேய்க்க வேண்டாம். துணியால் துடைக்க வேண்டாம்</strong> (நிலை மின்சாரம் காரணமாக).</li><li><strong>ஒரு தட்டில் காற்றில் உலர விடுங்கள்.</strong> <strong>உலர்ந்த பின் மீண்டும் பொருத்துங்கள்.</strong></li></ol>
+<p><strong>இன்ஹேலர் உறை (வாரம் ஒருமுறை):</strong></p>
+<ol><li><strong>உலோக டப்பாவை வெளியே எடுங்கள்.</strong></li><li><strong>பிளாஸ்டிக் உறையை ஓடும் நீரில் கழுவுங்கள்.</strong> <strong>டப்பாவை ஒருபோதும் தண்ணீரில் போடாதீர்கள்.</strong></li><li><strong>உறையை உலர்த்தி, டப்பாவை மீண்டும் வையுங்கள்.</strong></li></ol>
+<ul><li><strong>ஸ்பேசரில் விரிசல் இருந்தால் மாற்றுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Cleaning and drying</h4><p><strong>Spacer (once a week):</strong></p>
+<ol><li><strong>Take it apart.</strong></li><li><strong>Soak in warm water with a few drops of dish-washing liquid</strong>, 15 minutes.</li><li><strong>Do not rub inside. Do not towel dry</strong> (static).</li><li><strong>Air-dry on a rack.</strong> <strong>Put back together when dry.</strong></li></ol>
+<p><strong>Inhaler case (once a week):</strong></p>
+<ol><li><strong>Take the metal canister out.</strong></li><li><strong>Rinse the plastic case under running water.</strong> <strong>Never put the canister in water.</strong></li><li><strong>Dry the case, put the canister back.</strong></li></ol>
+<ul><li><strong>Replace the spacer if cracked.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-07</span> Your asthma traffic-light plan</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-07.png" alt="Your asthma traffic-light plan" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ ඇදුම රථ සංඥා සැලැස්ම (Traffic light plan) (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>කලාපය</th><th>ඔබට දැනෙන ආකාරය</th><th>කළ යුත්තේ</th></tr>
+<tr><td><strong>කොළ</strong></td><td>කැස්සක් හෝ හුස්ම ගැනීමේදී හඬක් පිටවීම නැත</td><td><strong>සෑම දිනකම Seroflo</strong></td></tr>
+<tr><td><strong>කහ</strong></td><td>කැස්ස, හුස්ම ගැනීමේදී හඬක් පිටවීම, පපුවේ තදබව, <strong>රාත්‍රියේ ඇහැරීම, සුපුරුදු ප්‍රමාණයට වඩා Asthalin අවශ්‍ය වීම</strong></td><td><strong>ස්පේසරයෙන් Asthalin භාවිතා කරන්න. එදිනම සායනයට එන්න.</strong></td></tr>
+<tr><td><strong>රතු</strong></td><td><strong>හුස්ම ගැනීමේ අපහසුතාවය නිසා වාක්‍යයක් සම්පූර්ණ කළ නොහැක,</strong> තොල් නිල් වීම, <strong>Asthalin වලින් සහනයක් නැත,</strong> නිදිමත (drowsy)</td><td><strong>රෝහලට යන අතරතුර Asthalin පෆ් එකින් එක භාවිතා කරන්න.</strong> <strong>වහාම රෝහලට එන්න. 1990 අමතන්න.</strong></td></tr>
+</table>
+<ul><li><strong>රතු කලාපයේදී ඔබ තනිවම වාහනය පදවන්න එපා.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் ஆஸ்துமா போக்குவரத்து விளக்குத் திட்டம் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>மண்டலம்</th><th>நீங்கள் உணர்வது</th><th>செய்ய வேண்டியது</th></tr>
+<tr><td><strong>பச்சை</strong></td><td>இருமல் அல்லது மூச்சிரைப்பு இல்லை</td><td><strong>தினமும் Seroflo</strong></td></tr>
+<tr><td><strong>மஞ்சள்</strong></td><td>இருமல், மூச்சிரைப்பு, நெஞ்சு இறுக்கம், <strong>இரவில் விழிப்பு, வழக்கத்தை விட அதிகமாக Asthalin தேவைப்படுதல்</strong></td><td><strong>ஸ்பேசர் வழியாக Asthalin.</strong> <strong>அதே நாளில் கிளினிக்கிற்கு வாருங்கள்.</strong></td></tr>
+<tr><td><strong>சிவப்பு</strong></td><td><strong>வாக்கியத்தை முடிக்க முடியாது</strong>, உதடுகள் நீலமாதல், <strong>Asthalin ஆல் நிவாரணம் இல்லை</strong>, தூக்கக் கலக்கம்</td><td><strong>மருத்துவமனைக்குச் செல்லும்போது Asthalin பஃப்களை ஒவ்வொன்றாக.</strong> <strong>உடனே வாருங்கள்.</strong> <strong>1990 ஐ அழையுங்கள்.</strong></td></tr>
+</table>
+<ul><li><strong>சிவப்பு மண்டலத்தில் நீங்களே வாகனம் ஓட்ட வேண்டாம்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Your asthma traffic-light plan</h4><table class="blk-table">
+<tr><th><strong>Zone</strong></th><th><strong>How you feel</strong></th><th><strong>What to do</strong></th></tr>
+<tr><td><strong>GREEN</strong></td><td>No cough or wheeze</td><td><strong>Seroflo every day</strong></td></tr>
+<tr><td><strong>AMBER</strong></td><td>Cough, wheeze, tight chest, <strong>waking at night, needing Asthalin more than usual</strong></td><td><strong>Asthalin via spacer.</strong> <strong>Come to the clinic that day.</strong></td></tr>
+<tr><td><strong>RED</strong></td><td><strong>Cannot finish a sentence</strong>, blue lips, <strong>no relief from Asthalin</strong>, drowsy</td><td><strong>Asthalin puffs one at a time while going to hospital NOW.</strong> <strong>Call 1990.</strong></td></tr>
+</table>
+<ul><li><strong>Never drive yourself in the red zone.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-08</span> Avoiding triggers</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-08a.jpg" alt="Avoiding triggers" loading="lazy"><img src="images/A-08b.png" alt="Avoiding triggers" loading="lazy"></div>
+    <div class="lang lang-si"><h4>හදිසි උත්සන්න වීම් ඇතිවන උත්තේජක (Triggers) මඟහරවා ගැනීම (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>උත්තේජකය (Trigger)</th><th>කළ යුත්තේ</th></tr>
+<tr><td><strong>දූවිලි, දූවිලි මයිටාවන්</strong></td><td><strong>තෙත රෙදිවලින් පිස දමන්න,</strong> වියළිව අතුගාන්න එපා. මොප් කරන්න. <strong>ඇඳ ඇතිරිලි සතිපතා සෝදා, අව්වේ වියළන්න.</strong></td></tr>
+<tr><td><strong>දුම</strong></td><td><strong>ගෙදර දුම්පානය වළක්වන්න.</strong> <strong>දර දුම, සුවඳ දුම්, මදුරු දුම්, කසල පුළුස්සීම</strong> වළක්වන්න.</td></tr>
+<tr><td><strong>තෙතමනය සහ දිලීර</strong></td><td>වතුර කාන්දු අලුත්වැඩියා කරන්න. කාමරයට වාතය ලබා දෙන්න.</td></tr>
+<tr><td><strong>සුරතල් සතුන් සහ කුරුල්ලන්</strong></td><td>නිදන කාමරයෙන් පිටත තබන්න.</td></tr>
+<tr><td><strong>තද ගඳ සුවඳ</strong></td><td><strong>සුවඳ විලවුන්, තීන්ත, භූමිතෙල්, බ්ලීච්, ස්ප්‍රේ</strong> වළක්වන්න.</td></tr>
+<tr><td><strong>සීතල වාතය</strong></td><td>නාසය සහ මුඛය වසා ගන්න.</td></tr>
+<tr><td><strong>සෙම්ප්‍රතිශ්‍යාව සහ ෆ්ලූ</strong></td><td><strong>නිතර අත් සෝදන්න. සෙම්ප්‍රතිශ්‍යාවට මුලදීම ප්‍රතිකාර කරන්න.</strong></td></tr>
+<tr><td><strong>වේදනා නාශක</strong></td><td><strong>ඇස්ප්‍රීන් සහ ඩයික්ලොෆෙනැක් ඇදුම උත්තේජනය කළ හැක.</strong> <strong>පැරසිටමෝල් භාවිතා කරන්න.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>உங்கள் தூண்டுதல்களைத் தவிர்த்தல் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>தூண்டுதல்</th><th>செய்ய வேண்டியது</th></tr>
+<tr><td><strong>தூசி, தூசிப் பூச்சிகள்</strong></td><td><strong>ஈரத் துணியால் துடையுங்கள்,</strong> உலர்ந்து கூட்டாதீர்கள். <strong>படுக்கை விரிப்புகளை வாரந்தோறும் துவைத்து வெயிலில் உலர்த்துங்கள்.</strong></td></tr>
+<tr><td><strong>புகை</strong></td><td><strong>வீட்டில் புகைபிடிக்கக் கூடாது.</strong> <strong>விறகு அடுப்புப் புகை, ஊதுபத்தி, கொசுவர்த்திச் சுருள், குப்பை எரித்தல்</strong> ஆகியவற்றைத் தவிர்க்கவும்.</td></tr>
+<tr><td><strong>ஈரப்பதம், பூஞ்சை</strong></td><td>கசிவுகளைச் சரிசெய்யுங்கள். அறையில் காற்றோட்டம் வையுங்கள்.</td></tr>
+<tr><td><strong>செல்லப் பிராணிகள், பறவைகள்</strong></td><td>படுக்கையறைக்கு வெளியே வையுங்கள்.</td></tr>
+<tr><td><strong>கடும் நெடி</strong></td><td><strong>வாசனைத் திரவியம், பெயிண்ட், மண்ணெண்ணெய், ப்ளீச், ஸ்பிரே</strong> ஆகியவற்றைத் தவிர்க்கவும்.</td></tr>
+<tr><td><strong>குளிர்காற்று</strong></td><td>மூக்கையும் வாயையும் மூடிக்கொள்ளுங்கள்.</td></tr>
+<tr><td><strong>சளி, காய்ச்சல்</strong></td><td><strong>கைகளைக் கழுவுங்கள். சளிக்கு முன்கூட்டியே சிகிச்சை எடுங்கள்.</strong></td></tr>
+<tr><td><strong>வலி நிவாரணிகள்</strong></td><td><strong>ஆஸ்பிரின், டைக்ளோஃபெனாக் ஆஸ்துமாவைத் தூண்டலாம்.</strong> <strong>பாரசிட்டமால் பயன்படுத்துங்கள்.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Avoiding triggers</h4><table class="blk-table">
+<tr><th><strong>Trigger</strong></th><th><strong>What to do</strong></th></tr>
+<tr><td><strong>Dust, dust mites</strong></td><td><strong>Damp-wipe</strong>, do not sweep dry. <strong>Wash bedding weekly, dry in the sun.</strong></td></tr>
+<tr><td><strong>Smoke</strong></td><td><strong>No smoking at home.</strong> Avoid <strong>firewood smoke, incense, mosquito coils, burning rubbish.</strong></td></tr>
+<tr><td><strong>Damp and mould</strong></td><td>Fix leaks. Air the room.</td></tr>
+<tr><td><strong>Pets and birds</strong></td><td>Keep out of the bedroom.</td></tr>
+<tr><td><strong>Strong smells</strong></td><td>Avoid <strong>perfume, paint, kerosene, bleach, sprays.</strong></td></tr>
+<tr><td><strong>Cold air</strong></td><td>Cover your nose and mouth.</td></tr>
+<tr><td><strong>Colds and flu</strong></td><td><strong>Wash hands. Treat colds early.</strong></td></tr>
+<tr><td><strong>Painkillers</strong></td><td><strong>Aspirin and diclofenac can trigger asthma.</strong> <strong>Use paracetamol.</strong></td></tr>
+</table></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-09</span> Why long-term control matters</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-09.png" alt="Why long-term control matters" loading="lazy"></div>
+    <div class="lang lang-si"><h4>දිගුකාලීන පාලනය වැදගත් වන්නේ ඇයි (සියලුදෙනා)</h4><ul><li><strong>Seroflo නිහඬව ක්‍රියා කරයි.</strong> <strong>එය ක්‍රියා කරන බව ඔබට නොදැනේ.</strong></li><li><strong>ඔබට සනීපයක් දැනුණත් හුස්ම නාළ ඉදිමී පවතී.</strong></li><li><strong>ඔබ නැවැත්වුවහොත් හදිසි උත්සන්න වීම් ඇති විය හැක.</strong></li><li><strong>හොඳ පාලනය:</strong> <strong>හදිසි උත්සන්න වීම් අඩුවීම,</strong> හොඳ නින්ද, සහ ගර්භණීභාවයේදී දරුවාට <strong>වැඩි ඔක්සිජන් ප්‍රමාණයක් ලැබීම.</strong></li><li><strong>ස්ටෙරොයිඩ් ඉන්හේලර් භාවිතා කරන්නේ ඉතා කුඩා මාත්‍රාවකි,</strong> එය <strong>ස්ටෙරොයිඩ් ටැබ්ලටවලට වඩා බෙහෙවින් වෙනස්.</strong></li><li><strong>Asthalin වැඩිපුර අවශ්‍ය වීම අනතුරු ඇඟවීමකි.</strong> <strong>වහාම සායනයට එන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>நீண்டகாலக் கட்டுப்பாடு ஏன் முக்கியம் (எல்லோரும்)</h4><ul><li><strong>Seroflo அமைதியாக வேலை செய்கிறது.</strong> <strong>அது வேலை செய்வது உங்களுக்குத் தெரியாது.</strong></li><li><strong>நலமாக உணர்ந்தாலும் சுவாசக் குழாய்கள் வீங்கியே இருக்கும்.</strong></li><li><strong>நிறுத்தினால் தாக்குதல் வரலாம்.</strong></li><li><strong>நல்ல கட்டுப்பாடு: குறைவான தாக்குதல்கள், நல்ல தூக்கம், கர்ப்பத்தில் குழந்தைக்கு அதிக ஆக்சிஜன்.</strong></li><li><strong>ஸ்டீராய்டு இன்ஹேலர்கள் மிகச் சிறிய அளவே,</strong> அவை <strong>ஸ்டீராய்டு மாத்திரைகளிலிருந்து மிகவும் வேறுபட்டவை.</strong></li><li><strong>Asthalin அதிகம் தேவைப்படுவது எச்சரிக்கை.</strong> <strong>கிளினிக்கிற்கு வாருங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Why long-term control matters</h4><ul><li><strong>Seroflo works quietly.</strong> <strong>You do not feel it work.</strong></li><li><strong>Airways stay swollen even when you feel fine.</strong></li><li><strong>If you stop, an attack can come.</strong></li><li><strong>Good control: fewer attacks, better sleep, and in pregnancy, more oxygen for your baby.</strong></li><li><strong>Steroid inhalers use a tiny dose</strong> and are <strong>very different from steroid tablets.</strong></li><li><strong>Needing Asthalin more often is a warning.</strong> <strong>Come to the clinic.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-10</span> Labour, surgery and breastfeeding</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-10.png" alt="Labour, surgery and breastfeeding" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ප්‍රසූතිය, ශල්‍යකර්ම සහ මව්කිරි දීම (ගර්භනී, ගර්භනී නොවන)</h4><ul><li><strong>ඔබේ ඉන්හේලර් සහ ස්පේසරය රෝහලට රැගෙන එන්න.</strong></li><li><strong>වෛද්‍යවරයාට සහ නිර්වින්දන වෛද්‍යවරයාට ඔබට ඇදුම ඇති බව පවසන්න.</strong> <strong>ප්‍රසූතියේදී සහ ශල්‍යකර්මවලදී භාවිතා කරන සමහර බෙහෙත් ඇදුම උත්තේජනය කළ හැක.</strong></li><li><strong>ශල්‍යකර්මයට පෙර සහ පසුවද ඔබේ ඉන්හේලර් භාවිතා කරන්න.</strong></li><li><strong>සියලුම ඇදුම ඉන්හේලර් මව්කිරි දීමේදී ආරක්ෂිතයි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பிரசவம், அறுவைச் சிகிச்சை, தாய்ப்பாலூட்டல் (கர்ப்பிணி, கர்ப்பமில்லாதவர்)</h4><ul><li><strong>உங்கள் இன்ஹேலர்களையும் ஸ்பேசரையும் மருத்துவமனைக்குக் கொண்டுவாருங்கள்.</strong></li><li><strong>மருத்துவரிடமும் மயக்க மருத்துவரிடமும் உங்களுக்கு ஆஸ்துமா இருப்பதைச் சொல்லுங்கள்.</strong> <strong>பிரசவத்திலும் அறுவைச் சிகிச்சைகளிலும் பயன்படுத்தும் சில மருந்துகள் ஆஸ்துமாவைத் தூண்டலாம்.</strong></li><li><strong>அறுவைச் சிகிச்சைக்கு முன்னும் பின்னும் உங்கள் இன்ஹேலர்களைத் தொடர்ந்து பயன்படுத்துங்கள்.</strong></li><li><strong>எல்லா ஆஸ்துமா இன்ஹேலர்களும் தாய்ப்பாலூட்டும்போது பாதுகாப்பானவை.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Labour, surgery and breastfeeding</h4><ul><li><strong>Bring your inhalers and spacer</strong> to the hospital.</li><li><strong>Tell the doctor and anaesthetist you have asthma.</strong> <strong>Some medicines used at delivery and in surgery can trigger asthma.</strong></li><li><strong>Keep using your inhalers</strong> before and after an operation.</li><li><strong>All asthma inhalers are safe while breastfeeding.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">A-11</span> Myths and facts</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/A-11.png" alt="Myths and facts" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඇදුම රෝගය ගැන සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>මිථ්‍යාව</th><th>සත්‍යය</th></tr>
+<tr><td>"ස්ටෙරොයිඩ් ඉන්හේලර් මගේ දරුවාට හානි කරයි."</td><td><strong>පාලනය නොකළ ඇදුම අනතුරුදායකය.</strong> <strong>මාත්‍රාව ඉතා කුඩායි.</strong></td></tr>
+<tr><td>"ඉන්හේලර් ඇබ්බැහි කරයි."</td><td><strong>නැත.</strong></td></tr>
+<tr><td>"සනීප වූ විට නවත්වන්න පුළුවන්."</td><td><strong>ඇදුමට දිනපතා පාලනයක් අවශ්‍යයි.</strong></td></tr>
+<tr><td>"රිලීවර් එක වැඩිපුර භාවිතා කිරීම කමක් නැහැ."</td><td><strong>එය අනතුරු ඇඟවීමකි.</strong> <strong>වහාම සායනයට එන්න.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கட்டுக்கதை</th><th>உண்மை</th></tr>
+<tr><td>"ஸ்டீராய்டு இன்ஹேலர்கள் என் குழந்தைக்குத் தீங்கு செய்யும்."</td><td><strong>கட்டுப்படுத்தப்படாத ஆஸ்துமாவே</strong> ஆபத்து. <strong>அளவு மிகச் சிறியது.</strong></td></tr>
+<tr><td>"இன்ஹேலர்கள் பழக்கமாகிவிடும்."</td><td><strong>இல்லை.</strong></td></tr>
+<tr><td>"நலமானதும் நிறுத்திவிடலாம்."</td><td><strong>ஆஸ்துமாவுக்குத் தினசரிக் கட்டுப்பாடு தேவை.</strong></td></tr>
+<tr><td>"நிவாரணியை அதிகம் பயன்படுத்துவது பரவாயில்லை."</td><td><strong>அது ஒரு எச்சரிக்கை.</strong> <strong>கிளினிக்கிற்கு வாருங்கள்.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Myths and facts</h4><table class="blk-table">
+<tr><th><strong>Myth</strong></th><th><strong>Fact</strong></th></tr>
+<tr><td>"Steroid inhalers will harm my baby."</td><td><strong>Uncontrolled asthma</strong> is the danger. <strong>The dose is tiny.</strong></td></tr>
+<tr><td>"Inhalers are addictive."</td><td><strong>No.</strong></td></tr>
+<tr><td>"I can stop when I feel well."</td><td><strong>Asthma needs daily control.</strong></td></tr>
+<tr><td>"Using the reliever a lot is fine."</td><td><strong>It is a warning.</strong> <strong>Come to the clinic.</strong></td></tr>
+</table></div>
+  </div>
+</details>
+</section>
+
+<section id="chap-O" class="chapter">
+  <h2>Chapter 5: Obesity and Healthy Weight</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">O-01</span> What is obesity?</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-01.png" alt="What is obesity?" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ස්ථුලතාවය යනු කුමක්ද? (සියලුදෙනා)</h4><ul><li><strong>ඔබේ සෞඛ්‍යයට සරිලන ප්‍රමාණයට වඩා වැඩි ශරීර මේදයක් තැන්පත්වී තිබීමයි.</strong></li><li><strong>BMI සහ ඉඟටියේ වට ප්‍රමාණයෙන් ස්ථුලතාවය මනිනු ලැබේ.</strong></li><li><strong>දකුණු ආසියානු කාන්තාවන්ට අඩු BMI අගයකදී සෞඛ්‍ය ගැටලු ඇති වන බැවින් අපි ආසියානු සීමාවන් භාවිතා කරමු.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உடல் பருமன் என்றால் என்ன? (எல்லோரும்)</h4><ul><li><strong>உங்கள் ஆரோக்கியத்திற்குத் தேவைக்கு அதிகமான உடல் கொழுப்பு இருப்பது.</strong></li><li><strong>BMI மற்றும் இடுப்பளவால் அளக்கப்படும்.</strong></li><li><strong>தென்னாசியப் பெண்களுக்குக் குறைவான BMI இலேயே உடல்நலப் பிரச்சினைகள் தொடங்குவதால் நாங்கள் ஆசிய எல்லைகளைப் பயன்படுத்துகிறோம்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>What is obesity?</h4><ul><li><strong>Too much body fat for your health.</strong></li><li><strong>Measured with BMI and waist size.</strong></li><li><strong>South Asian women get health problems at a lower BMI, so we use Asian cut-offs.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-02</span> Your BMI</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-02a.png" alt="Your BMI" loading="lazy"><img src="images/O-02b.png" alt="Your BMI" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ඔබේ BMI අගය (සියලුදෙනා)</h4><p><strong>BMI = බර (kg) / උස (m) / උස (m).</strong> <em>උදාහරණය: 68 kg, 1.55 m: 68 / 1.55 / 1.55 = 28.3.</em></p>
+<table class="blk-table">
+<tr><th><strong>BMI</strong></th><th><strong>කාණ්ඩය (ආසියානු සීමාවන්) [CHECK]</strong></th></tr>
+<tr><td>18.5 ට අඩු</td><td>අඩු බර</td></tr>
+<tr><td>18.5 සිට 22.9 දක්වා</td><td>නිරෝගී</td></tr>
+<tr><td>23 සිට 24.9 දක්වා</td><td>අධි බර</td></tr>
+<tr><td><strong>25 හෝ ඊට වැඩි</strong></td><td><strong>ස්ථුලතාවය</strong></td></tr>
+</table>
+<ul><li><strong>කාන්තාවන්ගේ ඉඟටිය සෙන්ටිමීටර 80 හෝ ඊට වැඩි නම් අවදානම වැඩිය.</strong> <em>(ගර්භණීභාවයේදී නොමැනේ.)</em></li><li><strong>ගර්භණීභාවයේදී BMI ගණනය කරන්නේ ඔබේ පළමු පැමිණීමේ බරෙනි.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>உங்கள் BMI (எல்லோரும்)</h4><p><strong>BMI = எடை (kg) / உயரம் (m) / உயரம் (m).</strong> <em>எடுத்துக்காட்டு: 68 kg, 1.55 m: 68 / 1.55 / 1.55 = 28.3.</em></p>
+<table class="blk-table">
+<tr><th><strong>BMI</strong></th><th><strong>வகை (ஆசிய எல்லைகள்) [CHECK]</strong></th></tr>
+<tr><td>18.5 க்குக் குறைவு</td><td>எடை குறைவு</td></tr>
+<tr><td>18.5 முதல் 22.9 வரை</td><td>ஆரோக்கியம்</td></tr>
+<tr><td>23 முதல் 24.9 வரை</td><td>அதிக எடை</td></tr>
+<tr><td><strong>25 அல்லது அதற்கு மேல்</strong></td><td><strong>உடல் பருமன்</strong></td></tr>
+</table>
+<ul><li><strong>பெண்களுக்கு இடுப்பளவு 80 செ.மீ. அல்லது அதற்கு மேல் இருந்தால் ஆபத்து அதிகம்.</strong> <em>(கர்ப்பத்தில் அளக்கப்படுவதில்லை.)</em></li><li><strong>கர்ப்பத்தில், BMI உங்கள் முதல் வருகையின் எடையிலிருந்து கணக்கிடப்படுகிறது.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Your BMI</h4><p><strong>BMI = weight (kg) / height (m) / height (m).</strong> <em>Example: 68 kg, 1.55 m: 68 / 1.55 / 1.55 = 28.3.</em></p>
+<table class="blk-table">
+<tr><th><strong>BMI</strong></th><th><strong>Group (Asian cut-offs) </strong>CHECK</th></tr>
+<tr><td>Under 18.5</td><td>Underweight</td></tr>
+<tr><td>18.5 to 22.9</td><td>Healthy</td></tr>
+<tr><td>23 to 24.9</td><td>Overweight</td></tr>
+<tr><td><strong>25 or more</strong></td><td><strong>Obese</strong></td></tr>
+</table>
+<ul><li><strong>Waist 80 cm or more in women = higher risk.</strong> <em>(Not measured in pregnancy.)</em></li><li><strong>In pregnancy, BMI is worked out from your first-visit weight.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-03</span> Why weight matters</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-03.jpg" alt="Why weight matters" loading="lazy"></div>
+    <div class="lang lang-si"><h4>බර වැදගත් වන්නේ ඇයි (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>ගර්භනී</th><th>ගර්භනී නොවන</th></tr>
+<tr><td><strong>ගර්භනී දියවැඩියාව</strong></td><td><strong>දියවැඩියාව සහ අධි රුධිර පීඩනය</strong></td></tr>
+<tr><td><strong>අධි රුධිර පීඩනය සහ ප්‍රී-එක්ලැම්ප්සියා</strong></td><td><strong>අක්‍රමවත් ඔසප් වීම, PMOS, ගැබ් ගැනීමේ අපහසුව</strong></td></tr>
+<tr><td><strong>රුධිර කැටි ගැසීම</strong></td><td><strong>ගර්භාෂ අභ්‍යන්තර පටල පිළිකා</strong></td></tr>
+<tr><td><strong>සිසේරියන්, තුවාල ආසාදන</strong></td><td><strong>අවදානම් සහිත ශල්‍යකර්ම සහ නිර්වින්දනය</strong></td></tr>
+<tr><td><strong>විශාල දරුවා, උපත් තුවාල</strong></td><td><strong>මුත්‍රා කාන්දු වීම, සන්ධි වේදනා</strong></td></tr>
+<tr><td><strong>දරුවාට පසුව තරබාරුකම වැළඳීමේ අවදානම</strong></td><td></td></tr>
+</table>
+<ul><li><strong>සුළු බර අඩු කිරීමක් පවා උපකාරී වේ.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>எடை ஏன் முக்கியம் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கர்ப்பிணி</th><th>கர்ப்பமில்லாதவர்</th></tr>
+<tr><td><strong>கர்ப்பகால நீரிழிவு</strong></td><td><strong>நீரிழிவு மற்றும் உயர் இரத்த அழுத்தம்</strong></td></tr>
+<tr><td><strong>உயர் இரத்த அழுத்தம், ப்ரீ-எக்லாம்ப்சியா</strong></td><td><strong>ஒழுங்கற்ற மாதவிடாய், PMOS, கருத்தரிக்கச் சிரமம்</strong></td></tr>
+<tr><td><strong>இரத்தம் உறைதல்</strong></td><td><strong>கருப்பை உட்சவ்வுப் புற்றுநோய்</strong></td></tr>
+<tr><td><strong>சிசேரியன், காயத் தொற்று</strong></td><td><strong>ஆபத்தான அறுவைச் சிகிச்சைகள், மயக்க மருந்து</strong></td></tr>
+<tr><td><strong>பெரிய குழந்தை, பிறப்புக் காயங்கள்</strong></td><td><strong>சிறுநீர்க் கசிவு, மூட்டு வலி</strong></td></tr>
+<tr><td><strong>குழந்தைக்குப் பின்னர் உடல் பருமன் வரும் வாய்ப்பு</strong></td><td></td></tr>
+</table>
+<ul><li><strong>சிறிதளவு எடை குறைப்பும் உதவும்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Why weight matters</h4><table class="blk-table">
+<tr><th><strong>Pregnant</strong></th><th><strong>Not pregnant</strong></th></tr>
+<tr><td><strong>Gestational diabetes</strong></td><td><strong>Diabetes and high BP</strong></td></tr>
+<tr><td><strong>High BP and pre-eclampsia</strong></td><td><strong>Irregular periods, PMOS, trouble conceiving</strong></td></tr>
+<tr><td><strong>Blood clots</strong></td><td><strong>Cancer of the womb lining</strong></td></tr>
+<tr><td><strong>Caesarean, wound infection</strong></td><td><strong>Riskier operations and anaesthesia</strong></td></tr>
+<tr><td><strong>Big baby, birth injuries</strong></td><td><strong>Urine leaks, joint pain</strong></td></tr>
+<tr><td><strong>Baby more likely to be obese later</strong></td><td></td></tr>
+</table>
+<ul><li><strong>Even a small weight loss helps.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-04</span> Weight in pregnancy</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-04.jpg" alt="Weight in pregnancy" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ගර්භණීභාවයේදී බර (ගර්භනී)</h4><ul><li><strong>සෑම පැමිණීමකදීම ඔබේ බර මනිනු ලැබේ.</strong></li><li><strong>ඔබ කොපමණ බර වැඩි කරගත යුතුදැයි ඔබේ වෛද්‍යවරයා කියයි.</strong> මෙහි ලියන්න: ____ [CHECK]</li><li><strong>ගර්භණීභාවයේදී ආහාර පාලනය හෝ "බර අඩු කිරීම" නොකරන්න.</strong> <strong>බර වැඩිවීම මන්දගාමී කිරීම අරමුණු කරන්න, බර අඩු කිරීම නොවේ.</strong></li><li><strong>වේගවත් බර වැඩිවීම හෝ හදිසි ඉදිමීම වහාම වෛද්‍යවරයාට දන්වන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>கர்ப்பத்தில் எடை (கர்ப்பிணி)</h4><ul><li><strong>ஒவ்வொரு வருகையிலும் உங்கள் எடை பார்க்கப்படும்.</strong></li><li><strong>நீங்கள் எவ்வளவு எடை கூட வேண்டும் என்பதை உங்கள் மருத்துவர் கூறுவார்.</strong> இங்கே எழுதுங்கள்: ____ [CHECK]</li><li><strong>கர்ப்பத்தில் டயட் இருக்கவோ "எடை குறைக்கவோ" வேண்டாம்.</strong> <strong>எடை கூடுவதை மெதுவாக்குவதே நோக்கம், எடை குறைப்பு அல்ல.</strong></li><li><strong>வேகமான எடை கூடுதல் அல்லது திடீர் வீக்கத்தைத் தெரிவியுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Weight in pregnancy</h4><ul><li><strong>Weight is checked at every visit.</strong></li><li><strong>Your doctor tells you how much weight to gain.</strong> Write it here: ____ <strong>CHECK</strong></li><li><strong>Do not diet or "reduce" in pregnancy.</strong> <strong>Aim to slow the gain, not lose weight.</strong></li><li><strong>Report rapid weight gain or sudden swelling.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-05</span> Healthy eating for weight control</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-05a.png" alt="Healthy eating for weight control" loading="lazy"><img src="images/O-05b.jpg" alt="Healthy eating for weight control" loading="lazy"></div>
+    <div class="lang lang-si"><h4>බර පාලනය සඳහා නිරෝගී ආහාර (සියලුදෙනා)</h4><ul><li><strong>පිඟාන භාවිතා කරන්න</strong> (D-05): <strong>භාගයක් එළවළු, හතරෙන් එකක් බත්, හතරෙන් එකක් ප්‍රෝටීන්.</strong></li><li><strong>බත් කෝප්පයකින් මනින්න.</strong> <strong>දෙවන වතාවක් බෙදා නොගන්න.</strong> <strong>රතු හෝ පාබොයිල් බත් සහ පරිප්පු වර්ග තෝරන්න.</strong></li><li><strong>ආහාර වේල් මඟ නොහරින්න. නිසි වේලාවට ආහාර වේල් 3ක් සහ කුඩා වේල් (Snacks) 2ක් ගන්න.</strong></li><li><strong>අඩුවෙන් භාවිතා කළ යුතු දෑ:</strong> <strong>සීනි දැමූ තේ, බෝතල් කළ බීම, යුෂ, රසකැවිලි, බිස්කට්, කේක්, කැවුම්, කොකිස් සහ බැදපු කෑම.</strong></li><li><strong>තෙල් සහ පොල් අඩුවෙන් භාවිතා කරන්න.</strong> <strong>තම්බන්න, වාෂ්ප කරන්න (steam) හෝ බේක් කරන්න.</strong></li><li><strong>සෙමින් කන්න.</strong> <strong>හොඳින් සෑහුණු විට නවත්වන්න.</strong></li><li><strong>අමතර වේල්:</strong> <strong>තම්බාගත් කව්පි හෝ මුං ඇට, කුඩා පලතුරක් (පේර, පැපොල්).</strong></li><li><strong>වතුර: වීදුරු 6-8 ක්.</strong></li><li><strong>ශරීර සිහින් කරන ටැබ්ලට්, තේ හෝ ඔසු භාවිතා නොකරන්න.</strong> <strong>ගර්භණීභාවයේදී හෝ මව්කිරි දීමේදී කිසිවිටෙක භාවිතා නොකරන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>எடைக் கட்டுப்பாட்டுக்கான ஆரோக்கிய உணவு (எல்லோரும்)</h4><ul><li><strong>தட்டு முறையைப் பயன்படுத்துங்கள்</strong> (D-05): <strong>பாதி காய்கறி, கால் பங்கு சோறு, கால் பங்கு புரதம்.</strong></li><li><strong>சோற்றைக் கோப்பையால் அளந்து எடுங்கள்.</strong> <strong>இரண்டாம் முறை போட்டுக்கொள்ள வேண்டாம்.</strong> <strong>சிவப்பரிசி அல்லது பாபாய்ல்டு அரிசியையும் பருப்பு வகைகளையும் தேர்ந்தெடுங்கள்.</strong></li><li><strong>உணவை விட்டுவிடாதீர்கள். சரியான நேரங்களில் 3 வேளை உணவும் 2 சிறிய சிற்றுண்டியும் எடுங்கள்.</strong></li><li><strong>தவிர்க்கவும்:</strong> <strong>சீனி போட்ட தேநீர், போத்தல் குளிர்பானம், பழச்சாறு, இனிப்புகள், பிஸ்கட், கேக், கவுன், கொகிஸ், பொரித்த உணவுகள்.</strong></li><li><strong>குறைந்த எண்ணெய், தேங்காயில் சமையுங்கள்.</strong> <strong>வேகவைக்கவும், ஆவியில் வேகவைக்கவும் அல்லது பேக் செய்யவும்.</strong></li><li><strong>மெதுவாகச் சாப்பிடுங்கள்.</strong> <strong>வயிறு நிறைந்ததும் நிறுத்துங்கள்.</strong></li><li><strong>சிற்றுண்டி:</strong> <strong>அவித்த காராமணி அல்லது பாசிப்பயறு, சிறிய பழம் (கொய்யா, பப்பாளி).</strong></li><li><strong>தண்ணீர்: 6-8 குவளை.</strong></li><li><strong>உடல் மெலிய மாத்திரைகள், தேநீர், மூலிகைப் பொருட்கள் வேண்டாம்.</strong> <strong>கர்ப்பத்திலும் தாய்ப்பாலூட்டும்போதும் ஒருபோதும் வேண்டாம்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Healthy eating for weight control</h4><ul><li><strong>Use the plate</strong> (D-05): <strong>half vegetables, quarter rice, quarter protein.</strong></li><li><strong>Measure rice with a cup.</strong> <strong>No second helpings.</strong> <strong>Choose red or parboiled rice and pulses.</strong></li><li><strong>Cut out:</strong> <strong>sweet tea, soft drinks, juice, sweets, biscuits, cake, kavum, kokis and deep-fried snacks.</strong></li><li><strong>Cook with less oil and coconut.</strong> <strong>Boil, steam or bake.</strong></li><li><strong>Eat slowly.</strong> <strong>Stop when about full.</strong></li><li><strong>Do not skip meals. Eat 3 meals and 2 small snacks at regular times.</strong> </li><li><strong>Snacks:</strong> <strong>boiled cowpea or green gram, a small fruit (guava, papaw).</strong></li><li><strong>Water: 6-8 glasses.</strong> </li><li><strong>No slimming tablets, teas or herbal products.</strong> <strong>Never while pregnant or breastfeeding.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-06</span> Being active</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-06a.jpg" alt="Being active" loading="lazy"><img src="images/O-06b.jpg" alt="Being active" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ක්‍රියාශීලීව සිටීම (සියලුදෙනා)</h4><ul><li><strong>බොහෝ දිනවල මිනිත්තු 30 ක් අරමුණු කරන්න.</strong> <strong>වේගවත් ඇවිදීම වඩාත් හොඳ වේ.</strong> <strong>මිනිත්තු 10 කින් පටන් ගන්න.</strong></li><li><strong>ව්‍යායාම කරන අතරතුර ඔබට පහසුවෙන් කතා කළ හැකි විය යුතුය.</strong></li><li><strong>පිහිනීම, සරල යෝග, ශ්‍රෝණි පතුල් ව්‍යායාම (pelvic floor exercise)</strong> හොඳ ව්‍යායාම වේ.</li><li><strong>ගර්භනී:</strong> රුධිර වහනය, තරල කාන්දු වීම, කරකැවිල්ල, පපුවේ වේදනාව, ගැබ් හැකිලීම හෝ දරුවාගේ චලන අඩුවීම තිබේ නම් <strong>ව්‍යායාම නවතා වහාම</strong> ඔබේ වෛද්‍යවරයාට දන්වන්න.</li><li><strong>ඔබට දියවැඩියාව, අධි රුධිර පීඩනය හෝ ඇදුම ඇත්නම්</strong> ආරක්ෂිත දේ ගැන <strong>වෛද්‍යවරයාගෙන් අසන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>சுறுசுறுப்பாக இருத்தல் (எல்லோரும்)</h4><ul><li><strong>பெரும்பாலான நாட்களில் 30 நிமிடம் இலக்கு வையுங்கள்.</strong> <strong>வேகமாக நடப்பதே சிறந்தது.</strong> <strong>10 நிமிடத்தில் தொடங்குங்கள்.</strong></li><li><strong>உடற்பயிற்சியின்போது உங்களால் பேச முடிய வேண்டும்.</strong></li><li><strong>மேலும் நல்லவை:</strong> <strong>நீச்சல், மென்மையான யோகா, இடுப்புத்தளத் தசைப் பயிற்சிகள்.</strong></li><li><strong>கர்ப்பிணி: இரத்தப்போக்கு, நீர்க்கசிவு, தலைச்சுற்றல், நெஞ்சு வலி, கருப்பை சுருக்கங்கள் அல்லது குழந்தையின் அசைவு குறைதல் இருந்தால் நிறுத்திவிட்டு உங்கள் மருத்துவரிடம் தெரிவியுங்கள்.</strong></li><li><strong>உங்களுக்கு நீரிழிவு, உயர் இரத்த அழுத்தம் அல்லது ஆஸ்துமா இருந்தால் எது பாதுகாப்பானது என்று கேளுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Being active</h4><ul><li><strong>Aim for 30 minutes on most days.</strong> <strong>Brisk walking is best.</strong> <strong>Start with 10 minutes.</strong></li><li><strong>You should be able to talk while you exercise.</strong></li><li><strong>Also good:</strong> <strong>swimming, gentle yoga, pelvic floor exercises.</strong></li><li><strong>Pregnant: stop and tell your doctor if you have bleeding, leaking fluid, dizziness, chest pain, contractions or the baby moves less.</strong></li><li><strong>Ask what is safe if you also have diabetes, high BP or asthma.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-07</span> After delivery and after surgery</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-07.jpg" alt="After delivery and after surgery" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ප්‍රසූතියෙන් සහ ශල්‍යකර්මයෙන් පසු (ගර්භනී, ගර්භනී නොවන)</h4><ul><li><strong>මව්කිරි දෙන්න.</strong> <strong>එය බර සෙමින් අඩු කිරීමට උපකාරී වේ.</strong></li><li><strong>බර සෙමින් අඩු කරන්න.</strong> <strong>වේගවත් ආහාර පාලනය සුදුසු නොවේ.</strong></li><li><strong>සාමාන්‍ය ප්‍රසූතිය:</strong> <strong>පළමු දින තුළම ඇවිදීම සහ ශ්‍රෝණි ව්‍යායාම කරන්න.</strong></li><li><strong>සිසේරියන් හෝ ගයිනකොලොජි ශල්‍යකර්මයකින් පසු:</strong> <strong>කෙටි දුරක් ඇවිදින්න.</strong> <strong>බර ව්‍යායාම සඳහා ඔබේ වෛද්‍යවරයාගේ අවසරය ලැබෙන තුරු රැඳී සිටින්න.</strong></li><li><strong>ඊළඟ ගර්භණීභාවය නිරෝගී බරකදී සැලසුම් කරන්න.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>பிரசவத்திற்குப் பின்னும் அறுவைச் சிகிச்சைக்குப் பின்னும் (கர்ப்பிணி, கர்ப்பமில்லாதவர்)</h4><ul><li><strong>தாய்ப்பால் கொடுங்கள்.</strong> <strong>அது எடையை மெதுவாகக் குறைக்க உதவும்.</strong></li><li><strong>எடையை மெதுவாகக் குறையுங்கள்.</strong> <strong>வேகமான டயட் வேண்டாம்.</strong></li><li><strong>சாதாரணப் பிரசவம்:</strong> <strong>முதல் சில நாட்களிலேயே நடையையும் இடுப்புத்தளத் தசைப் பயிற்சிகளையும் தொடங்குங்கள்.</strong></li><li><strong>சிசேரியன் அல்லது மகளிர் நோய் அறுவைச் சிகிச்சைக்குப் பின்:</strong> <strong>குறுகிய தூரம் சீக்கிரமே நடங்கள்.</strong> <strong>கடினமான உடற்பயிற்சிக்கு உங்கள் மருத்துவரின் அனுமதி கிடைக்கும் வரை காத்திருங்கள்.</strong></li><li><strong>அடுத்த கர்ப்பத்தை ஆரோக்கிய எடையில் திட்டமிடுங்கள்.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>After delivery and after surgery</h4><ul><li><strong>Breastfeed.</strong> <strong>It helps you lose weight slowly.</strong></li><li><strong>Lose weight slowly.</strong> <strong>No crash diets.</strong></li><li><strong>Normal delivery:</strong> <strong>walk and do pelvic floor exercises in the first days.</strong></li><li><strong>After a Caesarean or gynae surgery:</strong> <strong>walk short distances early.</strong> <strong>Wait for your doctor's OK for heavier exercise.</strong></li><li><strong>Plan the next pregnancy at a healthy weight.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">O-08</span> Myths and facts</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/O-08.png" alt="Myths and facts" loading="lazy"></div>
+    <div class="lang lang-si"><h4>ස්ථුලතාවය සමාජයේ පවතින මිථ්‍යා සහ එහි පිටුපස සත්‍ය (සියලුදෙනා)</h4><table class="blk-table">
+<tr><th>මිථ්‍යාව</th><th>සත්‍යය</th></tr>
+<tr><td>"මම දෙදෙනෙකුට කෑමට ඕනෑ."</td><td><strong>ටිකක් වැඩියෙන් පමණක් ඇති,</strong> දෙගුණයක් නොවේ.</td></tr>
+<tr><td>"මම බත් නොකන්න ඕනෑ."</td><td><strong>මනින ලද ප්‍රමාණයෙන් බත් කෑම කමක් නැත.</strong></td></tr>
+<tr><td>"සිහින් කරන තේ උපකාරී වේ."</td><td><strong>ආරක්ෂිත නැත.</strong></td></tr>
+<tr><td>"ව්‍යායාම දරුවාට හානිකරයි."</td><td><strong>නිතිපතා සැහැල්ලු ව්‍යායාම ආරක්ෂිත සහ ප්‍රයෝජනවත්.</strong></td></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>கட்டுக்கதைகளும் உண்மைகளும் (எல்லோரும்)</h4><table class="blk-table">
+<tr><th>கட்டுக்கதை</th><th>உண்மை</th></tr>
+<tr><td>"நான் இருவருக்குச் சாப்பிட வேண்டும்."</td><td><strong>சற்றுக் கூடுதல்</strong> மட்டும்; இரு மடங்கு அல்ல.</td></tr>
+<tr><td>"நான் சோறே சாப்பிடக் கூடாது."</td><td><strong>அளந்த அளவில் சோறு சாப்பிடலாம்.</strong></td></tr>
+<tr><td>"உடல் மெலியும் தேநீர் உதவும்."</td><td><strong>பாதுகாப்பானதல்ல.</strong></td></tr>
+<tr><td>"உடற்பயிற்சி குழந்தைக்குத் தீங்கு."</td><td><strong>தொடர்ந்த மென்மையான உடற்பயிற்சி பாதுகாப்பானதும் பயனுள்ளதும்.</strong></td></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Myths and facts</h4><table class="blk-table">
+<tr><th><strong>Myth</strong></th><th><strong>Fact</strong></th></tr>
+<tr><td>"I am eating for two."</td><td><strong>A little extra, not double.</strong></td></tr>
+<tr><td>"I must not eat rice."</td><td><strong>Rice in measured portions is fine.</strong></td></tr>
+<tr><td>"Slimming tea will help."</td><td><strong>Not safe.</strong></td></tr>
+<tr><td>"Exercise harms the baby."</td><td><strong>Regular gentle exercise is safe and helpful.</strong></td></tr>
+</table>
+<p><em>These are shown as examples. They are not tear-outs and not given to the woman.</em></p></div>
+  </div>
+</details>
+</section>
+
+<section class="samples" id="samples">
+  <h2>Sample diary pages</h2>
+  
+<details class="blk">
+  <summary><span class="blk-id">S-01</span> Sample: blood sugar page</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/S-01.png" alt="Sample: blood sugar page" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිදර්ශනය: රුධිර සීනි පිටුව</h4><table class="blk-table">
+<tr><th>දිනය</th><th>නිරාහාරව</th><th>උදේ ආහාරයෙන් පැය 2</th><th>දහවල් ආහාරයෙන් පැය 2</th><th>රාත්‍රී ආහාරයෙන් පැය 2</th><th>නිදාගැනීමට පෙර</th><th>ඉන්සියුලින් (ඒකක)</th></tr>
+</table>
+<ul><li>ගර්භනී ඉලක්ක: <strong>නිරාහාරව 95 ට අඩු, පැය 2 කට පසු 120 ට අඩු.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மாதிரி: இரத்தச் சர்க்கரைப் பக்கம்</h4><table class="blk-table">
+<tr><th>தேதி</th><th>வெறும் வயிறு</th><th>காலை உணவுக்குப் பின் 2 மணி</th><th>மதிய உணவுக்குப் பின் 2 மணி</th><th>இரவு உணவுக்குப் பின் 2 மணி</th><th>படுக்கைக்கு முன்</th><th>இன்சுலின் (அலகுகள்)</th></tr>
+</table>
+<ul><li>கர்ப்பிணி இலக்குகள்: <strong>வெறும் வயிறு 95 க்குக் குறைவு, 2 மணி நேரத்திற்குப் பின் 120 க்குக் குறைவு.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Sample: blood sugar page</h4><table class="blk-table">
+<tr><th><strong>Date</strong></th><th><strong>Fasting</strong></th><th><strong>2 h breakfast</strong></th><th><strong>2 h lunch</strong></th><th><strong>2 h dinner</strong></th><th><strong>Bedtime</strong></th><th><strong>Insulin (units)</strong></th></tr>
+</table>
+<ul><li>Pregnant targets: <strong>fasting under 95, 2 h under 120.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">S-02</span> Sample: blood pressure page</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/S-02.png" alt="Sample: blood pressure page" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිදර්ශනය: රුධිර පීඩන පිටුව</h4><table class="blk-table">
+<tr><th>දිනය</th><th>උදේ 1 වන</th><th>උදේ 2 වන</th><th>සවස 1 වන</th><th>සවස 2 වන</th><th>රෝග ලක්ෂණ</th></tr>
+</table>
+<ul><li><strong>140/90 හෝ ඊට වැඩි: සායනයට කතා කරන්න. 160/110 හෝ ඊට වැඩි, හෝ අනතුරු ඇඟවීම්: දැන්ම රෝහලට.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மாதிரி: இரத்த அழுத்தப் பக்கம்</h4><table class="blk-table">
+<tr><th>தேதி</th><th>காலை 1வது</th><th>காலை 2வது</th><th>மாலை 1வது</th><th>மாலை 2வது</th><th>அறிகுறிகள்</th></tr>
+</table>
+<ul><li><strong>140/90 அல்லது அதற்கு மேல்: கிளினிக்கை அழையுங்கள். 160/110 அல்லது அதற்கு மேல், அல்லது ஆபத்து அறிகுறிகள்: உடனே மருத்துவமனைக்கு.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Sample: blood pressure page</h4><table class="blk-table">
+<tr><th><strong>Date</strong></th><th><strong>Morning 1st</strong></th><th><strong>Morning 2nd</strong></th><th><strong>Evening 1st</strong></th><th><strong>Evening 2nd</strong></th><th><strong>Symptoms</strong></th></tr>
+</table>
+<ul><li><strong>140/90 or more: call the clinic. 160/110 or more, or danger signs: hospital now.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">S-03</span> Sample: inhaler and asthma plan</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/S-03.png" alt="Sample: inhaler and asthma plan" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිදර්ශනය: ඉන්හේලරය සහ ඇදුම සැලැස්ම</h4><ul><li><strong>කොළ:</strong> උදේ සහ සවස Seroflo ____ පෆ්.</li><li><strong>කහ:</strong> Asthalin ____ පෆ්; අද සායනයට.</li><li><strong>රතු:</strong> Asthalin එකින් එක පෆ්; <strong>දැන්ම රෝහලට.</strong></li><li><strong>ඉන්හේලරය ආරම්භ කළ දිනය ____ අවසන් වන දිනය ____.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மாதிரி: இன்ஹேலரும் ஆஸ்துமாத் திட்டமும்</h4><ul><li><strong>பச்சை:</strong> காலை, மாலை Seroflo ____ பஃப்.</li><li><strong>மஞ்சள்:</strong> Asthalin ____ பஃப்; இன்றே கிளினிக்கிற்கு.</li><li><strong>சிவப்பு:</strong> Asthalin ஒவ்வொரு பஃப்பாக; <strong>உடனே மருத்துவமனைக்கு.</strong></li><li><strong>இன்ஹேலர் தொடங்கிய தேதி ____ முடியும் தேதி ____.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Sample: inhaler and asthma plan</h4><ul><li><strong>Green:</strong> Seroflo ____ puffs morning and evening.</li><li><strong>Amber:</strong> Asthalin ____ puffs; clinic today.</li><li><strong>Red:</strong> Asthalin one puff at a time; <strong>hospital now.</strong></li><li><strong>Inhaler start date ____ Finish date ____.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">S-04</span> Sample: insulin page</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/S-04.png" alt="Sample: insulin page" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිදර්ශනය: ඉන්සියුලින් පිටුව</h4><table class="blk-table">
+<tr><th></th><th>දිය වන (පැහැදිලි)</th><th>අයිසොෆේන් (බොඳ)</th></tr>
+<tr><td>උදේ</td><td>____</td><td>____</td></tr>
+<tr><td>දහවල්</td><td>____</td><td></td></tr>
+<tr><td>සවස</td><td>____</td><td></td></tr>
+<tr><td>නිදාගැනීමට පෙර</td><td></td><td>____</td></tr>
+</table>
+<ul><li><strong>වයල් එක විවෘත කළ දිනය ____. ඉවත දමන දිනය ____.</strong></li></ul></div>
+    <div class="lang lang-ta"><h4>மாதிரி: இன்சுலின் பக்கம்</h4><table class="blk-table">
+<tr><th></th><th>கரையும் (Soluble, தெளிவான)</th><th>ஐசோஃபேன் (கலங்கலான)</th></tr>
+<tr><td>காலை</td><td>____</td><td>____</td></tr>
+<tr><td>மதியம்</td><td>____</td><td></td></tr>
+<tr><td>மாலை</td><td>____</td><td></td></tr>
+<tr><td>படுக்கைக்கு முன்</td><td></td><td>____</td></tr>
+</table>
+<ul><li><strong>குப்பி திறந்த தேதி ____. தூக்கியெறியும் தேதி ____.</strong></li></ul></div>
+    <div class="lang lang-en"><h4>Sample: insulin page</h4><table class="blk-table">
+<tr><th></th><th><strong>Soluble (clear)</strong></th><th><strong>Isophane (cloudy)</strong></th></tr>
+<tr><td>Morning</td><td>____</td><td>____</td></tr>
+<tr><td>Lunch</td><td>____</td><td></td></tr>
+<tr><td>Evening</td><td>____</td><td></td></tr>
+<tr><td>Bedtime</td><td></td><td>____</td></tr>
+</table>
+<ul><li><strong>Vial opened on ____. Throw away on ____.</strong></li></ul></div>
+  </div>
+</details>
+
+<details class="blk">
+  <summary><span class="blk-id">S-05</span> Sample: thyroid and weight page</summary>
+  <div class="blk-body">
+    <div class="blk-images"><img src="images/S-05.png" alt="Sample: thyroid and weight page" loading="lazy"></div>
+    <div class="lang lang-si"><h4>නිදර්ශනය: තයිරොයිඩ් සහ බර පිටුව</h4><table class="blk-table">
+<tr><th>දිනය</th><th>TSH</th><th>තයිරොක්සින් මාත්‍රාව</th><th>ගර්භණී සති ගණන</th><th>බර (kg)</th></tr>
+</table></div>
+    <div class="lang lang-ta"><h4>மாதிரி: தைராய்டு, எடைப் பக்கம்</h4><table class="blk-table">
+<tr><th>தேதி</th><th>TSH</th><th>தைராக்சின் அளவு</th><th>கர்ப்ப வாரங்கள்</th><th>எடை (kg)</th></tr>
+</table></div>
+    <div class="lang lang-en"><h4>Sample: thyroid and weight page</h4><table class="blk-table">
+<tr><th><strong>Date</strong></th><th><strong>TSH</strong></th><th><strong>Thyroxine dose</strong></th><th><strong>Weeks pregnant</strong></th><th><strong>Weight (kg)</strong></th></tr>
+</table></div>
+  </div>
+</details>
+</section>
+
+</main>
+
+<footer>
+  <div>Copyright © 2026 Dr. Archuthan Nithiyananthan. All rights reserved.</div>
+  <div class="qr-note">Scan the QR code in the printed book to return to this page.</div>
+</footer>
+
+</body>
+</html>
