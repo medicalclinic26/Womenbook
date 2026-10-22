@@ -140,7 +140,7 @@
   .blk-body { padding: 18px 20px 20px; }
   .blk-images { display: flex; flex-wrap: wrap; gap: 14px; padding: 4px 0 18px; justify-content: center; }
   .blk-images img { max-width: 100%; width: 380px; border-radius: 12px; border: 1px solid var(--border); object-fit: contain; background: #fff; }
-  .lang { padding: 16px 0; border-bottom: 1px dashed var(--border); font-size: 1.12rem; }
+  .lang { padding: 16px 0; border-bottom: 1px dashed var(--border); font-size: 1.12rem; overflow-x: auto; }
   .lang:last-child { border-bottom: none; }
   .lang h4 { margin: 0 0 8px; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
   .lang-si { font-family: "Noto Sans Sinhala", sans-serif; }
@@ -149,7 +149,7 @@
   .lang ul, .lang ol { margin: 8px 0; padding-left: 26px; }
   .lang li { margin: 4px 0; }
   table.blk-table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 1.02rem; }
-  table.blk-table th, table.blk-table td { border: 1px solid var(--border); padding: 9px 10px; text-align: left; }
+  table.blk-table th, table.blk-table td { border: 1px solid var(--border); padding: 9px 10px; text-align: left; overflow-wrap: break-word; }
   table.blk-table th { background: color-mix(in srgb, var(--accent) 8%, transparent); }
 
   body[data-lang="si"] .lang:not(.lang-si) { display: none; }
@@ -169,10 +169,18 @@
     .sidebar {
       position: fixed; z-index: 35; left: 0; top: 0; height: 100%; width: 270px;
       transform: translateX(-104%); transition: transform .22s ease; box-shadow: 0 0 30px rgba(0,0,0,.35);
+      padding-top: 66px;
     }
     .sidebar.open { transform: translateX(0); }
     .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 30; }
     main.content > .view { padding: 70px 16px 60px; }
+  }
+  @media (max-width: 600px) {
+    .blk-head { padding: 14px 14px; }
+    .blk-body { padding: 14px 14px 16px; }
+    table.blk-table { font-size: .9rem; }
+    table.blk-table th, table.blk-table td { padding: 6px 7px; }
+    .lang-ta table.blk-table { font-size: .84rem; }
   }
 </style>
 <script>
