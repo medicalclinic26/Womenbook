@@ -123,6 +123,13 @@
   .fm-card h3 { margin: 0 0 10px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
   .fm-card ul { margin: 4px 0; padding-left: 22px; font-size: 1.08rem; }
   .fm-card p { font-size: 1.08rem; }
+  .fm-honour {
+    margin: 4px 0 18px; padding: 18px 20px; border-radius: 12px; text-align: center;
+    background: color-mix(in srgb, var(--accent) 9%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-left: 5px solid var(--accent);
+  }
+  .fm-honour-label { font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .fm-honour-name { font-size: 1.45rem; font-weight: 700; color: color-mix(in srgb, var(--accent) 55%, var(--ink)); margin: 6px 0 4px; }
+  .fm-honour p { margin: 0; }
   .fm-card p.dedication { font-style: italic; font-size: 1.2rem; color: var(--ink); }
 
   .blk {
@@ -330,9 +337,9 @@
       </div>
       <div class="fm-card">
         <h3>Prepared by</h3>
-        <ul><li>Dr. Archuthan Nithiyananthan (RHO)</li></ul>
+        <ul><li>Dr. Archuthan Nithiyananthan (RHO)</li><li>Dr. Achintha Welivita (RHO)</li></ul>
         <h3>Translated and Proofread by</h3>
-        <ul><li>Dr. Yasodara Amarasinghe (RHO)</li><li>Dr. Achintha Welivita (RHO)</li><li>Dr. Kasunika Ruwandi Perera (RHO)</li><li>Dr. Thalpe Guruge Madara Malsirini (RHO)</li></ul>
+        <ul><li>Dr. Yashodhara Amarasinghe (RHO)</li><li>Dr. Kasunika Ruwandi Perera (RHO)</li><li>Dr. Thalpe Guruge Madara Malsirini (RHO)</li></ul>
       </div>
       <div class="fm-card">
         <h3>Dedication</h3>
@@ -340,7 +347,11 @@
       </div>
       <div class="fm-card">
         <h3>Acknowledgements</h3>
-        <p>We extend our heartfelt gratitude to our Consultant Physician, Dr. Shamitha Dassanayaka, whose guidance and support made this project possible.</p>
+        <div class="fm-honour">
+          <div class="fm-honour-label">With heartfelt gratitude to our Consultant Physician</div>
+          <div class="fm-honour-name">Dr. Shamitha Dassanayaka</div>
+          <p>whose guidance and support made this project possible.</p>
+        </div>
         <p>We also thank our clinical team for their steadfast encouragement:</p>
         <ul><li>Dr. Kumudu Kulasekara</li><li>Dr. Jeewashini Rathnayake</li><li>Dr. Jeganthy Eapan</li><li>Dr. Azrah Najimudeen</li><li>Mrs. P. K. K. Manike</li><li>Mrs. N. S. M. P. M. Nanayakkara</li><li>Mrs. Manike</li><li>Ms. Sandamali</li><li>Ms. Lakshika</li></ul>
       </div>
