@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Women's Health Patient Education</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo-180.png">
 <style>
   :root {
     --accent: #1f6fb8;
@@ -47,7 +49,9 @@
     width: 290px; flex-shrink: 0; background: var(--sidebar-bg); color: var(--sidebar-ink);
     position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 22px 16px 30px;
   }
-  .side-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 2px; }
+  .side-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; line-height: 1.2; }
+  .side-logo { width: 38px; height: 38px; padding: 3px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+  .hero-logo { display: block; width: 116px; height: 116px; padding: 12px; margin: 0 auto 14px; border-radius: 50%; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
   .side-sub { font-size: .78rem; color: var(--sidebar-muted); margin-bottom: 18px; }
 
   .side-group { margin-bottom: 18px; }
@@ -278,7 +282,7 @@
 
 <div class="shell">
   <aside class="sidebar" id="sidebar">
-    <div class="side-title">Women's Health</div>
+    <div class="side-title"><img class="side-logo" src="images/logo.png" alt="">Women's Health</div>
     <div class="side-sub">First Edition, 2026</div>
 
     <div class="side-group">
@@ -317,6 +321,7 @@
 
     <section class="view" id="view-about">
       <header class="hero">
+        <img class="hero-logo" src="images/logo.png" alt="Women's Health handbook logo">
         <h1>Women's Health</h1>
         <div class="si">කාන්තාවන්ගේ සෞඛ්‍ය තත්ත්ව පිළිබඳ අත්පොත</div>
         <div class="ta">பெண்கள் நலம் – நோயாளர் கல்விப் புத்தகம்</div>
